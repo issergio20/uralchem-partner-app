@@ -1,0 +1,318 @@
+<!-- ======================= 09. ВХОД ======================= -->
+<div class="cap"><h3>09 · Вход</h3>
+<section class="screen" id="s-login" data-name="09 Вход">
+  {{sb}}
+  <div class="body" style="background:var(--surface);padding:48px 16px 24px;gap:28px">
+    <div class="stack" style="gap:16px;align-items:flex-start">
+      <img src="assets/logo.png" style="height:22px">
+      <div><div style="font:var(--font-display)">Личный кабинет партнёра</div><div class="t2" style="margin-top:6px">Заказы, отгрузки и документы по договорам с «Уралхимом»</div></div>
+    </div>
+    <div class="stack" style="gap:12px">
+      <div class="field"><div class="fl"><small>Email или телефон</small><b>a.petrov@agrosnab-ural.ru</b></div></div>
+      <div class="field" style="border:2px solid var(--blue)"><div class="fl"><small style="color:var(--blue)">Пароль</small><b style="letter-spacing:.2em">••••••••••</b></div><span style="color:var(--t3)">{{i:eye:22}}</span></div>
+      <span class="link" style="align-self:flex-end">Забыли пароль?</span>
+    </div>
+    <div class="stack" style="gap:10px">
+      <div class="btn pri full" data-go="s-home">Войти</div>
+      <div class="btn out full">{{i:msg:20}}Войти по коду из SMS</div>
+    </div>
+    <div style="flex:1"></div>
+    <div class="card" style="background:var(--bg);text-align:center" data-go="s-reg">
+      <div class="ttl15">Компания ещё не подключена?</div>
+      <div class="t3" style="margin-top:2px">Подключение по ИНН — 2 минуты</div>
+      <div class="link" style="margin-top:8px">Подключить компанию</div>
+    </div>
+    <div class="t3" style="text-align:center">Поддержка: 8-800-707-16-69 · бесплатно</div>
+  </div>
+  <div class="dock" style="padding:0;height:34px;border:0"><div class="home-ind"></div></div>
+</section></div>
+
+<!-- ======================= 10. РЕГИСТРАЦИЯ ======================= -->
+<div class="cap"><h3>10 · Подключение по ИНН</h3>
+<section class="screen" id="s-reg" data-name="10 Подключение компании по ИНН">
+  {{sb}}
+  <div class="top"><div class="icon-btn soft" data-go="back">{{i:back:22}}</div><div class="ttl">Подключение компании</div><div class="icon-btn"></div></div>
+  <div style="background:var(--surface);padding:0 16px 16px" class="stack"><div class="between t3"><span>Шаг 1 из 2 · Компания и контакт</span><span>50 %</span></div><div class="prog"><i style="width:50%"></i></div></div>
+  <div class="body" style="padding-top:16px;gap:16px">
+    <div class="field" style="border:2px solid var(--blue)"><div class="fl"><small style="color:var(--blue)">ИНН компании</small><b class="num">6658 012345</b></div><span style="color:var(--ok)">{{i:check:22}}</span></div>
+    <div class="card" style="background:var(--ok-bg)">
+      <div class="row" style="align-items:flex-start"><div class="ico" style="background:#fff;color:var(--ok)">{{i:factory:22}}</div>
+        <div style="flex:1"><div class="ttl15">ООО «АгроСнаб-Урал»</div><div class="t2 num">КПП 665801001 · Екатеринбург</div><div class="t3" style="margin-top:4px">Реквизиты подтянуты из ЕГРЮЛ — проверять вручную не нужно</div></div></div>
+    </div>
+    <div class="stack"><span class="label">Контактное лицо</span>
+      <div class="field"><div class="fl"><small>ФИО</small><b>Петров Алексей Николаевич</b></div></div>
+      <div class="field"><div class="fl"><small>Должность</small><b>Руководитель отдела закупок</b></div></div>
+      <div class="field"><div class="fl"><small>Телефон</small><b class="num">+7 912 345-67-89</b></div></div>
+      <div class="field ph"><div class="fl"><small>Рабочий email</small><b>name@company.ru</b></div></div>
+    </div>
+    <div class="row" style="align-items:flex-start;gap:10px"><span class="cbx on">{{i:check:16}}</span><span class="t3">Соглашаюсь с условиями использования и обработкой персональных данных</span></div>
+  </div>
+  <div class="dock" style="flex-direction:column;gap:8px"><div class="btn pri full">Продолжить</div><div class="t3" style="text-align:center">Менеджер подтвердит доступ в течение рабочего дня</div><div class="home-ind"></div></div>
+</section></div>
+
+<!-- ======================= 11. УВЕДОМЛЕНИЯ ======================= -->
+<div class="cap"><h3>11 · Уведомления</h3>
+<section class="screen" id="s-notif" data-name="11 Уведомления">
+  {{sb}}
+  <div class="top"><div class="icon-btn soft" data-go="back">{{i:back:22}}</div><div class="ttl">Уведомления</div><div class="icon-btn soft">{{i:check:22}}</div></div>
+  <div style="background:var(--surface);padding:0 16px 14px"><div class="chips"><span class="chip on">Все <span class="n">5</span></span><span class="chip">Заявки <span class="n">3</span></span><span class="chip">Финансы <span class="n">1</span></span><span class="chip">Новости</span></div></div>
+  <div class="body" style="padding-top:16px;gap:10px">
+    <span class="label">Сегодня</span>
+    <div class="card tight row nrow unread" data-go="s-order"><div class="ico warn">{{i:clock:22}}</div><div style="flex:1"><div class="ttl15">Подтвердите график по заявке № 1567</div><div class="t3">Срок — до 12 ноября · 09:12</div></div></div>
+    <div class="card tight row nrow unread" data-go="s-order"><div class="ico blue">{{i:train:22}}</div><div style="flex:1"><div class="ttl15 num">Вагон 58213470 — Пермь-Сортировочная</div><div class="t3">Заявка № 1489 · прибытие ≈ 14 нояб. · 07:40</div></div></div>
+    <div class="card tight row nrow unread" data-go="s-fin"><div class="ico info">{{i:doc:22}}</div><div style="flex:1"><div class="ttl15 num">Выставлен счёт № 4412 на 1 845 000 ₽</div><div class="t3">Оплатить до 15 ноября · 06:30</div></div></div>
+    <span class="label" style="margin-top:8px">Вчера</span>
+    <div class="card tight row nrow" data-go="s-orders"><div class="ico ok">{{i:check:22}}</div><div style="flex:1"><div class="ttl15">Заявка № 1602 принята менеджером</div><div class="t3">Лукьянова С. А. · 18:05</div></div></div>
+    <div class="card tight row nrow" data-go="s-news"><div class="ico blue">{{i:leaf:22}}</div><div style="flex:1"><div class="ttl15">«Уралхим» на «Агроволге-2026»</div><div class="t3">Новости · 11:20</div></div></div>
+  </div>
+</section></div>
+
+<!-- ======================= 12. ЗАЯВКИ ======================= -->
+<div class="cap"><h3>12 · Заявки</h3>
+<section class="screen" id="s-orders" data-name="12 Заявки — список">
+  {{sb}}
+  <div class="top"><h1>Заявки</h1><div class="icon-btn soft">{{i:search:22}}</div><div class="icon-btn soft" data-go="s-notif">{{i:bell:22}}<span class="dot-b">3</span></div></div>
+  <div style="background:var(--surface);padding:0 16px 14px" class="stack" >
+    <div class="seg"><div class="on">Активные · 8</div><div>Архив</div></div>
+  </div>
+  <div class="body" style="padding-top:14px;gap:10px">
+    <div class="chips"><span class="chip on">Все</span><span class="chip">Согласование <span class="n">2</span></span><span class="chip">Подтверждены <span class="n">3</span></span><span class="chip">В пути</span></div>
+    <div class="card stack" style="gap:10px;border:1.5px solid var(--warn-f)" data-go="s-order">
+      <div class="between"><span class="ttl15 num">№ 1567 · от 02.11</span><span class="pill info">Подтверждена</span></div>
+      <div class="t2">Азотофосфат 33:3, МКР 1000 · Нитрат кальция</div>
+      <div class="between"><span class="t3 num">96 т · ст. Баженово</span><span class="num ttl15">3 241 600 ₽</span></div>
+      <div class="banner" style="background:var(--warn-bg);color:var(--warn);padding:8px 10px;font-weight:600;font-size:13px">{{i:clock:18}} Подтвердите график до 12 ноября</div>
+    </div>
+    <div class="card stack" style="gap:10px" data-go="s-order">
+      <div class="between"><span class="ttl15 num">№ 1489 · от 24.10</span><span class="pill ok">В пути</span></div>
+      <div class="t2">Карбамид марки Б, навал</div>
+      <div class="mini-lc"><i class="d"></i><i class="d"></i><i class="d"></i><i class="c"></i><i></i></div>
+      <div class="between"><span class="t3 num">136 т · 2 вагона · ≈ 14–15 нояб.</span><span class="num ttl15">4 352 000 ₽</span></div>
+    </div>
+    <div class="card stack" style="gap:10px" data-go="s-order">
+      <div class="between"><span class="ttl15 num">№ 1602 · от 07.11</span><span class="pill neu">Согласование</span></div>
+      <div class="t2">SOLAR Универсал 18:18:18 · Нитрат кальция</div>
+      <div class="between"><span class="t3 num">11 т · ответ до 10 нояб.</span><span class="num ttl15">1 426 560 ₽</span></div>
+    </div>
+    <div class="card stack" style="gap:10px;height:76px;overflow:hidden">
+      <div class="between"><span class="ttl15 num">№ 1571 · от 03.11</span><span class="pill warn">Отгрузка</span></div>
+      <div class="t2">Селитра аммиачная, МКР 1000</div>
+    </div>
+  </div>
+  {{tab:req}}
+</section></div>
+
+<!-- ======================= 13. ПРОФИЛЬ ======================= -->
+<div class="cap"><h3>13 · Профиль</h3>
+<section class="screen" id="s-profile" data-name="13 Профиль">
+  {{sb}}
+  <div class="top"><h1>Профиль</h1><div class="icon-btn soft">{{i:gear:22}}</div></div>
+  <div class="body" style="padding-top:16px;gap:16px">
+    <div class="card row">
+      <div class="ava">АУ</div>
+      <div style="flex:1"><div class="ttl16">ООО «АгроСнаб-Урал»</div><div class="t3 num">ИНН 6658012345 · 2 договора</div></div>
+      <span class="link">Сменить</span>
+    </div>
+    <div class="card stack" style="gap:12px;background:var(--blue);color:#fff">
+      <div class="row"><div class="ava" style="background:#fff;color:var(--blue)">СЛ</div><div style="flex:1"><div style="font-size:13px;color:#C9CAE6">Ваш менеджер</div><div class="ttl16">Лукьянова Светлана</div></div></div>
+      <div class="row" style="gap:8px"><div class="btn m" style="flex:1;background:rgba(255,255,255,.14);color:#fff">{{i:phone:18}}Позвонить</div><div class="btn m white" style="flex:1" data-go="s-chat">{{i:msg:18}}Написать</div></div>
+    </div>
+    <div class="card menu">
+      <div class="lrow" data-go="s-fin"><span class="mi">{{i:wallet:20}}</span><span class="ttl15" style="flex:1">Финансы и счета</span><span class="pill warn">1 к оплате</span><span class="chev">{{i:chev:20}}</span></div>
+      <div class="lrow"><span class="mi">{{i:doc:20}}</span><span class="ttl15" style="flex:1">Договоры и документы</span><span class="chev">{{i:chev:20}}</span></div>
+      <div class="lrow" data-go="s-issue"><span class="mi">{{i:msg:20}}</span><span class="ttl15" style="flex:1">Обращения</span><span class="t3">2</span><span class="chev">{{i:chev:20}}</span></div>
+      <div class="lrow"><span class="mi">{{i:heart:20}}</span><span class="ttl15" style="flex:1">Избранное</span><span class="t3">12</span><span class="chev">{{i:chev:20}}</span></div>
+      <div class="lrow"><span class="mi">{{i:pin:20}}</span><span class="ttl15" style="flex:1">Станции и грузополучатели</span><span class="chev">{{i:chev:20}}</span></div>
+    </div>
+    <div class="card menu">
+      <div class="lrow" data-go="s-news"><span class="mi">{{i:leaf:20}}</span><span class="ttl15" style="flex:1">Новости</span><span class="chev">{{i:chev:20}}</span></div>
+      <div class="lrow"><span class="mi">{{i:award:20}}</span><span class="ttl15" style="flex:1">Обучение и сертификаты</span><span class="t3">11 из 12</span><span class="chev">{{i:chev:20}}</span></div>
+      <div class="lrow"><span class="mi">{{i:info:20}}</span><span class="ttl15" style="flex:1">Помощь и контакты</span><span class="chev">{{i:chev:20}}</span></div>
+    </div>
+    <div class="btn sec full" data-go="s-login" style="color:var(--err)">Выйти</div>
+  </div>
+  {{tab:prof}}
+</section></div>
+
+<!-- ======================= 14. ФИЛЬТРЫ ======================= -->
+<div class="cap"><h3>14 · Фильтры каталога</h3>
+<section class="screen" id="s-filters" data-name="14 Фильтры каталога" style="background:#7A7C93">
+  {{sb}}
+  <div style="height:56px"></div>
+  <div class="sheet-m">
+    <div class="handle"></div>
+    <div class="between"><span style="font:var(--font-h1)">Фильтры</span><span class="link">Сбросить</span></div>
+    <div class="stack"><span class="label">Фасовка</span><div class="wrap"><span class="chip on">Мешок 25 кг</span><span class="chip">МКР 600 кг</span><span class="chip">МКР 1000 кг</span><span class="chip">Навал</span><span class="chip">Канистра</span></div></div>
+    <div class="stack"><span class="label">Тип удобрения</span><div class="wrap"><span class="chip">Азотные</span><span class="chip on">NPK комплексные</span><span class="chip">NP / PK</span><span class="chip on">С микроэлементами</span><span class="chip">Кальциевые</span></div></div>
+    <div class="stack"><span class="label">Культура</span><div class="wrap"><span class="chip on">Овощи</span><span class="chip">Плодовые</span><span class="chip">Зерновые</span><span class="chip">Масличные</span><span class="chip">Картофель</span></div></div>
+    <div class="stack"><span class="label">Способ внесения</span><div class="seg"><div>Почва</div><div class="on">Фертигация</div><div>Лист</div></div></div>
+    <div class="between" style="padding:4px 0"><div><div class="ttl15">Только в наличии</div><div class="t3">Отгрузка в течение 14 дней</div></div><span class="tgl on"><i></i></span></div>
+    <div class="btn pri full" data-go="s-cat">Показать 34 продукта</div>
+    <div class="home-ind" style="position:static;transform:none;margin:4px auto 0"></div>
+  </div>
+</section></div>
+
+<!-- ======================= 15. УСПЕХ ======================= -->
+<div class="cap"><h3>15 · Заявка отправлена</h3>
+<section class="screen" id="s-success" data-name="15 Заявка отправлена">
+  {{sb}}
+  <div class="body" style="background:var(--surface);padding:56px 16px 24px;gap:24px;align-items:center;text-align:center">
+    <div class="big-ok">{{i:check:44}}</div>
+    <div><div style="font:var(--font-display)">Заявка № 1602<br>отправлена</div><div class="t2" style="margin-top:10px">Менеджер <b>Лукьянова С. А.</b> подтвердит цену и график до 10 ноября. Статус придёт в push.</div></div>
+    <div class="card" style="background:var(--bg);width:100%;text-align:left;padding:6px 16px">
+      <div class="kv"><span>Объём</span><b>11 т · 2 позиции</b></div>
+      <div class="kv"><span>Сумма с НДС</span><b>1 426 560 ₽</b></div>
+      <div class="kv"><span>Станция</span><b>Баженово</b></div>
+      <div class="kv" style="border:0"><span>Отгрузка</span><b>11–20 ноября</b></div>
+    </div>
+    <div class="card row" style="width:100%;text-align:left;background:var(--surface-2)"><div class="ico blue">{{i:repeat:22}}</div><div style="flex:1" class="t2">В корзине осталась <b>заявка 2</b> · Промышленное, 68 т</div><span class="link" data-go="s-cart">Оформить</span></div>
+  </div>
+  <div class="dock" style="flex-direction:column;gap:8px"><div class="btn pri full" data-go="s-order">Открыть заявку</div><div class="btn sec full" data-go="s-home">На главную</div><div class="home-ind"></div></div>
+</section></div>
+
+<!-- ======================= 16. ПУСТАЯ КОРЗИНА ======================= -->
+<div class="cap"><h3>16 · Пустая корзина</h3>
+<section class="screen" id="s-cart-empty" data-name="16 Пустая корзина">
+  {{sb}}
+  <div class="top"><h1>Корзина</h1></div>
+  <div class="body" style="padding-top:56px;gap:24px;align-items:center;text-align:center">
+    <div class="big-ok" style="background:var(--surface-2);color:var(--blue)">{{i:cart:44}}</div>
+    <div><div style="font:var(--font-h1)">Корзина пуста</div><div class="t2" style="margin-top:8px;padding:0 24px">Повторите прошлую заявку — станция и грузополучатель подставятся сами</div></div>
+    <div class="card stack" style="width:100%;text-align:left;gap:12px">
+      <div class="between"><span class="label">Последняя заявка</span><span class="t3 num">№ 1489 · 24.10</span></div>
+      <div class="row"><div class="pimg" style="width:52px;height:60px;background:var(--surface-brand,#E8E9F4);color:var(--blue);flex-direction:column;font-weight:700;font-size:13px;line-height:16px">N<span style="font-size:18px">46</span></div><div style="flex:1"><div class="ttl15">Карбамид марки Б, навал</div><div class="t3 num">136 т · ст. Баженово · 4 352 000 ₽</div></div></div>
+      <div class="btn pri full" data-go="s-cart">{{i:repeat:20}}Повторить заявку</div>
+    </div>
+    <div class="btn out full" data-go="s-cat">Перейти в каталог</div>
+  </div>
+  {{tab0:cart}}
+</section></div>
+
+<!-- ======================= 17. ЧАТ ======================= -->
+<div class="cap"><h3>17 · Чат с менеджером</h3>
+<section class="screen" id="s-chat" data-name="17 Чат с менеджером">
+  {{sb}}
+  <div class="top"><div class="icon-btn soft" data-go="back">{{i:back:22}}</div><div class="ava" style="width:40px;height:40px;font-size:14px">СЛ</div><div style="flex:1"><div class="ttl15">Лукьянова Светлана</div><div class="t3" style="color:var(--ok)">менеджер · онлайн</div></div><div class="icon-btn soft">{{i:phone:22}}</div></div>
+  <div style="background:var(--surface);padding:0 16px 12px"><div class="chip" style="height:32px;width:100%;justify-content:space-between" data-go="s-order"><span>{{i:clip:16}} Заявка № 1489 · Карбамид, 136 т</span><span class="pill ok" style="height:20px">В пути</span></div></div>
+  <div class="body" style="padding-top:16px;gap:10px">
+    <div class="day">Сегодня</div>
+    <div class="bub in">Добрый день, Алексей! Вагон 58213488 задержали на Углеуральской на сутки — прибытие ориентировочно 15 ноября.<i>08:12</i></div>
+    <div class="bub out">Спасибо. Можно перенести выгрузку на 16-е? 15-го склад занят.<i>08:20 ✓✓</i></div>
+    <div class="bub in">Да, согласую со станцией и вернусь до 12:00. Накладную прикладываю.<i>08:24</i></div>
+    <div class="bub in file"><span class="ico info" style="width:40px;height:40px">{{i:doc:20}}</span><span style="flex:1"><b>ЖД накладная ЭА123457.pdf</b><br><span class="t3">PDF · 184 КБ</span></span><i>08:24</i></div>
+    <div class="bub out">Отлично, жду 👍<i>08:25 ✓✓</i></div>
+  </div>
+  <div class="dock" style="align-items:center;padding-top:10px">
+    <div class="icon-btn soft">{{i:clip2:22}}</div>
+    <div class="search" style="flex:1;height:44px;border-radius:22px">Сообщение…</div>
+    <div class="icon-btn" style="background:var(--green-a);color:#fff;border-radius:22px">{{i:send:20}}</div>
+    <div class="home-ind"></div>
+  </div>
+</section></div>
+
+<!-- ======================= 18. ОБРАЩЕНИЕ ======================= -->
+<div class="cap"><h3>18 · Обращение по вагону</h3>
+<section class="screen" id="s-issue" data-name="18 Обращение по вагону">
+  {{sb}}
+  <div class="top"><div class="icon-btn soft" data-go="back">{{i:back:22}}</div><div class="ttl">Сообщить о проблеме</div><div class="icon-btn"></div></div>
+  <div class="body" style="padding-top:16px;gap:16px">
+    <div class="card row" style="background:#E8E9F4"><div class="ico" style="background:#fff;color:var(--blue)">{{i:train:22}}</div><div style="flex:1"><div class="ttl15 num">Вагон 58213470 · 68 т</div><div class="t3 num">Заявка № 1489 · Карбамид марки Б</div></div><span style="color:var(--ok)">{{i:check:20}}</span></div>
+    <div class="stack"><span class="label">Что случилось</span><div class="wrap"><span class="chip on">Недовес</span><span class="chip">Качество</span><span class="chip">Повреждение тары</span><span class="chip">Документы</span><span class="chip">Другое</span></div></div>
+    <div class="row" style="gap:8px">
+      <div class="field" style="flex:1"><div class="fl"><small>По накладной</small><b class="num">68,0 т</b></div></div>
+      <div class="field" style="flex:1;border:2px solid var(--blue)"><div class="fl"><small style="color:var(--blue)">Фактически</small><b class="num">66,8 т</b></div></div>
+    </div>
+    <div class="banner" style="background:var(--warn-bg);color:var(--warn);font-weight:600">{{i:alert:20}} Расхождение 1,2 т (1,8 %) — выше нормы 0,5 %</div>
+    <div class="field" style="min-height:88px;align-items:flex-start"><div class="fl"><small>Комментарий</small><b style="font-weight:400">Взвешено на весах склада при выгрузке 14.11, акт приложен</b></div></div>
+    <div class="stack"><span class="label">Фото и документы</span>
+      <div class="row" style="gap:8px"><div class="ph-t">{{i:camera:22}}<span>IMG_2041</span></div><div class="ph-t">{{i:doc:22}}<span>Акт.pdf</span></div><div class="ph-t add">{{i:plus:24}}<span>Добавить</span></div></div></div>
+  </div>
+  <div class="dock" style="flex-direction:column;gap:8px"><div class="btn pri full" data-go="s-order">Отправить обращение</div><div class="t3" style="text-align:center">Ответ в течение 2 рабочих дней · номер придёт в push</div><div class="home-ind"></div></div>
+</section></div>
+
+<!-- ======================= 19. НОВОСТИ ======================= -->
+<div class="cap"><h3>19 · Новости</h3>
+<section class="screen" id="s-news" data-name="19 Новости">
+  {{sb}}
+  <div class="top"><div class="icon-btn soft" data-go="back">{{i:back:22}}</div><div class="ttl">Новости</div><div class="icon-btn"></div></div>
+  <div style="background:var(--surface);padding:0 16px 14px"><div class="chips"><span class="chip on">Все</span><span class="chip">Продукты</span><span class="chip">Агрономия</span><span class="chip">Компания</span></div></div>
+  <div class="body" style="padding-top:16px;gap:12px">
+    <div class="card" style="padding:0;overflow:hidden">
+      <div style="height:168px;background:linear-gradient(135deg,#272A6B,#3A3E8C);display:flex;align-items:flex-end;justify-content:space-between;padding:16px">
+        <span class="pill" style="background:rgba(255,255,255,.16);color:#fff">Новый продукт</span>
+        <img src="assets/pack-solar-nitrat.png" style="height:140px;margin-bottom:-16px">
+      </div>
+      <div style="padding:14px 16px 16px"><div class="t3">21 октября · 3 мин</div><div class="ttl16" style="margin-top:4px">«МультиСтарт» — новое биомодифицированное удобрение ВМУ</div></div>
+    </div>
+    <div class="card tight row"><div class="nthumb" style="background:#E3F5EC;color:var(--ok)">{{i:leaf:26}}</div><div style="flex:1"><div class="ttl15">Итоги агроиспытаний: +12 % урожайности на SOLAR</div><div class="t3">14 октября</div></div></div>
+    <div class="card tight row"><div class="nthumb">{{i:factory:26}}</div><div style="flex:1"><div class="ttl15">«Уралхим» на выставке «Агроволга-2026»</div><div class="t3">15 июля</div></div></div>
+    <div class="card tight row"><div class="nthumb" style="background:#FFF1D6;color:var(--warn)">{{i:msg:26}}</div><div style="flex:1"><div class="ttl15">Запускаем соцсети «Уралхим Агро»</div><div class="t3">21 августа</div></div></div>
+  </div>
+  {{tab:prof}}
+</section></div>
+
+<!-- ======================= 20. ИНСПЕКЦИЯ ======================= -->
+<div class="cap"><h3>20 · Инспекция — чек-лист</h3>
+<section class="screen" id="s-insp-run" data-name="20 Инспекция — чек-лист">
+  {{sb}}
+  <div class="top"><div class="icon-btn soft" data-go="back">{{i:back:22}}</div><div style="flex:1"><div class="ttl15">Инспекция склада</div><div class="t3">08:30 · Красноуфимск</div></div><span class="pill warn">{{i:wifioff:14}}Офлайн</span></div>
+  <div style="background:var(--surface);padding:0 16px 16px" class="stack"><div class="between t3"><span>Чек-лист · <b style="color:var(--t1)">5 из 9</b></span><span>Карбамид марки Б · 120 т</span></div><div class="prog"><i style="width:56%"></i></div></div>
+  <div class="body" style="padding-top:14px;gap:8px">
+    <div class="ck done">{{i:check:16}}<span>Целостность упаковки МКР</span></div>
+    <div class="ck done">{{i:check:16}}<span>Маркировка соответствует партии</span></div>
+    <div class="ck done">{{i:check:16}}<span>Пломбы и ярлыки на месте</span></div>
+    <div class="ck done">{{i:check:16}}<span>Количество мест: 120 из 120</span></div>
+    <div class="card stack" style="gap:12px;border:2px solid var(--blue)">
+      <div class="between"><span class="ttl15">5. Условия хранения</span><span class="t3">обязательно</span></div>
+      <div class="t2">Навес или склад, МКР на поддонах, нет контакта с грунтом и влагой</div>
+      <div class="seg"><div>Соответствует</div><div class="on" style="color:var(--warn)">Замечание</div></div>
+      <div class="row" style="gap:8px"><div class="ph-t s">{{i:camera:20}}</div><div class="ph-t s">{{i:camera:20}}</div><div class="ph-t s add">{{i:plus:20}}</div><span class="t3" style="flex:1">2 фото</span></div>
+      <div class="link" data-go="s-remark">Описать замечание →</div>
+    </div>
+    <div class="ck">{{i:dot:16}}<span>6. Отбор пробы (3 точки)</span></div>
+    <div class="ck">{{i:dot:16}}<span>7. Выборочное взвешивание</span></div>
+  </div>
+  <div class="dock"><div class="btn sec" style="flex:1">Черновик</div><div class="btn pri" style="flex:1.6">Следующий пункт</div><div class="home-ind"></div></div>
+</section></div>
+
+<!-- ======================= 21. ЗАМЕЧАНИЕ ======================= -->
+<div class="cap"><h3>21 · Новое замечание</h3>
+<section class="screen" id="s-remark" data-name="21 Новое замечание">
+  {{sb}}
+  <div class="top"><div class="icon-btn soft" data-go="back">{{i:x:22}}</div><div class="ttl">Новое замечание</div><div class="icon-btn"></div></div>
+  <div class="body" style="padding-top:16px;gap:16px">
+    <div class="photos"><div class="ph-l">{{i:camera:28}}<span>Фото 1 · 08:47</span></div><div class="stack" style="gap:8px;flex:1"><div class="ph-l s">{{i:camera:22}}</div><div class="ph-l s add">{{i:plus:24}}<span>Ещё фото</span></div></div></div>
+    <div class="stack"><span class="label">Категория</span><div class="wrap"><span class="chip on">Хранение</span><span class="chip">Упаковка</span><span class="chip">Маркировка</span><span class="chip">Количество</span></div></div>
+    <div class="stack"><span class="label">Критичность</span><div class="seg"><div>Низкая</div><div class="on" style="color:var(--warn)">Средняя</div><div>Высокая</div></div></div>
+    <div class="field" style="min-height:88px;align-items:flex-start;border:2px solid var(--blue)"><div class="fl"><small style="color:var(--blue)">Описание</small><b style="font-weight:400">12 МКР стоят без поддонов у ворот № 3, контакт с грунтом</b></div></div>
+    <div class="card row tight" style="background:var(--surface-2)"><span style="color:var(--t3)">{{i:clip:20}}</span><span class="t2" style="flex:1">Инспекция склада · пункт 5 · Карбамид марки Б</span></div>
+    <div class="banner" style="background:var(--warn-bg);color:var(--warn)"><span>{{i:wifioff:20}}</span><span>Нет сети. Сохраним на устройстве и отправим при подключении</span></div>
+  </div>
+  <div class="dock"><div class="btn pri full" data-go="s-sync">Сохранить замечание</div><div class="home-ind"></div></div>
+</section></div>
+
+<!-- ======================= 22. СИНХРОНИЗАЦИЯ ======================= -->
+<div class="cap"><h3>22 · Синхронизация</h3>
+<section class="screen" id="s-sync" data-name="22 Синхронизация">
+  {{sb}}
+  <div class="top"><h1>Синхронизация</h1></div>
+  <div class="body" style="padding-top:16px;gap:16px">
+    <div class="card stack" style="background:#1E2050;color:#fff;gap:12px">
+      <div class="row"><div class="ico" style="background:rgba(255,166,26,.18);color:#FFD592">{{i:wifioff:22}}</div><div style="flex:1"><div class="ttl16">Нет сети</div><div style="font-size:13px;color:#C9CAE6">Последняя синхронизация сегодня в 07:15</div></div></div>
+      <div class="btn m white">{{i:sync:18}}Повторить сейчас</div>
+    </div>
+    <div class="stack" style="gap:8px"><div class="sec"><h2>Ждут отправки <em>3</em></h2><span class="t3">7,8 МБ</span></div>
+      <div class="card" style="padding:14px 16px">
+        <div class="lrow"><div class="ico warn" style="width:36px;height:36px">{{i:camera:18}}</div><div style="flex:1"><div class="ttl15">Замечание · Хранение</div><div class="t3">2 фото · 4,1 МБ · 08:49</div></div><span style="color:var(--t3)">{{i:clock:18}}</span></div>
+        <div class="lrow"><div class="ico blue" style="width:36px;height:36px">{{i:clip:18}}</div><div style="flex:1"><div class="ttl15">Чек-лист · склад Красноуфимск</div><div class="t3">5 из 9 пунктов · 08:52</div></div><span style="color:var(--t3)">{{i:clock:18}}</span></div>
+        <div class="lrow"><div class="ico blue" style="width:36px;height:36px">{{i:flask:18}}</div><div style="flex:1"><div class="ttl15">Проба · партия 2611-04</div><div class="t3">1 фото · 3,7 МБ · 11:14</div></div><span style="color:var(--t3)">{{i:clock:18}}</span></div>
+      </div></div>
+    <div class="stack" style="gap:8px"><div class="sec"><h2>Загружено</h2></div>
+      <div class="card row tight"><div class="ico ok" style="width:36px;height:36px">{{i:check:18}}</div><div style="flex:1"><div class="ttl15">Задачи на 8 ноября</div><div class="t3">4 задачи · карты объектов · 07:15</div></div></div></div>
+    <div class="card" style="padding:14px 16px">
+      <div class="lrow"><span class="ttl15" style="flex:1">Фото только по Wi-Fi</span><span class="tgl on"><i></i></span></div>
+      <div class="lrow"><span class="ttl15" style="flex:1">Хранить офлайн-данные</span><span class="t3">7 дней</span><span class="chev">{{i:chev:18}}</span></div>
+    </div>
+  </div>
+  {{tabi:sync}}
+</section></div>

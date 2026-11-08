@@ -1,0 +1,36 @@
+{
+  "name": "УРАЛХИМ · макеты, токены, прототип",
+  "id": "uralchem-redesign-local",
+  "api": "1.0.0",
+  "main": "code.js",
+  "editorType": [
+    "figma"
+  ],
+  "documentAccess": "dynamic-page",
+  "networkAccess": {
+    "allowedDomains": [
+      "none"
+    ]
+  },
+  "menu": [
+    {
+      "name": "1. Разложить экраны",
+      "command": "layout"
+    },
+    {
+      "name": "2. Переменные и стили",
+      "command": "vars"
+    },
+    {
+      "name": "3. Кликабельный прототип",
+      "command": "proto"
+    },
+    {
+      "separator": true
+    },
+    {
+      "name": "Всё сразу (1 → 2 → 3)",
+      "command": "all"
+    }
+  ]
+}

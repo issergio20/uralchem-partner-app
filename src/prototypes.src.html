@@ -1,0 +1,718 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>УРАЛХИМ — редизайн ЛК партнёра</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+{{tokens}}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:"Onest",system-ui,sans-serif;background:#D9DBE4;color:var(--t1);-webkit-font-smoothing:antialiased;padding:48px 40px 80px}
+.num{font-variant-numeric:tabular-nums}
+/* шапка сайта кейса (общая для всех страниц) */
+.hdr{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.94);backdrop-filter:blur(12px);border-bottom:1px solid var(--border)}
+.hdr-in{max-width:1240px;margin:0 auto;height:72px;padding:0 24px;display:flex;align-items:center;gap:20px}
+.brand{display:flex;align-items:center;gap:14px;text-decoration:none;color:var(--t1);min-width:0}
+.brand img{height:18px;flex:none}
+.brand span{font-size:13px;color:var(--t3);border-left:1px solid var(--border);padding-left:14px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.menu-top{margin-left:auto;display:flex;gap:4px;align-items:center}
+.menu-top a{height:40px;padding:0 16px;border-radius:12px;display:flex;align-items:center;gap:6px;font-size:15px;font-weight:600;color:var(--t2);text-decoration:none;white-space:nowrap}
+.menu-top a:hover{background:var(--surface-2)}
+.menu-top a.on{background:var(--blue);color:#fff}
+.menu-top a.fig{border:1.5px solid var(--border);color:var(--blue);margin-left:8px}
+.menu-top a.fig:hover{border-color:var(--blue);background:#fff}
+.back-btn{height:40px;padding:0 14px 0 10px;border-radius:12px;display:flex;align-items:center;gap:4px;font-size:15px;font-weight:600;color:var(--blue);background:var(--surface-2);text-decoration:none;white-space:nowrap;flex:none}
+.back-btn:hover{background:#E4E5EE}
+.board-hdr{margin:-48px -40px 48px}
+@media (max-width:760px){.hdr-in{height:auto;padding:12px 16px;flex-wrap:wrap;gap:10px}.menu-top{margin-left:0;width:100%;overflow-x:auto}.menu-top a{height:36px;padding:0 12px;font-size:14px}.brand span{display:none}}
+.board{display:flex;flex-wrap:wrap;gap:56px 40px;align-items:flex-start;max-width:2000px;margin:0 auto}
+.cap{width:375px}
+.cap h3{font-size:13px;font-weight:600;color:var(--blue);letter-spacing:.06em;text-transform:uppercase;margin-bottom:12px}
+
+/* ---------- screen ---------- */
+.screen{width:375px;min-height:812px;background:var(--bg);border-radius:0;display:flex;flex-direction:column;position:relative;overflow:hidden;box-shadow:0 24px 60px rgba(39,42,107,.18)}
+.sb{height:44px;display:flex;align-items:center;justify-content:space-between;padding:0 22px 0 28px;background:var(--surface);color:var(--t1);flex:none}
+.sb-t{font-weight:600;font-size:15px;width:54px}
+.sb-logo{height:11px}
+.sb-r{display:flex;gap:6px;align-items:center;width:54px;justify-content:flex-end}
+.sb-r svg{fill:currentColor}
+.dark .sb{background:#1E2050;color:#fff}
+.body{flex:1;padding:0 16px 24px;display:flex;flex-direction:column;gap:20px}
+
+/* top bars */
+.top{background:var(--surface);padding:6px 16px 14px;display:flex;align-items:center;gap:12px;flex:none}
+.top h1{font-size:22px;line-height:28px;font-weight:700;flex:1}
+.top .ttl{flex:1;font-size:17px;font-weight:600;text-align:center}
+.icon-btn{width:40px;height:40px;border-radius:12px;display:flex;align-items:center;justify-content:center;color:var(--t1);position:relative;flex:none}
+.icon-btn.soft{background:var(--surface-2)}
+.dot-b{position:absolute;top:4px;right:3px;min-width:18px;height:18px;padding:0 5px;border-radius:9px;background:#D23C3C;color:#fff;font-size:11px;font-weight:600;line-height:18px;text-align:center;border:2px solid #fff}
+.company{flex:1;display:flex;flex-direction:column}
+.company b{font-size:17px;font-weight:700;display:flex;align-items:center;gap:4px}
+.company span{font-size:13px;color:var(--t3)}
+
+/* inputs */
+.search{height:48px;border-radius:14px;background:var(--surface-2);display:flex;align-items:center;gap:10px;padding:0 14px;color:var(--t3);font-size:15px}
+.top + .search-wrap{background:var(--surface);padding:0 16px 14px}
+.field{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:9px 14px;min-height:56px;display:flex;align-items:center;gap:10px}
+.field .fl{flex:1}
+.field small{display:block;font-size:12px;color:var(--t3);line-height:16px}
+.field b{font-size:15px;font-weight:500;line-height:22px}
+.field.ph b{color:var(--t3);font-weight:400}
+.field .chev{color:var(--t3)}
+
+/* type */
+.sec{display:flex;align-items:baseline;justify-content:space-between}
+.sec h2{font-size:18px;line-height:24px;font-weight:600}
+.sec h2 em{font-style:normal;color:var(--t3);font-weight:500;margin-left:4px}
+.link{font-size:14px;font-weight:600;color:var(--blue)}
+.cap-t{font-size:13px;line-height:18px;color:var(--t3)}
+.label{font-size:12px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:var(--t3)}
+
+/* cards */
+.card{background:var(--surface);border-radius:16px;padding:16px}
+.card.tight{padding:12px}
+.stack{display:flex;flex-direction:column;gap:8px}
+.row{display:flex;align-items:center;gap:12px}
+.between{display:flex;justify-content:space-between;align-items:center}
+.ico{width:40px;height:40px;border-radius:12px;display:flex;align-items:center;justify-content:center;flex:none}
+.ico.warn{background:var(--warn-bg);color:var(--warn)}
+.ico.info{background:var(--info-bg);color:var(--info)}
+.ico.ok{background:var(--ok-bg);color:var(--ok)}
+.ico.blue{background:#E8E9F4;color:var(--blue)}
+.ttl16{font-size:16px;line-height:22px;font-weight:600}
+.ttl15{font-size:15px;line-height:21px;font-weight:600}
+.t2{color:var(--t2);font-size:14px;line-height:20px}
+.t3{color:var(--t3);font-size:13px;line-height:18px}
+.amount{font-size:28px;line-height:34px;font-weight:700;font-variant-numeric:tabular-nums;letter-spacing:-.01em}
+.amount small{font-size:18px;font-weight:600}
+
+/* buttons */
+.btn{height:52px;border-radius:14px;display:flex;align-items:center;justify-content:center;gap:8px;font-size:16px;font-weight:600;padding:0 18px;white-space:nowrap}
+.btn svg,.row svg,.pill svg,.chip svg{flex:none}
+.btn,.chip,.pill{min-width:0;max-width:100%}
+.lbl{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.btn.dis{background:var(--surface-2);color:var(--t3);pointer-events:none}
+.field.err{border:2px solid var(--err)}
+.field-err{font-size:12px;line-height:16px;color:var(--err);margin:-4px 0 0 14px}
+.btn.m{height:44px;font-size:15px;border-radius:12px}
+.btn.s{height:36px;font-size:14px;border-radius:10px;padding:0 14px}
+.btn.pri{background:var(--green-a);color:#fff}
+.btn.sec{background:var(--surface-2);color:var(--blue)}
+.btn.out{background:var(--surface);color:var(--blue);border:1.5px solid var(--border)}
+.btn.blue{background:var(--blue);color:#fff}
+.btn.white{background:#fff;color:var(--blue)}
+.btn.full{width:100%}
+
+/* chips & pills */
+.chips{display:flex;gap:8px;overflow:hidden;white-space:nowrap}
+.chip{height:36px;padding:0 14px;border-radius:999px;background:var(--surface);border:1px solid var(--border);display:inline-flex;align-items:center;gap:6px;font-size:14px;font-weight:500;color:var(--t2);flex:none}
+.chip.on{background:var(--blue);border-color:var(--blue);color:#fff}
+.chip .n{font-size:12px;font-weight:600;color:var(--t3)}
+.chip.on .n{color:#C9CAE6}
+.pill{display:inline-flex;align-items:center;gap:4px;height:24px;padding:0 9px;border-radius:999px;font-size:12px;font-weight:600;white-space:nowrap}
+.pill svg{width:14px;height:14px}
+.pill.ok{background:var(--ok-bg);color:var(--ok)}
+.pill.warn{background:var(--warn-bg);color:var(--warn)}
+.pill.err{background:var(--err-bg);color:var(--err)}
+.pill.info{background:var(--info-bg);color:var(--info)}
+.pill.neu{background:var(--surface-2);color:var(--t2)}
+.npk{display:flex;gap:6px;flex-wrap:wrap}
+.npk span{height:26px;padding:0 8px;border-radius:8px;background:#E8E9F4;color:var(--blue);font-size:13px;font-weight:600;display:inline-flex;align-items:center;font-variant-numeric:tabular-nums}
+.npk span i{font-style:normal;font-weight:500;color:var(--t3);margin-right:4px}
+
+/* segmented */
+.seg{display:flex;background:var(--surface-2);border-radius:12px;padding:3px}
+.seg div{flex:1;height:36px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:600;color:var(--t3)}
+.seg .on{background:#fff;color:var(--t1);box-shadow:0 1px 3px rgba(35,35,36,.12)}
+
+/* progress */
+.prog{height:6px;border-radius:3px;background:var(--surface-2);position:relative;overflow:hidden}
+.prog i{position:absolute;left:0;top:0;bottom:0;border-radius:3px;background:var(--green)}
+
+/* stepper */
+.stepper{display:flex;align-items:center;height:44px;border-radius:12px;background:var(--surface-2);overflow:hidden}
+.stepper .sbtn{width:44px;height:44px;display:flex;align-items:center;justify-content:center;color:var(--blue)}
+.stepper .val{flex:1;text-align:center;line-height:1.1}
+.stepper .val b{display:block;font-size:15px;font-weight:600;font-variant-numeric:tabular-nums}
+.stepper .val small{font-size:11px;color:var(--t3)}
+
+/* tabbar */
+.tab{height:84px;background:rgba(255,255,255,.96);border-top:1px solid var(--border);display:flex;padding:6px 6px 0;position:relative;flex:none}
+.tab-i{flex:1;display:flex;flex-direction:column;align-items:center;gap:3px;font-size:11px;font-weight:500;color:var(--t3);padding-top:2px}
+.tab-i.on{color:var(--blue);font-weight:600}
+.tab-ic{position:relative;height:26px;display:flex;align-items:center}
+.tab-i.on .tab-ic::after{content:"";position:absolute;left:50%;top:-8px;width:20px;height:3px;border-radius:2px;background:var(--green);transform:translateX(-50%)}
+.tab-b{position:absolute;top:-3px;left:16px;min-width:18px;height:18px;border-radius:9px;background:#D23C3C;color:#fff;font-size:11px;font-weight:600;line-height:16px;text-align:center;border:1.5px solid #fff;padding:0 4px}
+.home-ind{position:absolute;bottom:8px;left:50%;transform:translateX(-50%);width:134px;height:5px;border-radius:3px;background:var(--t1)}
+
+/* sticky bottom bar (non-tab screens) */
+.dock{background:var(--surface);border-top:1px solid var(--border);padding:12px 16px 34px;display:flex;gap:10px;flex:none;position:relative}
+.dock .home-ind{bottom:8px}
+.dock .btn{min-width:0;padding:0 12px}
+
+/* product */
+.pcard{background:var(--surface);border-radius:16px;padding:12px;display:flex;gap:12px}
+.pimg{width:84px;height:104px;border-radius:12px;background:var(--surface-2);display:flex;align-items:center;justify-content:center;flex:none}
+.pimg img{height:88px}
+.pinfo{flex:1;display:flex;flex-direction:column;gap:6px;min-width:0}
+.pname{font-size:15px;line-height:20px;font-weight:600}
+.price{font-size:13px;color:var(--t2)}
+.price b{color:var(--t1);font-weight:600}
+
+/* timeline */
+.tl{display:flex;flex-direction:column}
+.tl-i{display:flex;gap:12px;position:relative;padding-bottom:16px}
+.tl-i:last-child{padding-bottom:0}
+.tl-dot{width:20px;display:flex;flex-direction:column;align-items:center;flex:none}
+.tl-dot b{width:12px;height:12px;border-radius:6px;background:var(--green);margin-top:4px;flex:none}
+.tl-dot b.cur{width:20px;height:20px;border-radius:10px;background:#fff;border:5px solid var(--green);margin-top:0}
+.tl-dot b.fut{background:#fff;border:2px solid var(--border-strong)}
+.tl-dot i{flex:1;width:2px;background:var(--green);margin-top:2px}
+.tl-dot i.fut{background:repeating-linear-gradient(var(--border-strong) 0 4px,transparent 4px 8px)}
+.tl-c{flex:1}
+
+/* list rows */
+.lrow{display:flex;align-items:center;gap:12px;padding:14px 0;border-bottom:1px solid var(--surface-2)}
+.lrow:last-child{border-bottom:0;padding-bottom:0}
+.lrow:first-child{padding-top:0}
+.lrow .chev{color:var(--t3)}
+.kv{display:flex;justify-content:space-between;font-size:14px;line-height:20px;padding:7px 0;border-bottom:1px dashed var(--surface-2)}
+.kv span{color:var(--t2)}
+.kv b{font-weight:600;font-variant-numeric:tabular-nums}
+
+/* banners */
+.banner{border-radius:14px;padding:12px 14px;display:flex;gap:10px;font-size:14px;line-height:20px}
+.banner.info{background:var(--info-bg);color:#123E73}
+.banner.dark{background:#1E2050;color:#fff}
+
+/* life-cycle stepper */
+.lc{display:flex;align-items:flex-start;position:relative;margin:0 -10px;letter-spacing:-.01em}
+.lc-line{position:absolute;top:11px;left:10%;right:10%;height:2px;background:var(--border)}
+.lc-line i{position:absolute;left:0;top:0;bottom:0;background:var(--green)}
+.lc-s{flex:1;display:flex;flex-direction:column;align-items:center;gap:6px;position:relative;font-size:10px;line-height:14px;color:var(--t3);text-align:center}
+.lc-s b{width:24px;height:24px;border-radius:12px;background:var(--green);color:#fff;display:flex;align-items:center;justify-content:center;position:relative;z-index:1}
+.lc-s b svg{width:14px;height:14px}
+.lc-s.cur b{background:#fff;border:6px solid var(--green)}
+.lc-s.cur{color:var(--t1);font-weight:600}
+.lc-s.fut b{background:#fff;border:2px solid var(--border-strong)}
+
+/* fab */
+.fab{position:absolute;right:16px;bottom:100px;height:56px;padding:0 20px 0 16px;border-radius:18px;background:var(--blue);color:#fff;display:flex;align-items:center;gap:8px;font-weight:600;font-size:15px;box-shadow:0 10px 24px rgba(39,42,107,.35)}
+
+/* ---------- cover sheet ---------- */
+.sheet{width:1600px;background:#fff;padding:72px 80px 80px;color:var(--t1);box-shadow:0 24px 60px rgba(39,42,107,.12)}
+.sheet .eyebrow{font-size:14px;font-weight:600;color:var(--green-a);letter-spacing:.08em;text-transform:uppercase}
+.sheet h1{font-size:56px;line-height:62px;font-weight:700;color:var(--blue);margin:14px 0 18px;letter-spacing:-.02em}
+.sheet .lead{font-size:20px;line-height:30px;color:var(--t2);max-width:1000px}
+.sheet .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:48px}
+.sheet .grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-top:20px}
+.sheet h2{font-size:28px;line-height:34px;font-weight:700;margin-top:64px}
+.sheet .box{background:var(--bg);border-radius:20px;padding:24px}
+.sheet .box h4{font-size:18px;line-height:24px;font-weight:600;margin:12px 0 8px}
+.sheet .box p{font-size:15px;line-height:22px;color:var(--t2)}
+.sheet .tag{display:inline-flex;height:26px;padding:0 10px;border-radius:999px;font-size:12px;font-weight:700;align-items:center;letter-spacing:.04em}
+.sheet .was{font-size:14px;line-height:20px;color:var(--t3);margin-top:10px}
+.sheet .sw{border-radius:16px;overflow:hidden;border:1px solid var(--border)}
+.sheet .sw div{height:84px}
+.sheet .sw p{padding:10px 14px;font-size:13px;line-height:18px;color:var(--t2)}
+.sheet .sw p b{display:block;color:var(--t1);font-size:14px}
+.sheet .metric{border-left:3px solid var(--green);padding:4px 0 4px 18px}
+.sheet .metric b{font-size:32px;line-height:38px;color:var(--blue);display:block}
+.sheet .metric span{font-size:15px;line-height:22px;color:var(--t2)}
+.sheet .typo{display:flex;gap:40px;align-items:baseline;margin-top:20px;flex-wrap:wrap}
+/* ---------- extra components ---------- */
+.wrap{display:flex;flex-wrap:wrap;gap:8px}
+.cbx{width:22px;height:22px;border-radius:7px;border:1.5px solid var(--border-strong);display:flex;align-items:center;justify-content:center;flex:none;color:#fff}
+.cbx.on{background:var(--green-a);border-color:var(--green-a)}
+.tgl{width:51px;height:31px;border-radius:16px;background:var(--border-strong);position:relative;flex:none}
+.tgl i{position:absolute;top:2px;left:2px;width:27px;height:27px;border-radius:14px;background:#fff;box-shadow:0 2px 4px rgba(0,0,0,.18)}
+.tgl.on{background:var(--green-a)}.tgl.on i{left:22px}
+.nrow{position:relative}
+.nrow.unread::after{content:"";position:absolute;top:14px;right:14px;width:8px;height:8px;border-radius:4px;background:#D23C3C}
+.mini-lc{display:flex;gap:4px}.mini-lc i{flex:1;height:4px;border-radius:2px;background:var(--surface-2)}
+.mini-lc i.d{background:var(--green)}.mini-lc i.c{background:linear-gradient(90deg,var(--green) 50%,var(--surface-2) 50%)}
+.ava{width:48px;height:48px;border-radius:24px;background:var(--blue);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:16px;flex:none}
+.menu{padding:4px 16px}.menu .lrow{padding:13px 0}.menu .lrow:first-child{padding-top:13px}.menu .lrow:last-child{padding-bottom:13px}
+.mi{width:32px;height:32px;border-radius:10px;background:#E8E9F4;color:var(--blue);display:flex;align-items:center;justify-content:center;flex:none}
+.sheet-m{flex:1;background:var(--surface);border-radius:20px 20px 0 0;padding:10px 16px 10px;display:flex;flex-direction:column;gap:20px}
+.handle{width:40px;height:5px;border-radius:3px;background:var(--border);margin:0 auto -6px}
+.big-ok{width:96px;height:96px;border-radius:48px;background:var(--ok-bg);color:var(--ok);display:flex;align-items:center;justify-content:center}
+.day{align-self:center;font-size:12px;font-weight:600;color:var(--t3);background:var(--surface-2);padding:4px 10px;border-radius:999px}
+.bub{max-width:80%;padding:10px 12px 6px;border-radius:18px;font-size:15px;line-height:21px;background:var(--surface);align-self:flex-start;border-bottom-left-radius:6px}
+.bub i{display:block;text-align:right;font-style:normal;font-size:11px;color:var(--t3);margin-top:2px}
+.bub.out{align-self:flex-end;background:var(--blue);color:#fff;border-radius:18px;border-bottom-right-radius:6px}
+.bub.out i{color:#C9CAE6}
+.bub.file{display:flex;gap:10px;align-items:center;flex-wrap:wrap;font-size:14px;line-height:19px}.bub.file i{width:100%}
+.ph-t{width:76px;height:76px;border-radius:14px;background:var(--surface-2);color:var(--t3);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;font-size:11px;flex:none}
+.ph-t.s{width:56px;height:56px}
+.ph-t.add{background:var(--surface);border:1.5px dashed var(--border-strong);color:var(--blue)}
+.ph-l{flex:1.4;height:176px;border-radius:16px;background:linear-gradient(160deg,#8C8E78,#5E5A4A);color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;font-size:12px}
+.ph-l.s{flex:1;height:84px;background:linear-gradient(160deg,#A39F8A,#6E6A58)}
+.ph-l.add{background:var(--surface);border:1.5px dashed var(--border-strong);color:var(--blue)}
+.photos{display:flex;gap:8px}
+.ck{display:flex;align-items:center;gap:10px;background:var(--surface);border-radius:12px;padding:12px 14px;font-size:15px;color:var(--t1)}
+.ck svg{flex:none;color:var(--border-strong)}
+.ck.done{color:var(--t3)}.ck.done svg{background:var(--green);color:#fff;border-radius:10px;padding:2px;width:20px;height:20px}
+.nthumb{width:56px;height:56px;border-radius:12px;background:#E8E9F4;color:var(--blue);display:flex;align-items:center;justify-content:center;flex:none}
+[data-go]{cursor:pointer}
+/* ---------- design system sheet ---------- */
+.ds-grid{display:grid;grid-template-columns:repeat(9,1fr);gap:12px;margin-top:16px}
+.ds-sw{border-radius:14px;overflow:hidden;border:1px solid var(--border);background:#fff}
+.ds-sw div{height:56px}
+.ds-sw p{padding:8px 10px;font-size:12px;line-height:16px;color:var(--t2)}
+.ds-sw p b{display:block;color:var(--t1);font-size:12px}
+.ds-row{display:flex;gap:24px;align-items:center;padding:10px 0;border-bottom:1px solid var(--surface-2)}
+.ds-row code{font-family:ui-monospace,Consolas,monospace;font-size:12px;color:var(--t3);width:220px;flex:none}
+.ds-comp{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin-top:16px}
+.ds-cols{display:grid;grid-template-columns:1fr 1fr;gap:48px}
+/* ---------- prototype viewer ---------- */
+body.proto{background:#2A2C45;padding:32px;display:flex;justify-content:center;gap:32px;align-items:flex-start;min-height:100vh}
+body.proto .pv-phone{width:399px;height:836px;border-radius:52px;background:#0E0F1A;padding:12px;box-shadow:0 30px 80px rgba(0,0,0,.45);flex:none}
+body.proto .pv-scroll{width:375px;height:812px;border-radius:40px;overflow-y:auto;overflow-x:hidden;background:#fff;scrollbar-width:none}
+body.proto .pv-scroll .screen{box-shadow:none}
+body.proto .pv-side{color:#fff;width:280px;font-size:14px;line-height:20px}
+body.proto .pv-side h2{font-size:20px;margin-bottom:6px}
+body.proto .pv-side p{color:#C9CAE6;margin-bottom:16px}
+body.proto .pv-side a{display:block;color:#E1E2F2;text-decoration:none;padding:5px 10px;border-radius:8px}
+body.proto .pv-side a.on{background:var(--green-a);color:#fff}
+body.proto [data-go]:hover{outline:2px solid rgba(0,165,90,.55);outline-offset:2px;border-radius:12px}
+</style>
+</head>
+<body>
+{{hdr}}
+
+<!-- ======================= COVER ======================= -->
+<section class="sheet" id="cover">
+  <div class="eyebrow">Кейс · Мобильное приложение · B2B · 2026</div>
+  <h1>УРАЛХИМ — Личный кабинет партнёра.<br>Редизайн ключевых сценариев</h1>
+  <p class="lead">Дистрибьюторы минеральных удобрений заказывают продукцию вагонами и следят за отгрузками. Прежняя версия собрала все разделы на одной главной: девять равноценных блоков на 2300 px. Важное, то есть заявки, вагоны в пути и долг, терялось ниже новостей. Новая версия строится вокруг одного вопроса: «что требует моего внимания сейчас».</p>
+
+  <div class="grid3">
+    <div class="box"><span class="tag" style="background:var(--err-bg);color:var(--err)">ПРОБЛЕМА</span><h4>Главная без иерархии</h4><p>9 виджетов одного веса, одинаковые серые плашки. Новости стоят первыми, вагоны в пути — на четвёртом экране прокрутки.</p></div>
+    <div class="box"><span class="tag" style="background:var(--err-bg);color:var(--err)">ПРОБЛЕМА</span><h4>Две сущности, одни статусы</h4><p>«Заявки» и «Заказы» показывают одинаковые 7 внутренних статусов: «Утверждена в ЛК», «Отправлена в клиентский сервис».</p></div>
+    <div class="box"><span class="tag" style="background:var(--err-bg);color:var(--err)">ПРОБЛЕМА</span><h4>Количество в «0.025 т»</h4><p>Шаг степпера 25 кг для вагонных партий. Мешки и МКР не различаются. Цены и итога нет, есть только сноска под кнопкой.</p></div>
+    <div class="box"><span class="tag" style="background:var(--err-bg);color:var(--err)">ПРОБЛЕМА</span><h4>Трекинг без ETA</h4><p>12 станций с одинаковым временем, станции повторяются. Нет ответа на главный вопрос: когда вагон прибудет на мою станцию.</p></div>
+    <div class="box"><span class="tag" style="background:var(--err-bg);color:var(--err)">ПРОБЛЕМА</span><h4>Статусы — цветные точки</h4><p>Точка 8 px плохо различима при дальтонизме. Подписи серым на сером с контрастом ~3:1. Белый текст на #00A55A — 3,2:1.</p></div>
+    <div class="box"><span class="tag" style="background:var(--err-bg);color:var(--err)">ПРОБЛЕМА</span><h4>Таббар не про работу</h4><p>В макете в таббаре стоят «Уведомления», в живом приложении — «Обращения». Самих заявок в таббаре нет, они спрятаны в профиле.</p></div>
+  </div>
+
+  <h2>Что изменили</h2>
+  <div class="grid4">
+    <div class="box"><span class="tag" style="background:var(--ok-bg);color:var(--ok)">РЕШЕНИЕ</span><h4>Главная = «требует действия»</h4><p>Сверху подтверждения и счета, ниже вагоны с ETA, счётчики заявок, финансы и быстрые действия. Новости и обучение перенесены в профиль.</p></div>
+    <div class="box"><span class="tag" style="background:var(--ok-bg);color:var(--ok)">РЕШЕНИЕ</span><h4>Единый жизненный цикл</h4><p>Одна сущность «Заявка» и 5 понятных статусов: на согласовании → подтверждена → отгружается → в пути → доставлена.</p></div>
+    <div class="box"><span class="tag" style="background:var(--ok-bg);color:var(--ok)">РЕШЕНИЕ</span><h4>Единицы от фасовки</h4><p>Мешки считаются в штуках с пересчётом в тонны, МКР и навал — в тоннах. Цена за тонну по договору видна в каталоге, итог с НДС — в корзине и на кнопке отправки.</p></div>
+    <div class="box"><span class="tag" style="background:var(--ok-bg);color:var(--ok)">РЕШЕНИЕ</span><h4>Трекинг с ETA</h4><p>Дата прибытия, текущая станция, оставшиеся километры. Промежуточные станции свёрнуты, номер накладной копируется. Обращение создаётся из вагона.</p></div>
+  </div>
+  <p class="was">Таббар покупателя: Главная · Каталог · Заявки · Корзина · Профиль. Уведомления — колокольчик в шапке. Таббар инспектора: Задачи · Объекты · Замечания · Синхронизация · Профиль, всё работает офлайн.</p>
+
+  <h2>Визуальная система</h2>
+  <div class="grid4" style="grid-template-columns:repeat(8,1fr)">
+    <div class="sw"><div style="background:#272A6B"></div><p><b>Blue</b>#272A6B бренд, заголовки</p></div>
+    <div class="sw"><div style="background:#00A55A"></div><p><b>Green</b>#00A55A заливки, прогресс</p></div>
+    <div class="sw"><div style="background:#00844A"></div><p><b>Green action</b>#00844A кнопки, 4,8:1</p></div>
+    <div class="sw"><div style="background:#232324"></div><p><b>Text</b>#232324 / #474850 / #5A6B80</p></div>
+    <div class="sw"><div style="background:#F4F5F7"></div><p><b>Bg</b>#F4F5F7 · surface-2 #EEEFF5</p></div>
+    <div class="sw"><div style="background:#E3F5EC"></div><p><b>Success</b>#00844A на #E3F5EC</p></div>
+    <div class="sw"><div style="background:#FFF1D6"></div><p><b>Warning</b>#8A5300 на #FFF1D6</p></div>
+    <div class="sw"><div style="background:#E6F1FF"></div><p><b>Info</b>#005FCC на #E6F1FF</p></div>
+  </div>
+  <div class="typo">
+    <span style="font-size:28px;font-weight:700">Onest 28 / 700</span>
+    <span style="font-size:22px;font-weight:700">Заголовок 22</span>
+    <span style="font-size:18px;font-weight:600">Секция 18</span>
+    <span style="font-size:16px;font-weight:600">Карточка 16</span>
+    <span style="font-size:15px">Текст 15 / 22</span>
+    <span style="font-size:13px;color:var(--t3)">Подпись 13</span>
+    <span class="num" style="font-size:22px;font-weight:700">1 845 000 ₽ · 68 т</span>
+  </div>
+  <p class="was">Onest — открытая замена фирменного Unity Sans с похожей геометрией и кириллицей. Радиусы 12 / 16 / 20, сетка 375 с полями 16 и шагом 4/8. Кнопки 52 / 44 / 36 px. Статус всегда показан пилюлей с текстом, а не точкой.</p>
+
+  <h2>Как измерим</h2>
+  <div class="grid4">
+    <div class="metric"><b>≤ 2 мин</b><span>от входа до отправленной повторной заявки</span></div>
+    <div class="metric"><b>−30 %</b><span>звонков менеджеру «где мой вагон»</span></div>
+    <div class="metric"><b>≥ 90 %</b><span>успешных задач на тесте: найти NPK 18:18:18 и узнать ETA</span></div>
+    <div class="metric"><b>↓</b><span>доля заявок, возвращённых из-за ошибок в станции и грузополучателе</span></div>
+  </div>
+</section>
+
+<div style="height:64px"></div>
+{{ds}}
+<div style="height:64px"></div>
+
+<div class="board">
+
+<!-- ======================= 1. ГЛАВНАЯ ======================= -->
+<div class="cap"><h3>01 · Главная покупателя</h3>
+<section class="screen" id="s-home" data-name="01 Главная — покупатель">
+  {{sb}}
+  <div class="top">
+    <div class="company"><b>ООО «АгроСнаб-Урал» {{i:chevd:18}}</b><span>Договор 77-П/2026 · RUB</span></div>
+    <div class="icon-btn soft" data-go="s-notif">{{i:bell:22}}<span class="dot-b">3</span></div>
+  </div>
+  <div class="search-wrap" style="background:var(--surface);padding:0 16px 16px"><div class="search" data-go="s-cat">{{i:search:20}}Продукт, марка или NPK</div></div>
+  <div class="body" style="padding-top:20px">
+
+    <div class="stack">
+      <div class="sec"><h2>Требует действия <em>2</em></h2></div>
+      <div class="card stack" style="gap:14px">
+        <div class="row" style="align-items:flex-start">
+          <div class="ico warn">{{i:clock:22}}</div>
+          <div style="flex:1"><div class="ttl15">Заявка № 1567</div><div class="t2">Подтвердите график отгрузки до 12 ноября</div></div>
+        </div>
+        <div class="row"><div class="btn s pri" style="flex:1" data-go="s-order">Подтвердить</div><div class="btn s sec" style="flex:1" data-go="s-order">Посмотреть</div></div>
+      </div>
+      <div class="card row" data-go="s-fin">
+        <div class="ico info">{{i:doc:22}}</div>
+        <div style="flex:1"><div class="ttl15 num">Счёт № 4412 · 1 845 000 ₽</div><div class="t3">Оплатить до 15 ноября</div></div>
+        <span style="color:var(--t3)">{{i:chev:20}}</span>
+      </div>
+    </div>
+
+    <div class="stack">
+      <div class="sec"><h2>В пути <em>2 вагона</em></h2><span class="link" data-go="s-orders">Все</span></div>
+      <div class="card stack" style="gap:12px" data-go="s-order">
+        <div class="between"><div class="row" style="gap:10px"><div class="ico blue" style="width:36px;height:36px">{{i:train:20}}</div><div><div class="ttl15 num">Вагон 58213470</div><div class="t3">Карбамид марки Б · 68 т</div></div></div><span class="pill ok">≈ 14 нояб.</span></div>
+        <div class="prog"><i style="width:64%"></i></div>
+        <div class="between t3"><span>Пермь-Сортировочная</span><span>→ Баженово</span></div>
+      </div>
+      <div class="card tight row">
+        <div class="ico blue" style="width:36px;height:36px">{{i:train:20}}</div>
+        <div style="flex:1"><div class="ttl15 num">Вагон 58213488</div><div class="t3">Углеуральская · 68 т</div></div>
+        <span class="pill warn">≈ 15 нояб. · +1 д</span>
+      </div>
+    </div>
+
+    <div class="stack">
+      <div class="sec"><h2>Заявки <em>8 активных</em></h2><span class="link" data-go="s-orders">Все</span></div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
+        <div class="card tight"><div class="amount" style="font-size:24px;line-height:30px">2</div><span class="pill neu">На согласовании</span></div>
+        <div class="card tight"><div class="amount" style="font-size:24px;line-height:30px">3</div><span class="pill info">Подтверждены</span></div>
+        <div class="card tight"><div class="amount" style="font-size:24px;line-height:30px">1</div><span class="pill warn">Отгружаются</span></div>
+        <div class="card tight"><div class="amount" style="font-size:24px;line-height:30px">2</div><span class="pill ok">В пути</span></div>
+      </div>
+    </div>
+
+    <div class="card stack" style="gap:14px" data-go="s-fin">
+      <div class="between"><h2 style="font-size:18px;font-weight:600">Финансы</h2><span class="link">Подробнее</span></div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+        <div><div class="t3">Свободный остаток</div><div class="num" style="font-size:20px;font-weight:700;line-height:28px">1 274 300 ₽</div></div>
+        <div><div class="t3">К оплате до 15.11</div><div class="num" style="font-size:20px;font-weight:700;line-height:28px;color:var(--err)">1 845 000 ₽</div></div>
+      </div>
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:8px">
+      <div class="card tight stack" style="gap:10px" data-go="s-cat"><div class="ico ok" style="width:36px;height:36px">{{i:plus:20}}</div><div style="font-size:14px;font-weight:600;line-height:18px">Новая<br>заявка</div></div>
+      <div class="card tight stack" style="gap:10px" data-go="s-cart"><div class="ico blue" style="width:36px;height:36px">{{i:repeat:20}}</div><div style="font-size:14px;font-weight:600;line-height:18px">Повторить<br>№ 1489</div></div>
+      <div class="card tight stack" style="gap:10px" data-go="s-chat"><div class="ico blue" style="width:36px;height:36px">{{i:msg:20}}</div><div style="font-size:14px;font-weight:600;line-height:18px">Обращение<br>менеджеру</div></div>
+    </div>
+
+    <div class="card row" style="background:#E8E9F4" data-go="s-news">
+      <div style="flex:1"><div class="label" style="color:var(--blue)">Новость · 21 окт.</div><div class="ttl15" style="margin-top:4px">«МультиСтарт» — новое биомодифицированное удобрение ВМУ</div></div>
+      <img src="assets/pack-solar-nitrat.png" style="height:72px">
+    </div>
+  </div>
+  {{tab:home}}
+</section></div>
+
+<!-- ======================= 2. КАТАЛОГ ======================= -->
+<div class="cap"><h3>02 · Каталог</h3>
+<section class="screen" id="s-cat" data-name="02 Каталог">
+  {{sb}}
+  <div class="top"><h1>Каталог</h1><div class="icon-btn soft">{{i:heart:22}}</div><div class="icon-btn soft" data-go="s-notif">{{i:bell:22}}<span class="dot-b">3</span></div></div>
+  <div style="background:var(--surface);padding:0 16px 14px" class="stack">
+    <div class="search">{{i:search:20}}Карбамид, 18:18:18, селитра…</div>
+    <div class="seg" style="margin-top:4px"><div class="on">{{i:leaf:18}}&nbsp;Сельскохозяйственное</div><div>{{i:factory:18}}&nbsp;Промышленное</div></div>
+  </div>
+  <div class="body" style="padding-top:14px;gap:12px">
+    <div class="chips"><span class="chip on">Все <span class="n">84</span></span><span class="chip">Водорастворимые <span class="n">23</span></span><span class="chip">Азотные <span class="n">14</span></span><span class="chip">Комплексные</span></div>
+    <div class="between"><span class="t3"><b style="color:var(--t1)">84 продукта</b> · цены без НДС</span><span class="chip" style="height:32px;color:var(--blue)" data-go="s-filters">{{i:filter:18}}Фильтры <span class="pill info" style="height:18px;padding:0 6px">1</span></span></div>
+
+    <div class="pcard" data-go="s-prod">
+      <div class="pimg"><img src="assets/pack-solar-micro.png"></div>
+      <div class="pinfo">
+        <div class="pname">SOLAR Универсал 18:18:18+3MgO+МЭ</div>
+        <div class="npk"><span><i>N</i>18</span><span><i>P</i>18</span><span><i>K</i>18</span><span><i>MgO</i>3</span></div>
+        <div class="price"><b class="num">112 400 ₽/т</b> · мешки 25 кг</div>
+        <div class="stepper" style="height:36px;margin-top:2px"><div class="sbtn" style="height:36px">{{i:minus:18}}</div><div class="val"><b>40 меш.</b><small>= 1 т</small></div><div class="sbtn" style="height:36px">{{i:plus:18}}</div></div>
+      </div>
+    </div>
+
+    <div class="pcard">
+      <div class="pimg"><img src="assets/pack-azotofosfat.png"></div>
+      <div class="pinfo">
+        <div class="pname">Азотофосфат марка 33:3, МКР 1000</div>
+        <div class="npk"><span><i>N</i>33</span><span><i>P</i>3</span></div>
+        <div class="price"><b class="num">31 900 ₽/т</b> · от 20 т</div>
+        <div class="btn s pri" style="align-self:flex-start;margin-top:2px">{{i:cart:18}}В корзину</div>
+      </div>
+    </div>
+
+    <div class="pcard">
+      <div class="pimg"><img src="assets/pack-nitrat-kalciya.png"></div>
+      <div class="pinfo">
+        <div class="pname">Нитрат кальция безводный, мешки 25 кг</div>
+        <div class="npk"><span><i>N</i>15,5</span><span><i>CaO</i>26</span></div>
+        <div class="price"><b class="num">64 800 ₽/т</b> · от 1 т</div>
+        <div class="btn s pri" style="align-self:flex-start;margin-top:2px">{{i:cart:18}}В корзину</div>
+      </div>
+    </div>
+
+    <div class="pcard" style="padding-bottom:0;height:72px;overflow:hidden">
+      <div class="pimg"><img src="assets/pack-solar-nitrat.png"></div>
+      <div class="pinfo"><div class="pname">SOLAR Нитрат кальция концентрированный</div></div>
+    </div>
+  </div>
+  {{tab:cat}}
+</section></div>
+
+<!-- ======================= 3. КАРТОЧКА ======================= -->
+<div class="cap"><h3>03 · Карточка товара</h3>
+<section class="screen" id="s-prod" data-name="03 Карточка товара">
+  {{sb}}
+  <div style="background:var(--surface);padding:6px 16px 0;display:flex;gap:8px"><div class="icon-btn soft" data-go="back">{{i:back:22}}</div><div style="flex:1"></div><div class="icon-btn soft">{{i:share:22}}</div><div class="icon-btn soft" style="color:#D23C3C">{{i:heart:22}}</div></div>
+  <div style="background:var(--surface);display:flex;justify-content:center;padding:8px 0 20px"><img src="assets/pack-solar-micro.png" style="height:200px"></div>
+  <div class="body" style="background:var(--surface);gap:16px;padding-bottom:20px">
+    <div class="stack" style="gap:6px">
+      <span class="t3">Водорастворимые · SOLAR</span>
+      <div style="font-size:22px;line-height:28px;font-weight:700">SOLAR Универсал 18:18:18+3MgO+МЭ</div>
+      <div class="npk" style="margin-top:6px"><span><i>N</i>18</span><span><i>P₂O₅</i>18</span><span><i>K₂O</i>18</span><span><i>MgO</i>3</span><span>+ микроэлементы</span></div>
+    </div>
+    <div class="stack" style="gap:8px"><span class="label">Фасовка</span><div class="seg"><div class="on">Мешок 25 кг</div><div>МКР 600 кг</div></div></div>
+    <div class="between" style="align-items:flex-end">
+      <div><div class="amount">112 400 <small>₽/т</small></div><div class="t3">без НДС · по договору 77-П/2026</div></div>
+      <span class="pill ok">В наличии</span>
+    </div>
+    <div class="card" style="background:var(--bg);padding:4px 14px">
+      <div class="kv"><span>Отгрузка</span><b>с 15 нояб. · ст. Березники</b></div>
+      <div class="kv" style="border:0"><span>Минимальный заказ</span><b>1 т (40 мешков)</b></div>
+    </div>
+    <div class="stack" style="gap:2px">
+      <div class="sec" style="margin-bottom:4px"><h2 style="font-size:16px">Состав</h2><span class="link">Все 13</span></div>
+      <div class="kv"><span>Азот общий (N)</span><b>18 %</b></div>
+      <div class="kv"><span>Фосфор водорастворимый (P₂O₅)</span><b>18 %</b></div>
+      <div class="kv"><span>Калий (K₂O)</span><b>18 %</b></div>
+      <div class="kv"><span>Магний (MgO)</span><b>3 %</b></div>
+    </div>
+    <div class="stack" style="gap:0">
+      <div class="lrow" style="padding-top:8px"><span class="ttl15" style="flex:1">Описание и применение</span><span class="chev">{{i:chevd:20}}</span></div>
+      <div class="lrow"><span class="ttl15" style="flex:1">Упаковка и хранение</span><span class="chev">{{i:chevd:20}}</span></div>
+      <div class="lrow"><span class="ttl15" style="flex:1">Транспортировка</span><span class="chev">{{i:chevd:20}}</span></div>
+      <div class="lrow"><span class="ttl15" style="flex:1">Документы <em class="t3" style="font-style:normal">· сертификат, паспорт безопасности</em></span><span class="chev">{{i:chevd:20}}</span></div>
+    </div>
+  </div>
+  <div class="dock" style="align-items:center">
+    <div class="stepper" style="width:150px;height:52px"><div class="sbtn" style="height:52px">{{i:minus:20}}</div><div class="val"><b>40 меш.</b><small>= 1 т</small></div><div class="sbtn" style="height:52px">{{i:plus:20}}</div></div>
+    <div data-go="s-cart" class="btn pri" style="flex:1;flex-direction:column;gap:0;line-height:1.15"><span>В корзину</span><span class="num" style="font-size:13px;font-weight:500;opacity:.9">112 400 ₽</span></div>
+    <div class="home-ind"></div>
+  </div>
+</section></div>
+
+<!-- ======================= 4. КОРЗИНА ======================= -->
+<div class="cap"><h3>04 · Корзина</h3>
+<section class="screen" id="s-cart" data-name="04 Корзина">
+  {{sb}}
+  <div class="top"><h1>Корзина <span style="color:var(--t3);font-weight:500">3</span></h1><span class="link" style="color:var(--t3)" data-go="s-cart-empty">Очистить</span></div>
+  <div class="body" style="padding-top:16px;gap:16px">
+    <div class="banner info"><span>{{i:info:20}}</span><span>В корзине <b>2 заявки</b>: продукты разных направлений оформляются отдельно и попадают к разным менеджерам.</span></div>
+
+    <div class="card stack" style="gap:14px">
+      <div class="between"><div class="row" style="gap:8px"><span style="color:var(--green-a)">{{i:leaf:20}}</span><span class="ttl16">Сельскохозяйственное</span></div><span class="pill neu">Заявка 1</span></div>
+      <div class="row" style="align-items:flex-start"><div class="pimg" style="width:56px;height:68px"><img src="assets/pack-solar-micro.png" style="height:56px"></div>
+        <div class="pinfo"><div class="ttl15">SOLAR Универсал 18:18:18, мешки 25 кг</div><div class="t3 num">112 400 ₽/т · <b style="color:var(--t1)">1 124 000 ₽</b></div>
+          <div class="row" style="gap:8px"><div class="stepper" style="height:36px;flex:1"><div class="sbtn" style="height:36px;width:36px">{{i:minus:18}}</div><div class="val"><b>400 меш.</b><small>= 10 т</small></div><div class="sbtn" style="height:36px;width:36px">{{i:plus:18}}</div></div><div class="icon-btn soft" style="width:36px;height:36px;color:var(--t3)">{{i:trash:18}}</div></div></div></div>
+      <div class="row" style="align-items:flex-start"><div class="pimg" style="width:56px;height:68px"><img src="assets/pack-nitrat-kalciya.png" style="height:56px"></div>
+        <div class="pinfo"><div class="ttl15">Нитрат кальция безводный, мешки 25 кг</div><div class="t3 num">64 800 ₽/т · <b style="color:var(--t1)">64 800 ₽</b></div>
+          <div class="row" style="gap:8px"><div class="stepper" style="height:36px;flex:1"><div class="sbtn" style="height:36px;width:36px">{{i:minus:18}}</div><div class="val"><b>40 меш.</b><small>= 1 т</small></div><div class="sbtn" style="height:36px;width:36px">{{i:plus:18}}</div></div><div class="icon-btn soft" style="width:36px;height:36px;color:var(--t3)">{{i:trash:18}}</div></div></div></div>
+      <div style="border-top:1px solid var(--surface-2);padding-top:12px" class="stack" >
+        <div class="between"><span class="t2">2 позиции · <b class="num" style="color:var(--t1)">11 т</b></span><span class="num" style="font-size:20px;font-weight:700">1 188 800 ₽</span></div>
+        <div class="between t3" style="margin-top:-6px"><span>без НДС</span><span class="num">с НДС 1 426 560 ₽</span></div>
+      </div>
+      <div class="btn pri full" data-go="s-checkout">Оформить заявку 1</div>
+    </div>
+
+    <div class="card stack" style="gap:14px">
+      <div class="between"><div class="row" style="gap:8px"><span style="color:var(--blue)">{{i:factory:20}}</span><span class="ttl16">Промышленное</span></div><span class="pill neu">Заявка 2</span></div>
+      <div class="row"><div class="pimg" style="width:56px;height:68px;background:#E8E9F4;color:var(--blue);flex-direction:column;font-weight:700;font-size:15px;line-height:18px">N<span style="font-size:20px">46</span></div>
+        <div class="pinfo"><div class="ttl15">Карбамид марки Б, навал</div><div class="t3 num">32 000 ₽/т · <b style="color:var(--t1)">2 176 000 ₽</b></div><div class="t3 num">68 т · 1 вагон</div></div><span class="chev" style="color:var(--t3)">{{i:chev:20}}</span></div>
+      <div class="btn out full">Оформить заявку 2</div>
+    </div>
+  </div>
+  {{tab:cart}}
+</section></div>
+
+<!-- ======================= 5. ОФОРМЛЕНИЕ ======================= -->
+<div class="cap"><h3>05 · Оформление заявки</h3>
+<section class="screen" id="s-checkout" data-name="05 Оформление заявки">
+  {{sb}}
+  <div class="top"><div class="icon-btn soft" data-go="back">{{i:back:22}}</div><div class="ttl">Заявка 1 · Сельхоз</div><div class="icon-btn"></div></div>
+  <div class="body" style="padding-top:16px;gap:18px">
+    <div class="banner info" style="align-items:center"><span>{{i:repeat:20}}</span><span>Данные доставки подставлены из заявки <b>№ 1489</b></span></div>
+    <div class="stack"><span class="label">Доставка</span><div class="seg"><div class="on">{{i:train:18}}&nbsp;Ж/д транспорт</div><div>Самовывоз</div></div></div>
+    <div class="stack">
+      <div class="field"><div class="fl"><small>Станция назначения</small><b>Баженово, Свердловская ж/д</b></div><span class="t3 num">780707</span></div>
+      <div class="field"><div class="fl"><small>Грузополучатель</small><b>ООО «АгроСнаб-Урал»</b></div><span class="chev">{{i:chev:20}}</span></div>
+      <div class="field"><div class="fl"><small>Договор</small><b>77-П/2026 · RUB</b></div><span class="chev">{{i:chev:20}}</span></div>
+    </div>
+    <div class="stack"><span class="label">Период отгрузки · ноябрь 2026</span>
+      <div class="seg"><div>1–10</div><div class="on">11–20</div><div>21–30</div></div></div>
+    <div class="field ph" style="min-height:80px;align-items:flex-start"><div class="fl"><small>Комментарий менеджеру</small><b>Например: выгрузка только в будни</b></div></div>
+    <div class="card stack" style="gap:2px">
+      <div class="kv"><span>SOLAR Универсал · 10 т</span><b>1 124 000 ₽</b></div>
+      <div class="kv"><span>Нитрат кальция · 1 т</span><b>64 800 ₽</b></div>
+      <div class="kv"><span>НДС 20 %</span><b>237 760 ₽</b></div>
+      <div class="kv" style="border:0;font-size:16px"><span style="color:var(--t1);font-weight:600">Итого · 11 т</span><b>1 426 560 ₽</b></div>
+    </div>
+    <p class="t3">Цены по договору 77-П/2026, без учёта ж/д тарифа. Менеджер <b style="color:var(--t2)">Лукьянова С. А.</b> подтвердит график до 10 ноября, статус придёт в push.</p>
+  </div>
+  <div class="dock"><div class="btn pri full" data-go="s-success">Отправить заявку · 1 426 560 ₽</div><div class="home-ind"></div></div>
+</section></div>
+
+<!-- ======================= 6. ЗАЯВКА + ТРЕКИНГ ======================= -->
+<div class="cap"><h3>06 · Заявка и трекинг вагонов</h3>
+<section class="screen" id="s-order" data-name="06 Заявка — трекинг">
+  {{sb}}
+  <div class="top"><div class="icon-btn soft" data-go="back">{{i:back:22}}</div><div class="ttl">Заявка № 1489</div><div class="icon-btn soft">{{i:dots:22}}</div></div>
+  <div style="background:var(--surface);padding:4px 16px 18px" class="stack">
+    <div class="lc">
+      <div class="lc-line"><i style="width:75%"></i></div>
+      <div class="lc-s"><b>{{i:check:14}}</b>Согласование</div>
+      <div class="lc-s"><b>{{i:check:14}}</b>Подтверждена</div>
+      <div class="lc-s"><b>{{i:check:14}}</b>Отгрузка</div>
+      <div class="lc-s cur"><b></b>В пути</div>
+      <div class="lc-s fut"><b></b>Доставлена</div>
+    </div>
+    <div class="card" style="background:var(--bg);margin-top:10px;padding:12px 14px">
+      <div class="between"><span class="ttl15">Карбамид марки Б, навал</span><span class="num ttl15">136 т</span></div>
+      <div class="between t3" style="margin-top:2px"><span>Договор 77-П/2026</span><span class="num">4 352 000 ₽</span></div>
+    </div>
+  </div>
+  <div class="body" style="padding-top:14px;gap:14px">
+    <div class="seg" style="background:#E4E5EE"><div class="on">Отгрузка</div><div>Состав</div><div>Документы</div><div>История</div></div>
+
+    <div class="card" style="background:var(--blue);color:#fff">
+      <div style="font-size:13px;color:#C9CAE6">Прибытие на ст. Баженово</div>
+      <div class="amount" style="color:#fff">≈ 14–15 ноября</div>
+      <div style="font-size:14px;color:#E1E2F2;margin-top:2px" class="num">2 вагона · осталось ~ 410 км</div>
+    </div>
+
+    <div class="card stack" style="gap:14px">
+      <div class="between"><div class="row" style="gap:10px"><div class="ico blue" style="width:36px;height:36px">{{i:train:20}}</div><div><div class="ttl15 num">Вагон 58213470 · 68 т</div><div class="t3 num">Накладная ЭА123456 {{i:copy:14}}</div></div></div><span class="pill ok">≈ 14 нояб.</span></div>
+      <div class="tl">
+        <div class="tl-i"><div class="tl-dot"><b></b><i></i></div><div class="tl-c"><div class="ttl15" style="font-weight:500">Березники-Сортировочная</div><div class="t3 num">Отправление · 06.11, 14:20</div></div></div>
+        <div class="tl-i"><div class="tl-dot"><b class="cur"></b><i class="fut"></i></div><div class="tl-c"><div class="ttl15">Пермь-Сортировочная</div><div class="t3 num">Сейчас · обновлено 08.11, 07:40</div></div></div>
+        <div class="tl-i"><div class="tl-dot"><b class="fut" style="width:8px;height:8px;margin-top:6px"></b><i class="fut"></i></div><div class="tl-c"><span class="link" style="font-size:13px">Ещё 6 станций</span></div></div>
+        <div class="tl-i"><div class="tl-dot"><b class="fut"></b></div><div class="tl-c"><div class="ttl15" style="font-weight:500">Баженово</div><div class="t3">Прибытие ≈ 14.11</div></div></div>
+      </div>
+    </div>
+
+    <div class="card tight row">
+      <div class="ico blue" style="width:36px;height:36px">{{i:train:20}}</div>
+      <div style="flex:1"><div class="ttl15 num">Вагон 58213488 · 68 т</div><div class="t3">Углеуральская · задержка на 1 день</div></div>
+      <span class="pill warn">≈ 15 нояб.</span>
+    </div>
+  </div>
+  <div class="dock"><div class="btn sec" style="flex:1" data-go="s-issue">{{i:alert:18}}Проблема</div><div class="btn blue" style="flex:1.3" data-go="s-chat">{{i:msg:18}}Чат с менеджером</div><div class="home-ind"></div></div>
+</section></div>
+
+<!-- ======================= 7. ФИНАНСЫ ======================= -->
+<div class="cap"><h3>07 · Финансы</h3>
+<section class="screen" id="s-fin" data-name="07 Финансы">
+  {{sb}}
+  <div class="top"><div class="icon-btn soft" data-go="back">{{i:back:22}}</div><div class="ttl">Финансы</div><div class="icon-btn"></div></div>
+  <div class="body" style="padding-top:16px;gap:16px">
+    <div class="row" style="gap:8px"><span class="chip on">77-П/2026 · RUB {{i:chevd:16}}</span><span class="chip">USD</span><span class="chip">EUR</span></div>
+    <div class="card" style="background:var(--blue);color:#fff;padding:20px">
+      <div style="font-size:14px;color:#C9CAE6">К оплате до 15 ноября</div>
+      <div class="amount" style="color:#fff;font-size:32px;line-height:40px">1 845 000 <small>₽</small></div>
+      <div style="display:flex;gap:8px;margin-top:16px"><div class="btn m white" style="flex:1">{{i:down:18}}Счёт № 4412</div><div class="btn m" style="flex:1;background:rgba(255,255,255,.14);color:#fff">Реквизиты</div></div>
+    </div>
+    <div class="card row"><div class="ico ok">{{i:wallet:22}}</div><div style="flex:1"><div class="t3">Свободный остаток</div><div class="num" style="font-size:20px;font-weight:700">1 274 300 ₽</div></div><span class="link">Операции</span></div>
+
+    <div class="stack" style="gap:8px">
+      <div class="sec"><h2>Счета</h2><span class="link">Все</span></div>
+      <div class="card" style="padding:14px 16px">
+        <div class="lrow"><div style="flex:1"><div class="ttl15 num">№ 4412 · 1 845 000 ₽</div><div class="t3">от 01.11 · заявка № 1567</div></div><span class="pill warn">К оплате</span></div>
+        <div class="lrow"><div style="flex:1"><div class="ttl15 num">№ 4398 · 620 400 ₽</div><div class="t3">от 24.10 · заявка № 1489</div></div><span class="pill ok">{{i:check:14}}Оплачен</span></div>
+        <div class="lrow"><div style="flex:1"><div class="ttl15 num">№ 4371 · 2 108 000 ₽</div><div class="t3">от 12.10 · заявка № 1460</div></div><span class="pill ok">{{i:check:14}}Оплачен</span></div>
+      </div>
+    </div>
+
+    <div class="stack" style="gap:8px">
+      <div class="sec"><h2>Документы и операции</h2></div>
+      <div class="card" style="padding:14px 16px">
+        <div class="lrow"><div class="ico blue" style="width:36px;height:36px">{{i:doc:20}}</div><div style="flex:1"><div class="ttl15">Акт сверки</div><div class="t3">Запросить за период · до 2 дней</div></div><span class="chev">{{i:chev:20}}</span></div>
+        <div class="lrow"><div class="ico blue" style="width:36px;height:36px">{{i:repeat:20}}</div><div style="flex:1"><div class="ttl15">Перенести остаток</div><div class="t3">На другой договор</div></div><span class="chev">{{i:chev:20}}</span></div>
+        <div class="lrow"><div class="ico blue" style="width:36px;height:36px">{{i:wallet:20}}</div><div style="flex:1"><div class="ttl15">Вернуть средства</div><div class="t3">На расчётный счёт</div></div><span class="chev">{{i:chev:20}}</span></div>
+      </div>
+    </div>
+  </div>
+  {{tab:prof}}
+</section></div>
+
+<!-- ======================= 8. ИНСПЕКТОР ======================= -->
+<div class="cap"><h3>08 · Инспектор — задачи на день</h3>
+<section class="screen dark" id="s-insp" data-name="08 Инспектор — задачи, офлайн">
+  {{sb}}
+  <div style="background:#1E2050;color:#fff;padding:6px 16px 18px" class="stack">
+    <div class="between"><div><div style="font-size:13px;color:#C9CAE6">Суббота, 8 ноября</div><div style="font-size:22px;line-height:28px;font-weight:700">4 задачи на сегодня</div></div><div class="icon-btn" style="background:rgba(255,255,255,.12);color:#fff">{{i:bell:22}}</div></div>
+    <div class="banner" style="background:rgba(255,166,26,.16);color:#FFD592;padding:10px 12px;align-items:center;margin-top:6px"><span>{{i:wifioff:20}}</span><span style="flex:1">Нет сети · 3 изменения ждут отправки</span><span style="font-size:12px;color:#C9CAE6">синхр. 07:15</span></div>
+  </div>
+  <div class="body" style="padding-top:16px;gap:14px">
+    <div class="card stack" style="gap:14px;border:2px solid var(--green)">
+      <div class="between"><span class="pill ok">Следующая · 08:30</span><span class="t3">1,2 км</span></div>
+      <div><div class="ttl16">Инспекция склада</div><div class="t2">Склад ООО «АгроСнаб-Урал», Красноуфимск</div></div>
+      <div class="row" style="gap:8px"><img src="assets/pack-azotofosfat.png" style="height:44px"><div class="t3" style="flex:1">Карбамид марки Б · 120 т<br>Азотофосфат 33:3 · 40 т</div></div>
+      <div class="btn pri full" data-go="s-insp-run">Начать инспекцию</div>
+    </div>
+    <div class="card tight row"><div class="ico info" style="width:44px;height:44px;font-weight:700;font-size:13px" >11:00</div><div style="flex:1"><div class="ttl15">Отбор образца</div><div class="t3">Нитрат кальция · партия 2611-04</div></div><span class="chev" style="color:var(--t3)">{{i:chev:20}}</span></div>
+    <div class="card tight row"><div class="ico info" style="width:44px;height:44px;font-weight:700;font-size:13px">14:00</div><div style="flex:1"><div class="ttl15">Условия хранения</div><div class="t3">ООО «Урал-Агро», Сухой Лог</div></div><span class="chev" style="color:var(--t3)">{{i:chev:20}}</span></div>
+    <div class="card tight row"><div class="ico info" style="width:44px;height:44px;font-weight:700;font-size:13px">16:30</div><div style="flex:1"><div class="ttl15">Приёмка вагона</div><div class="t3 num">ст. Богданович · 58213501</div></div><span class="pill warn">Замечание</span></div>
+    <div class="between" style="padding:4px 4px 0"><span class="t2">Выполнено · 1</span><span style="color:var(--t3)">{{i:chevd:20}}</span></div>
+  </div>
+  <div class="fab" data-go="s-remark">{{i:camera:22}}Замечание</div>
+  {{tabi:tasks}}
+</section></div>
+
+{{more}}
+</div>
+<script>
+const params = new URLSearchParams(location.hash.slice(1));
+/* #only=<id> — один экран или лист без полей (экспорт PNG); фон-маркер обрезается при экспорте */
+const only = params.get('only');
+if (only) {
+  const el = document.getElementById(only);
+  document.body.innerHTML = ''; document.body.style.padding = '0'; document.body.style.background = params.has('mark') ? '#FF00FF' : '#FFFFFF';
+  el.style.boxShadow = 'none'; document.body.appendChild(el);
+}
+/* #proto=<id> — кликабельный прототип в рамке телефона */
+if (params.has('proto')) {
+  const screens = [...document.querySelectorAll('section.screen')];
+  const store = Object.fromEntries(screens.map(s => [s.id, s]));
+  document.body.innerHTML = '';
+  document.body.className = 'proto';
+  document.body.insertAdjacentHTML('beforeend', '<div class="pv-phone"><div class="pv-scroll"></div></div><div class="pv-side"><h2>УРАЛХИМ · прототип</h2><p>Кликайте по таббару, кнопкам и карточкам — кликабельные зоны подсвечиваются при наведении. «Назад» — стрелка в шапке.</p><nav></nav></div>');
+  const scroll = document.querySelector('.pv-scroll'), nav = document.querySelector('.pv-side nav');
+  nav.innerHTML = screens.map(s => '<a href="#proto=' + s.id + '" data-id="' + s.id + '">' + s.dataset.name + '</a>').join('');
+  const hist = [];
+  function show(id, push) {
+    if (!store[id]) id = 's-home';
+    const cur = scroll.firstElementChild;
+    if (push && cur && cur.id !== id) hist.push(cur.id);
+    scroll.innerHTML = ''; scroll.appendChild(store[id]); scroll.scrollTop = 0;
+    nav.querySelectorAll('a').forEach(a => a.classList.toggle('on', a.dataset.id === id));
+    history.replaceState(null, '', '#proto=' + id);
+  }
+  scroll.addEventListener('click', e => {
+    const t = e.target.closest('[data-go]'); if (!t) return;
+    const go = t.dataset.go;
+    if (go === 'back') show(hist.pop() || 's-home', false); else show(go, true);
+  });
+  nav.addEventListener('click', e => { const a = e.target.closest('a'); if (!a) return; e.preventDefault(); show(a.dataset.id, true); });
+  show(params.get('proto') || 's-login', false);
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,1118 @@
+<!doctype html>
+<html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Прототипы · УРАЛХИМ — ЛК партнёра</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --p-white:#FFFFFF;
+  --p-blue-950:#1E2050;
+  --p-blue-900:#272A6B;
+  --p-blue-700:#3A3E8C;
+  --p-blue-300:#C9CAE6;
+  --p-blue-100:#E8E9F4;
+  --p-green-700:#006B3C;
+  --p-green-600:#00844A;
+  --p-green-500:#00A55A;
+  --p-green-50:#E3F5EC;
+  --p-gray-900:#232324;
+  --p-gray-800:#474850;
+  --p-gray-600:#5A6B80;
+  --p-gray-300:#B4B4C8;
+  --p-gray-200:#DCDDE8;
+  --p-gray-150:#E4E5EE;
+  --p-gray-100:#EEEFF5;
+  --p-gray-50:#F4F5F7;
+  --p-orange-800:#8A5300;
+  --p-orange-500:#FFA61A;
+  --p-orange-50:#FFF1D6;
+  --p-red-700:#B42323;
+  --p-red-500:#D23C3C;
+  --p-red-50:#FDE8E8;
+  --p-sky-700:#005FCC;
+  --p-sky-500:#0073FF;
+  --p-sky-50:#E6F1FF;
+  --color-bg:var(--p-gray-50);
+  --color-surface:var(--p-white);
+  --color-surface-2:var(--p-gray-100);
+  --color-surface-3:var(--p-gray-150);
+  --color-surface-brand:var(--p-blue-100);
+  --color-surface-inverse:var(--p-blue-900);
+  --color-surface-dark:var(--p-blue-950);
+  --color-border:var(--p-gray-200);
+  --color-border-strong:var(--p-gray-300);
+  --color-text-primary:var(--p-gray-900);
+  --color-text-secondary:var(--p-gray-800);
+  --color-text-tertiary:var(--p-gray-600);
+  --color-text-brand:var(--p-blue-900);
+  --color-text-on-brand:var(--p-white);
+  --color-text-on-brand-muted:var(--p-blue-300);
+  --color-action-primary:var(--p-green-600);
+  --color-action-primary-pressed:var(--p-green-700);
+  --color-action-brand:var(--p-blue-900);
+  --color-accent:var(--p-green-500);
+  --color-badge:var(--p-red-500);
+  --color-success-fg:var(--p-green-600);
+  --color-success-bg:var(--p-green-50);
+  --color-warning-fg:var(--p-orange-800);
+  --color-warning-bg:var(--p-orange-50);
+  --color-warning-fill:var(--p-orange-500);
+  --color-danger-fg:var(--p-red-700);
+  --color-danger-bg:var(--p-red-50);
+  --color-info-fg:var(--p-sky-700);
+  --color-info-bg:var(--p-sky-50);
+  --space-0:0px;
+  --space-1:4px;
+  --space-2:8px;
+  --space-3:12px;
+  --space-4:16px;
+  --space-5:20px;
+  --space-6:24px;
+  --space-8:32px;
+  --space-10:40px;
+  --space-12:48px;
+  --radius-s:8px;
+  --radius-m:12px;
+  --radius-l:14px;
+  --radius-xl:16px;
+  --radius-2xl:20px;
+  --radius-full:999px;
+  --size-button-l:52px;
+  --size-button-m:44px;
+  --size-button-s:36px;
+  --size-field:56px;
+  --size-tabbar:84px;
+  --size-icon:24px;
+  --size-icon-s:20px;
+  --size-screen:375px;
+  --font-display:700 28px/34px "Onest",system-ui,sans-serif;
+  --font-h1:700 22px/28px "Onest",system-ui,sans-serif;
+  --font-h2:600 18px/24px "Onest",system-ui,sans-serif;
+  --font-title:600 16px/22px "Onest",system-ui,sans-serif;
+  --font-title-s:600 15px/21px "Onest",system-ui,sans-serif;
+  --font-body:400 15px/22px "Onest",system-ui,sans-serif;
+  --font-body-s:400 14px/20px "Onest",system-ui,sans-serif;
+  --font-caption:400 13px/18px "Onest",system-ui,sans-serif;
+  --font-label:600 12px/16px "Onest",system-ui,sans-serif;
+  --font-tab:500 11px/14px "Onest",system-ui,sans-serif;
+  --bg:var(--color-bg);
+  --surface:var(--color-surface);
+  --surface-2:var(--color-surface-2);
+  --border:var(--color-border);
+  --border-strong:var(--color-border-strong);
+  --t1:var(--color-text-primary);
+  --t2:var(--color-text-secondary);
+  --t3:var(--color-text-tertiary);
+  --blue:var(--color-action-brand);
+  --green:var(--color-accent);
+  --green-a:var(--color-action-primary);
+  --green-p:var(--color-action-primary-pressed);
+  --ok:var(--color-success-fg);
+  --ok-bg:var(--color-success-bg);
+  --warn:var(--color-warning-fg);
+  --warn-bg:var(--color-warning-bg);
+  --warn-f:var(--color-warning-fill);
+  --err:var(--color-danger-fg);
+  --err-bg:var(--color-danger-bg);
+  --info:var(--color-info-fg);
+  --info-bg:var(--color-info-bg);
+  --blue-2:var(--p-blue-700);
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:"Onest",system-ui,sans-serif;background:#D9DBE4;color:var(--t1);-webkit-font-smoothing:antialiased;padding:48px 40px 80px}
+.num{font-variant-numeric:tabular-nums}
+/* шапка сайта кейса (общая для всех страниц) */
+.hdr{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.94);backdrop-filter:blur(12px);border-bottom:1px solid var(--border)}
+.hdr-in{max-width:1240px;margin:0 auto;height:72px;padding:0 24px;display:flex;align-items:center;gap:20px}
+.brand{display:flex;align-items:center;gap:14px;text-decoration:none;color:var(--t1);min-width:0}
+.brand img{height:18px;flex:none}
+.brand span{font-size:13px;color:var(--t3);border-left:1px solid var(--border);padding-left:14px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.menu-top{margin-left:auto;display:flex;gap:4px;align-items:center}
+.menu-top a{height:40px;padding:0 16px;border-radius:12px;display:flex;align-items:center;gap:6px;font-size:15px;font-weight:600;color:var(--t2);text-decoration:none;white-space:nowrap}
+.menu-top a:hover{background:var(--surface-2)}
+.menu-top a.on{background:var(--blue);color:#fff}
+.menu-top a.fig{border:1.5px solid var(--border);color:var(--blue);margin-left:8px}
+.menu-top a.fig:hover{border-color:var(--blue);background:#fff}
+.back-btn{height:40px;padding:0 14px 0 10px;border-radius:12px;display:flex;align-items:center;gap:4px;font-size:15px;font-weight:600;color:var(--blue);background:var(--surface-2);text-decoration:none;white-space:nowrap;flex:none}
+.back-btn:hover{background:#E4E5EE}
+.board-hdr{margin:-48px -40px 48px}
+@media (max-width:760px){.hdr-in{height:auto;padding:12px 16px;flex-wrap:wrap;gap:10px}.menu-top{margin-left:0;width:100%;overflow-x:auto}.menu-top a{height:36px;padding:0 12px;font-size:14px}.brand span{display:none}}
+.board{display:flex;flex-wrap:wrap;gap:56px 40px;align-items:flex-start;max-width:2000px;margin:0 auto}
+.cap{width:375px}
+.cap h3{font-size:13px;font-weight:600;color:var(--blue);letter-spacing:.06em;text-transform:uppercase;margin-bottom:12px}
+
+/* ---------- screen ---------- */
+.screen{width:375px;min-height:812px;background:var(--bg);border-radius:0;display:flex;flex-direction:column;position:relative;overflow:hidden;box-shadow:0 24px 60px rgba(39,42,107,.18)}
+.sb{height:44px;display:flex;align-items:center;justify-content:space-between;padding:0 22px 0 28px;background:var(--surface);color:var(--t1);flex:none}
+.sb-t{font-weight:600;font-size:15px;width:54px}
+.sb-logo{height:11px}
+.sb-r{display:flex;gap:6px;align-items:center;width:54px;justify-content:flex-end}
+.sb-r svg{fill:currentColor}
+.dark .sb{background:#1E2050;color:#fff}
+.body{flex:1;padding:0 16px 24px;display:flex;flex-direction:column;gap:20px}
+
+/* top bars */
+.top{background:var(--surface);padding:6px 16px 14px;display:flex;align-items:center;gap:12px;flex:none}
+.top h1{font-size:22px;line-height:28px;font-weight:700;flex:1}
+.top .ttl{flex:1;font-size:17px;font-weight:600;text-align:center}
+.icon-btn{width:40px;height:40px;border-radius:12px;display:flex;align-items:center;justify-content:center;color:var(--t1);position:relative;flex:none}
+.icon-btn.soft{background:var(--surface-2)}
+.dot-b{position:absolute;top:4px;right:3px;min-width:18px;height:18px;padding:0 5px;border-radius:9px;background:#D23C3C;color:#fff;font-size:11px;font-weight:600;line-height:18px;text-align:center;border:2px solid #fff}
+.company{flex:1;display:flex;flex-direction:column}
+.company b{font-size:17px;font-weight:700;display:flex;align-items:center;gap:4px}
+.company span{font-size:13px;color:var(--t3)}
+
+/* inputs */
+.search{height:48px;border-radius:14px;background:var(--surface-2);display:flex;align-items:center;gap:10px;padding:0 14px;color:var(--t3);font-size:15px}
+.top + .search-wrap{background:var(--surface);padding:0 16px 14px}
+.field{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:9px 14px;min-height:56px;display:flex;align-items:center;gap:10px}
+.field .fl{flex:1}
+.field small{display:block;font-size:12px;color:var(--t3);line-height:16px}
+.field b{font-size:15px;font-weight:500;line-height:22px}
+.field.ph b{color:var(--t3);font-weight:400}
+.field .chev{color:var(--t3)}
+
+/* type */
+.sec{display:flex;align-items:baseline;justify-content:space-between}
+.sec h2{font-size:18px;line-height:24px;font-weight:600}
+.sec h2 em{font-style:normal;color:var(--t3);font-weight:500;margin-left:4px}
+.link{font-size:14px;font-weight:600;color:var(--blue)}
+.cap-t{font-size:13px;line-height:18px;color:var(--t3)}
+.label{font-size:12px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:var(--t3)}
+
+/* cards */
+.card{background:var(--surface);border-radius:16px;padding:16px}
+.card.tight{padding:12px}
+.stack{display:flex;flex-direction:column;gap:8px}
+.row{display:flex;align-items:center;gap:12px}
+.between{display:flex;justify-content:space-between;align-items:center}
+.ico{width:40px;height:40px;border-radius:12px;display:flex;align-items:center;justify-content:center;flex:none}
+.ico.warn{background:var(--warn-bg);color:var(--warn)}
+.ico.info{background:var(--info-bg);color:var(--info)}
+.ico.ok{background:var(--ok-bg);color:var(--ok)}
+.ico.blue{background:#E8E9F4;color:var(--blue)}
+.ttl16{font-size:16px;line-height:22px;font-weight:600}
+.ttl15{font-size:15px;line-height:21px;font-weight:600}
+.t2{color:var(--t2);font-size:14px;line-height:20px}
+.t3{color:var(--t3);font-size:13px;line-height:18px}
+.amount{font-size:28px;line-height:34px;font-weight:700;font-variant-numeric:tabular-nums;letter-spacing:-.01em}
+.amount small{font-size:18px;font-weight:600}
+
+/* buttons */
+.btn{height:52px;border-radius:14px;display:flex;align-items:center;justify-content:center;gap:8px;font-size:16px;font-weight:600;padding:0 18px;white-space:nowrap}
+.btn svg,.row svg,.pill svg,.chip svg{flex:none}
+.btn,.chip,.pill{min-width:0;max-width:100%}
+.lbl{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.btn.dis{background:var(--surface-2);color:var(--t3);pointer-events:none}
+.field.err{border:2px solid var(--err)}
+.field-err{font-size:12px;line-height:16px;color:var(--err);margin:-4px 0 0 14px}
+.btn.m{height:44px;font-size:15px;border-radius:12px}
+.btn.s{height:36px;font-size:14px;border-radius:10px;padding:0 14px}
+.btn.pri{background:var(--green-a);color:#fff}
+.btn.sec{background:var(--surface-2);color:var(--blue)}
+.btn.out{background:var(--surface);color:var(--blue);border:1.5px solid var(--border)}
+.btn.blue{background:var(--blue);color:#fff}
+.btn.white{background:#fff;color:var(--blue)}
+.btn.full{width:100%}
+
+/* chips & pills */
+.chips{display:flex;gap:8px;overflow:hidden;white-space:nowrap}
+.chip{height:36px;padding:0 14px;border-radius:999px;background:var(--surface);border:1px solid var(--border);display:inline-flex;align-items:center;gap:6px;font-size:14px;font-weight:500;color:var(--t2);flex:none}
+.chip.on{background:var(--blue);border-color:var(--blue);color:#fff}
+.chip .n{font-size:12px;font-weight:600;color:var(--t3)}
+.chip.on .n{color:#C9CAE6}
+.pill{display:inline-flex;align-items:center;gap:4px;height:24px;padding:0 9px;border-radius:999px;font-size:12px;font-weight:600;white-space:nowrap}
+.pill svg{width:14px;height:14px}
+.pill.ok{background:var(--ok-bg);color:var(--ok)}
+.pill.warn{background:var(--warn-bg);color:var(--warn)}
+.pill.err{background:var(--err-bg);color:var(--err)}
+.pill.info{background:var(--info-bg);color:var(--info)}
+.pill.neu{background:var(--surface-2);color:var(--t2)}
+.npk{display:flex;gap:6px;flex-wrap:wrap}
+.npk span{height:26px;padding:0 8px;border-radius:8px;background:#E8E9F4;color:var(--blue);font-size:13px;font-weight:600;display:inline-flex;align-items:center;font-variant-numeric:tabular-nums}
+.npk span i{font-style:normal;font-weight:500;color:var(--t3);margin-right:4px}
+
+/* segmented */
+.seg{display:flex;background:var(--surface-2);border-radius:12px;padding:3px}
+.seg div{flex:1;height:36px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:600;color:var(--t3)}
+.seg .on{background:#fff;color:var(--t1);box-shadow:0 1px 3px rgba(35,35,36,.12)}
+
+/* progress */
+.prog{height:6px;border-radius:3px;background:var(--surface-2);position:relative;overflow:hidden}
+.prog i{position:absolute;left:0;top:0;bottom:0;border-radius:3px;background:var(--green)}
+
+/* stepper */
+.stepper{display:flex;align-items:center;height:44px;border-radius:12px;background:var(--surface-2);overflow:hidden}
+.stepper .sbtn{width:44px;height:44px;display:flex;align-items:center;justify-content:center;color:var(--blue)}
+.stepper .val{flex:1;text-align:center;line-height:1.1}
+.stepper .val b{display:block;font-size:15px;font-weight:600;font-variant-numeric:tabular-nums}
+.stepper .val small{font-size:11px;color:var(--t3)}
+
+/* tabbar */
+.tab{height:84px;background:rgba(255,255,255,.96);border-top:1px solid var(--border);display:flex;padding:6px 6px 0;position:relative;flex:none}
+.tab-i{flex:1;display:flex;flex-direction:column;align-items:center;gap:3px;font-size:11px;font-weight:500;color:var(--t3);padding-top:2px}
+.tab-i.on{color:var(--blue);font-weight:600}
+.tab-ic{position:relative;height:26px;display:flex;align-items:center}
+.tab-i.on .tab-ic::after{content:"";position:absolute;left:50%;top:-8px;width:20px;height:3px;border-radius:2px;background:var(--green);transform:translateX(-50%)}
+.tab-b{position:absolute;top:-3px;left:16px;min-width:18px;height:18px;border-radius:9px;background:#D23C3C;color:#fff;font-size:11px;font-weight:600;line-height:16px;text-align:center;border:1.5px solid #fff;padding:0 4px}
+.home-ind{position:absolute;bottom:8px;left:50%;transform:translateX(-50%);width:134px;height:5px;border-radius:3px;background:var(--t1)}
+
+/* sticky bottom bar (non-tab screens) */
+.dock{background:var(--surface);border-top:1px solid var(--border);padding:12px 16px 34px;display:flex;gap:10px;flex:none;position:relative}
+.dock .home-ind{bottom:8px}
+.dock .btn{min-width:0;padding:0 12px}
+
+/* product */
+.pcard{background:var(--surface);border-radius:16px;padding:12px;display:flex;gap:12px}
+.pimg{width:84px;height:104px;border-radius:12px;background:var(--surface-2);display:flex;align-items:center;justify-content:center;flex:none}
+.pimg img{height:88px}
+.pinfo{flex:1;display:flex;flex-direction:column;gap:6px;min-width:0}
+.pname{font-size:15px;line-height:20px;font-weight:600}
+.price{font-size:13px;color:var(--t2)}
+.price b{color:var(--t1);font-weight:600}
+
+/* timeline */
+.tl{display:flex;flex-direction:column}
+.tl-i{display:flex;gap:12px;position:relative;padding-bottom:16px}
+.tl-i:last-child{padding-bottom:0}
+.tl-dot{width:20px;display:flex;flex-direction:column;align-items:center;flex:none}
+.tl-dot b{width:12px;height:12px;border-radius:6px;background:var(--green);margin-top:4px;flex:none}
+.tl-dot b.cur{width:20px;height:20px;border-radius:10px;background:#fff;border:5px solid var(--green);margin-top:0}
+.tl-dot b.fut{background:#fff;border:2px solid var(--border-strong)}
+.tl-dot i{flex:1;width:2px;background:var(--green);margin-top:2px}
+.tl-dot i.fut{background:repeating-linear-gradient(var(--border-strong) 0 4px,transparent 4px 8px)}
+.tl-c{flex:1}
+
+/* list rows */
+.lrow{display:flex;align-items:center;gap:12px;padding:14px 0;border-bottom:1px solid var(--surface-2)}
+.lrow:last-child{border-bottom:0;padding-bottom:0}
+.lrow:first-child{padding-top:0}
+.lrow .chev{color:var(--t3)}
+.kv{display:flex;justify-content:space-between;font-size:14px;line-height:20px;padding:7px 0;border-bottom:1px dashed var(--surface-2)}
+.kv span{color:var(--t2)}
+.kv b{font-weight:600;font-variant-numeric:tabular-nums}
+
+/* banners */
+.banner{border-radius:14px;padding:12px 14px;display:flex;gap:10px;font-size:14px;line-height:20px}
+.banner.info{background:var(--info-bg);color:#123E73}
+.banner.dark{background:#1E2050;color:#fff}
+
+/* life-cycle stepper */
+.lc{display:flex;align-items:flex-start;position:relative;margin:0 -10px;letter-spacing:-.01em}
+.lc-line{position:absolute;top:11px;left:10%;right:10%;height:2px;background:var(--border)}
+.lc-line i{position:absolute;left:0;top:0;bottom:0;background:var(--green)}
+.lc-s{flex:1;display:flex;flex-direction:column;align-items:center;gap:6px;position:relative;font-size:10px;line-height:14px;color:var(--t3);text-align:center}
+.lc-s b{width:24px;height:24px;border-radius:12px;background:var(--green);color:#fff;display:flex;align-items:center;justify-content:center;position:relative;z-index:1}
+.lc-s b svg{width:14px;height:14px}
+.lc-s.cur b{background:#fff;border:6px solid var(--green)}
+.lc-s.cur{color:var(--t1);font-weight:600}
+.lc-s.fut b{background:#fff;border:2px solid var(--border-strong)}
+
+/* fab */
+.fab{position:absolute;right:16px;bottom:100px;height:56px;padding:0 20px 0 16px;border-radius:18px;background:var(--blue);color:#fff;display:flex;align-items:center;gap:8px;font-weight:600;font-size:15px;box-shadow:0 10px 24px rgba(39,42,107,.35)}
+
+/* ---------- cover sheet ---------- */
+.sheet{width:1600px;background:#fff;padding:72px 80px 80px;color:var(--t1);box-shadow:0 24px 60px rgba(39,42,107,.12)}
+.sheet .eyebrow{font-size:14px;font-weight:600;color:var(--green-a);letter-spacing:.08em;text-transform:uppercase}
+.sheet h1{font-size:56px;line-height:62px;font-weight:700;color:var(--blue);margin:14px 0 18px;letter-spacing:-.02em}
+.sheet .lead{font-size:20px;line-height:30px;color:var(--t2);max-width:1000px}
+.sheet .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:48px}
+.sheet .grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-top:20px}
+.sheet h2{font-size:28px;line-height:34px;font-weight:700;margin-top:64px}
+.sheet .box{background:var(--bg);border-radius:20px;padding:24px}
+.sheet .box h4{font-size:18px;line-height:24px;font-weight:600;margin:12px 0 8px}
+.sheet .box p{font-size:15px;line-height:22px;color:var(--t2)}
+.sheet .tag{display:inline-flex;height:26px;padding:0 10px;border-radius:999px;font-size:12px;font-weight:700;align-items:center;letter-spacing:.04em}
+.sheet .was{font-size:14px;line-height:20px;color:var(--t3);margin-top:10px}
+.sheet .sw{border-radius:16px;overflow:hidden;border:1px solid var(--border)}
+.sheet .sw div{height:84px}
+.sheet .sw p{padding:10px 14px;font-size:13px;line-height:18px;color:var(--t2)}
+.sheet .sw p b{display:block;color:var(--t1);font-size:14px}
+.sheet .metric{border-left:3px solid var(--green);padding:4px 0 4px 18px}
+.sheet .metric b{font-size:32px;line-height:38px;color:var(--blue);display:block}
+.sheet .metric span{font-size:15px;line-height:22px;color:var(--t2)}
+.sheet .typo{display:flex;gap:40px;align-items:baseline;margin-top:20px;flex-wrap:wrap}
+/* ---------- extra components ---------- */
+.wrap{display:flex;flex-wrap:wrap;gap:8px}
+.cbx{width:22px;height:22px;border-radius:7px;border:1.5px solid var(--border-strong);display:flex;align-items:center;justify-content:center;flex:none;color:#fff}
+.cbx.on{background:var(--green-a);border-color:var(--green-a)}
+.tgl{width:51px;height:31px;border-radius:16px;background:var(--border-strong);position:relative;flex:none}
+.tgl i{position:absolute;top:2px;left:2px;width:27px;height:27px;border-radius:14px;background:#fff;box-shadow:0 2px 4px rgba(0,0,0,.18)}
+.tgl.on{background:var(--green-a)}.tgl.on i{left:22px}
+.nrow{position:relative}
+.nrow.unread::after{content:"";position:absolute;top:14px;right:14px;width:8px;height:8px;border-radius:4px;background:#D23C3C}
+.mini-lc{display:flex;gap:4px}.mini-lc i{flex:1;height:4px;border-radius:2px;background:var(--surface-2)}
+.mini-lc i.d{background:var(--green)}.mini-lc i.c{background:linear-gradient(90deg,var(--green) 50%,var(--surface-2) 50%)}
+.ava{width:48px;height:48px;border-radius:24px;background:var(--blue);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:16px;flex:none}
+.menu{padding:4px 16px}.menu .lrow{padding:13px 0}.menu .lrow:first-child{padding-top:13px}.menu .lrow:last-child{padding-bottom:13px}
+.mi{width:32px;height:32px;border-radius:10px;background:#E8E9F4;color:var(--blue);display:flex;align-items:center;justify-content:center;flex:none}
+.sheet-m{flex:1;background:var(--surface);border-radius:20px 20px 0 0;padding:10px 16px 10px;display:flex;flex-direction:column;gap:20px}
+.handle{width:40px;height:5px;border-radius:3px;background:var(--border);margin:0 auto -6px}
+.big-ok{width:96px;height:96px;border-radius:48px;background:var(--ok-bg);color:var(--ok);display:flex;align-items:center;justify-content:center}
+.day{align-self:center;font-size:12px;font-weight:600;color:var(--t3);background:var(--surface-2);padding:4px 10px;border-radius:999px}
+.bub{max-width:80%;padding:10px 12px 6px;border-radius:18px;font-size:15px;line-height:21px;background:var(--surface);align-self:flex-start;border-bottom-left-radius:6px}
+.bub i{display:block;text-align:right;font-style:normal;font-size:11px;color:var(--t3);margin-top:2px}
+.bub.out{align-self:flex-end;background:var(--blue);color:#fff;border-radius:18px;border-bottom-right-radius:6px}
+.bub.out i{color:#C9CAE6}
+.bub.file{display:flex;gap:10px;align-items:center;flex-wrap:wrap;font-size:14px;line-height:19px}.bub.file i{width:100%}
+.ph-t{width:76px;height:76px;border-radius:14px;background:var(--surface-2);color:var(--t3);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;font-size:11px;flex:none}
+.ph-t.s{width:56px;height:56px}
+.ph-t.add{background:var(--surface);border:1.5px dashed var(--border-strong);color:var(--blue)}
+.ph-l{flex:1.4;height:176px;border-radius:16px;background:linear-gradient(160deg,#8C8E78,#5E5A4A);color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;font-size:12px}
+.ph-l.s{flex:1;height:84px;background:linear-gradient(160deg,#A39F8A,#6E6A58)}
+.ph-l.add{background:var(--surface);border:1.5px dashed var(--border-strong);color:var(--blue)}
+.photos{display:flex;gap:8px}
+.ck{display:flex;align-items:center;gap:10px;background:var(--surface);border-radius:12px;padding:12px 14px;font-size:15px;color:var(--t1)}
+.ck svg{flex:none;color:var(--border-strong)}
+.ck.done{color:var(--t3)}.ck.done svg{background:var(--green);color:#fff;border-radius:10px;padding:2px;width:20px;height:20px}
+.nthumb{width:56px;height:56px;border-radius:12px;background:#E8E9F4;color:var(--blue);display:flex;align-items:center;justify-content:center;flex:none}
+[data-go]{cursor:pointer}
+/* ---------- design system sheet ---------- */
+.ds-grid{display:grid;grid-template-columns:repeat(9,1fr);gap:12px;margin-top:16px}
+.ds-sw{border-radius:14px;overflow:hidden;border:1px solid var(--border);background:#fff}
+.ds-sw div{height:56px}
+.ds-sw p{padding:8px 10px;font-size:12px;line-height:16px;color:var(--t2)}
+.ds-sw p b{display:block;color:var(--t1);font-size:12px}
+.ds-row{display:flex;gap:24px;align-items:center;padding:10px 0;border-bottom:1px solid var(--surface-2)}
+.ds-row code{font-family:ui-monospace,Consolas,monospace;font-size:12px;color:var(--t3);width:220px;flex:none}
+.ds-comp{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin-top:16px}
+.ds-cols{display:grid;grid-template-columns:1fr 1fr;gap:48px}
+/* ---------- prototype viewer ---------- */
+body.proto{background:#2A2C45;padding:32px;display:flex;justify-content:center;gap:32px;align-items:flex-start;min-height:100vh}
+body.proto .pv-phone{width:399px;height:836px;border-radius:52px;background:#0E0F1A;padding:12px;box-shadow:0 30px 80px rgba(0,0,0,.45);flex:none}
+body.proto .pv-scroll{width:375px;height:812px;border-radius:40px;overflow-y:auto;overflow-x:hidden;background:#fff;scrollbar-width:none}
+body.proto .pv-scroll .screen{box-shadow:none}
+body.proto .pv-side{color:#fff;width:280px;font-size:14px;line-height:20px}
+body.proto .pv-side h2{font-size:20px;margin-bottom:6px}
+body.proto .pv-side p{color:#C9CAE6;margin-bottom:16px}
+body.proto .pv-side a{display:block;color:#E1E2F2;text-decoration:none;padding:5px 10px;border-radius:8px}
+body.proto .pv-side a.on{background:var(--green-a);color:#fff}
+body.proto [data-go]:hover{outline:2px solid rgba(0,165,90,.55);outline-offset:2px;border-radius:12px}
+
+.h2s,.kit-sec,.ba{scroll-margin-top:92px}
+body.site{padding:0;background:var(--bg);min-height:100vh;display:flex;flex-direction:column}
+.hdr{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--border)}
+.hdr-in{max-width:1240px;margin:0 auto;height:72px;padding:0 24px;display:flex;align-items:center;gap:24px}
+.brand{display:flex;align-items:center;gap:14px;text-decoration:none;color:var(--t1);min-width:0}
+.brand img{height:18px;flex:none}
+.brand span{font-size:13px;color:var(--t3);border-left:1px solid var(--border);padding-left:14px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.menu-top{margin-left:auto;display:flex;gap:4px}
+.menu-top a{height:40px;padding:0 16px;border-radius:12px;display:flex;align-items:center;font-size:15px;font-weight:600;color:var(--t2);text-decoration:none;white-space:nowrap}
+.menu-top a:hover{background:var(--surface-2)}
+.menu-top a.on{background:var(--blue);color:#fff}
+.wrapx{max-width:1240px;margin:0 auto;padding:48px 24px 96px;width:100%;flex:1}
+.ph1{font-size:44px;line-height:52px;font-weight:700;color:var(--blue);letter-spacing:-.02em}
+.plead{font-size:19px;line-height:29px;color:var(--t2);max-width:860px;margin-top:14px}
+.eyeb{font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--green-a);margin-bottom:12px}
+.h2s{font-size:28px;line-height:34px;font-weight:700;margin:64px 0 20px;color:var(--t1)}
+.h3s{font-size:18px;line-height:24px;font-weight:600;margin:28px 0 12px}
+.g2{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+.g3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.g4{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.box{background:var(--surface);border-radius:20px;padding:24px}
+.box h4{font-size:18px;line-height:24px;font-weight:600;margin:12px 0 8px}
+.box p,.box li{font-size:15px;line-height:23px;color:var(--t2)}
+.box ul{padding-left:18px}
+.tagx{display:inline-flex;height:26px;padding:0 10px;border-radius:999px;font-size:12px;font-weight:700;align-items:center;letter-spacing:.04em}
+.meta{display:grid;grid-template-columns:repeat(5,1fr);gap:1px;background:var(--border);border-radius:20px;overflow:hidden;margin-top:36px}
+.meta div{background:var(--surface);padding:18px 20px}
+.meta small{display:block;font-size:12px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:var(--t3)}
+.meta b{display:block;font-size:16px;line-height:22px;font-weight:600;margin-top:6px}
+.hero-row{display:grid;grid-template-columns:1fr 360px;gap:48px;align-items:center}
+.hero-phone{zoom:.82;justify-self:center;border-radius:40px;overflow:hidden;box-shadow:0 30px 70px rgba(39,42,107,.22);height:812px}
+.metric2{border-left:3px solid var(--green);padding:4px 0 4px 18px}
+.metric2 b{font-size:32px;line-height:40px;color:var(--blue);display:block}
+.metric2 span{font-size:15px;line-height:22px;color:var(--t2)}
+.links a{color:var(--blue);font-weight:600}
+.cta{display:inline-flex;align-items:center;gap:8px;height:52px;padding:0 22px;border-radius:14px;background:var(--green-a);color:#fff;font-weight:600;text-decoration:none;margin-top:28px;margin-right:10px}
+.cta.sec{background:var(--surface);color:var(--blue);border:1.5px solid var(--border)}
+.foot{border-top:1px solid var(--border);background:var(--surface)}
+.foot div{max-width:1240px;margin:0 auto;padding:20px 24px;font-size:13px;color:var(--t3);display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+/* прототип */
+.pv{display:grid;grid-template-columns:260px 399px 1fr;gap:32px;align-items:start}
+.pv-list{background:var(--surface);border-radius:20px;padding:12px;position:sticky;top:96px;max-height:calc(100vh - 120px);overflow:auto}
+.pv-list .grp{font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--t3);padding:12px 10px 6px}
+.pv-list a{display:block;padding:8px 10px;border-radius:10px;font-size:14px;line-height:19px;color:var(--t2);text-decoration:none;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.pv-list a:hover{background:var(--surface-2)}
+.pv-list a.on{background:var(--blue);color:#fff;font-weight:600}
+.phone{width:399px;height:836px;border-radius:54px;background:#111226;padding:12px;box-shadow:0 30px 80px rgba(17,18,38,.35);position:sticky;top:96px}
+.phone-in{width:375px;height:812px;border-radius:42px;overflow-y:auto;overflow-x:hidden;background:#fff;scrollbar-width:none}
+.phone-in::-webkit-scrollbar{display:none}
+.phone-in .screen{box-shadow:none}
+.phone-in [data-go]:hover{outline:2px solid rgba(0,165,90,.55);outline-offset:2px;border-radius:12px}
+.pv-note{background:var(--surface);border-radius:20px;padding:24px;position:sticky;top:96px}
+.pv-note h3{font-size:22px;line-height:28px;font-weight:700}
+.pv-note .lead2{font-size:15px;line-height:23px;color:var(--t2);margin-top:8px}
+.pv-note ul{margin:14px 0 0 18px;font-size:15px;line-height:23px;color:var(--t2)}
+.pv-note .nav2{display:flex;gap:8px;margin-top:20px}
+.hint{font-size:13px;color:var(--t3);margin-top:16px;line-height:19px}
+.ba{background:var(--surface);border-radius:24px;padding:28px;margin-bottom:24px}
+.ba-head{display:flex;justify-content:space-between;align-items:baseline;gap:16px;flex-wrap:wrap}
+.ba-head h3{font-size:22px;line-height:28px;font-weight:700}
+.ba-grid{display:grid;grid-template-columns:auto auto 1fr;gap:32px;margin-top:20px;align-items:start}
+.ba-col small{display:block;font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;margin-bottom:10px}
+.ba-old{display:flex;gap:12px}
+.ba-old .sc{width:240px;max-height:650px;overflow-y:auto;border-radius:24px;border:1px solid var(--border);background:#fff;scrollbar-width:thin}
+.ba-old img{width:100%;display:block}
+.ba-new{width:300px;height:650px;border-radius:30px;overflow-y:auto;overflow-x:hidden;border:1px solid var(--border);scrollbar-width:thin}
+.ba-new .screen{zoom:.8;box-shadow:none}
+.ba-list{font-size:15px;line-height:23px;color:var(--t2);padding-left:18px}
+.ba-list li{margin-bottom:8px}
+.subnav{display:flex;gap:8px;margin:28px 0 8px;flex-wrap:wrap}
+.subnav a{height:36px;padding:0 14px;border-radius:999px;border:1px solid var(--border);background:var(--surface);display:flex;align-items:center;font-size:14px;font-weight:600;color:var(--t2);text-decoration:none}
+/* ui kit */
+.kit-sec{background:var(--surface);border-radius:24px;padding:28px;margin-bottom:24px}
+.kit-sec>h2{font-size:24px;line-height:30px;font-weight:700}
+.kit-sec>p{font-size:15px;line-height:22px;color:var(--t3);margin-top:4px}
+.kit-row{display:flex;flex-wrap:wrap;gap:20px 24px;align-items:flex-start;margin-top:20px}
+.kit-item{display:flex;flex-direction:column;gap:8px;min-width:0}
+.kit-item>code{font-family:ui-monospace,Consolas,monospace;font-size:12px;color:var(--t3)}
+.kit-pad{background:var(--bg);border-radius:16px;padding:16px}
+.kit-bare{border:1px solid var(--border);border-radius:16px;overflow:hidden;background:var(--surface)}
+.kit-bare .tab{position:relative}
+.kit-375{width:375px;max-width:100%}
+.ic-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(96px,1fr));gap:8px;margin-top:20px}
+.ic-grid div{background:var(--bg);border-radius:12px;padding:14px 6px 10px;display:flex;flex-direction:column;align-items:center;gap:8px;color:var(--blue)}
+.ic-grid code{font-family:ui-monospace,Consolas,monospace;font-size:11px;color:var(--t3)}
+.kit-toc{display:flex;flex-wrap:wrap;gap:8px;margin:28px 0 28px}
+.kit-toc a{height:34px;padding:0 12px;border-radius:999px;background:var(--surface);border:1px solid var(--border);display:flex;align-items:center;font-size:13px;font-weight:600;color:var(--t2);text-decoration:none}
+@media (max-width:1100px){.pv{grid-template-columns:1fr 399px}.pv-note{grid-column:1 / -1;position:static}.ba-grid{grid-template-columns:1fr}.meta{grid-template-columns:repeat(2,1fr)}.g4{grid-template-columns:repeat(2,1fr)}.hero-row{grid-template-columns:1fr}}
+@media (max-width:760px){.hdr-in{height:auto;padding:12px 16px;flex-wrap:wrap;gap:10px}.menu-top{margin-left:0;width:100%;overflow-x:auto}.menu-top a{height:36px;padding:0 12px;font-size:14px}
+ .wrapx{padding:28px 16px 64px}.ph1{font-size:32px;line-height:38px}.plead{font-size:17px;line-height:26px}
+ .g2,.g3,.g4,.meta{grid-template-columns:1fr}.pv{grid-template-columns:1fr}.pv-list{position:static;max-height:220px}
+ .pv{grid-template-columns:minmax(0,1fr)}
+ .phone{width:auto;height:auto;padding:0;background:none;box-shadow:none;position:static;border-radius:0}
+ .phone-in{width:100%;height:740px;border-radius:24px;border:1px solid var(--border)}
+ .phone-in .screen{zoom:.9}
+ .ds-row{flex-wrap:wrap;gap:6px 16px}.ds-row code{width:100%}
+ .kit-375,.kit-bare,.kit-pad{max-width:100%;overflow-x:auto}.ba-old{flex-wrap:wrap}.ba-old .sc{width:46%}
+ .kit-sec,.ba{padding:18px}.hero-phone{display:none}.box{padding:18px}}
+</style></head>
+<body class="site">
+<header class="hdr"><div class="hdr-in"><a class="brand" href="index.html"><img src="assets/logo.png" alt="УРАЛХИМ"><span>Личный кабинет партнёра · редизайн 2026</span></a><nav class="menu-top"><a href="index.html">Описание проекта</a><a href="prototip.html" class="on">Прототипы</a><a href="ui-kit.html">UI kit</a><a class="fig" href="https://www.figma.com/design/0ZiD08orz1A578mig90EW3/%D0%A3%D0%A0%D0%90%D0%9B%D0%A5%D0%98%D0%9C-%E2%80%94-%D0%9B%D0%9A-%D0%BF%D0%B0%D1%80%D1%82%D0%BD%D1%91%D1%80%D0%B0-%C2%B7-%D0%A0%D0%B5%D0%B4%D0%B8%D0%B7%D0%B0%D0%B9%D0%BD-2026?node-id=0-1&t=X1AbiOfTo47yDXY6-1" target="_blank" rel="noopener">Figma <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4h6v6M20 4l-9 9"/><path d="M18 14v4.5a1.5 1.5 0 0 1-1.5 1.5h-11A1.5 1.5 0 0 1 4 18.5v-11A1.5 1.5 0 0 1 5.5 6H10"/></svg></a></nav></div></header>
+<main class="wrapx">
+<div class="eyeb">22 экрана · 111 переходов</div>
+<h1 class="ph1">Прототипы</h1>
+<p class="plead">Новая версия — кликабельный прототип: нажимайте на таббар, кнопки и карточки, стрелка в шапке возвращает назад. Ниже сравнение старой и новой версий по 8 экранам. Старая версия — статичные экраны из исходного макета и скриншоты живого приложения.</p>
+<div class="subnav"><a href="#proto">Кликабельный прототип</a><a href="#ba">Было → стало</a></div>
+<h2 class="h2s" id="proto">Кликабельный прототип</h2>
+<div class="pv"><nav class="pv-list"><div class="grp">Покупатель</div><a href="#screen=s-login" data-id="s-login">Вход</a><a href="#screen=s-reg" data-id="s-reg">Подключение по ИНН</a><a href="#screen=s-home" data-id="s-home">Главная покупателя</a><a href="#screen=s-cat" data-id="s-cat">Каталог</a><a href="#screen=s-filters" data-id="s-filters">Фильтры</a><a href="#screen=s-prod" data-id="s-prod">Карточка товара</a><a href="#screen=s-cart" data-id="s-cart">Корзина</a><a href="#screen=s-checkout" data-id="s-checkout">Оформление заявки</a><a href="#screen=s-success" data-id="s-success">Заявка отправлена</a><a href="#screen=s-cart-empty" data-id="s-cart-empty">Пустая корзина</a><a href="#screen=s-orders" data-id="s-orders">Заявки</a><a href="#screen=s-order" data-id="s-order">Заявка и трекинг</a><a href="#screen=s-issue" data-id="s-issue">Обращение по вагону</a><a href="#screen=s-chat" data-id="s-chat">Чат с менеджером</a><a href="#screen=s-notif" data-id="s-notif">Уведомления</a><a href="#screen=s-fin" data-id="s-fin">Финансы</a><a href="#screen=s-profile" data-id="s-profile">Профиль</a><a href="#screen=s-news" data-id="s-news">Новости</a><div class="grp">Инспектор</div><a href="#screen=s-insp" data-id="s-insp">Инспектор — задачи на день</a><a href="#screen=s-insp-run" data-id="s-insp-run">Инспекция — чек-лист</a><a href="#screen=s-remark" data-id="s-remark">Новое замечание</a><a href="#screen=s-sync" data-id="s-sync">Синхронизация</a></nav><div class="phone"><div class="phone-in" id="phone"></div></div>
+<div class="pv-note"><div class="eyeb" id="pv-num"></div><h3 id="pv-t"></h3><p class="lead2" id="pv-l"></p><ul id="pv-u"></ul>
+<div class="nav2"><span class="btn m sec" id="pv-prev"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m14.5 6-6 6 6 6"/></svg><span class="lbl">Назад</span></span><span class="btn m blue" id="pv-next"><span class="lbl">Следующий экран</span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m9.5 6 6 6-6 6"/></svg></span></div>
+<p class="hint">Кликабельные зоны подсвечиваются при наведении. Длинные экраны прокручиваются внутри телефона.</p></div></div>
+<h2 class="h2s" id="ba">Было → стало</h2>
+<div class="ba" id="ba-s-home"><div class="ba-head"><h3>Главная</h3><a class="link" href="#screen=s-home" data-open="s-home">Открыть в прототипе →</a></div>
+<div class="ba-grid"><div class="ba-col"><small style="color:var(--err)">Было · Макет: UI и вайрфрейм</small><div class="ba-old"><div class="sc"><img src="source/ui-home.png" alt="Главная, старая версия" loading="lazy"></div><div class="sc"><img src="source/wf-home.png" alt="Главная, старая версия" loading="lazy"></div></div></div>
+<div class="ba-col"><small style="color:var(--ok)">Стало</small><div class="ba-new" data-clone="s-home"></div></div>
+<div class="ba-col"><small style="color:var(--t3)">Что изменилось</small><ul class="ba-list"><li>9 одинаковых блоков → блок «Требует действия» сверху</li><li>Заявки и Заказы с одинаковыми статусами → одна сущность, 4 счётчика</li><li>Три кнопки баланса одного веса → финансы двумя цифрами</li><li>Дерево каталога на главной убрано, есть поиск</li></ul></div></div></div><div class="ba" id="ba-s-cat"><div class="ba-head"><h3>Каталог</h3><a class="link" href="#screen=s-cat" data-open="s-cat">Открыть в прототипе →</a></div>
+<div class="ba-grid"><div class="ba-col"><small style="color:var(--err)">Было · Макет и живое приложение</small><div class="ba-old"><div class="sc"><img src="source/ui-catalog.png" alt="Каталог, старая версия" loading="lazy"></div><div class="sc"><img src="store/app-1.jpg" alt="Каталог, старая версия" loading="lazy"></div></div></div>
+<div class="ba-col"><small style="color:var(--ok)">Стало</small><div class="ba-new" data-clone="s-cat"></div></div>
+<div class="ba-col"><small style="color:var(--t3)">Что изменилось</small><ul class="ba-list"><li>Мультивыбор чекбоксами и «Выделить всё» убраны</li><li>Цена за тонну и NPK вместо мелкого «Минимальное кол-во: 0.025»</li><li>Количество в мешках с пересчётом в тонны</li></ul></div></div></div><div class="ba" id="ba-s-prod"><div class="ba-head"><h3>Карточка товара</h3><a class="link" href="#screen=s-prod" data-open="s-prod">Открыть в прототипе →</a></div>
+<div class="ba-grid"><div class="ba-col"><small style="color:var(--err)">Было · Макет и живое приложение</small><div class="ba-old"><div class="sc"><img src="source/ui-product.png" alt="Карточка товара, старая версия" loading="lazy"></div><div class="sc"><img src="store/app-4.jpg" alt="Карточка товара, старая версия" loading="lazy"></div></div></div>
+<div class="ba-col"><small style="color:var(--ok)">Стало</small><div class="ba-new" data-clone="s-prod"></div></div>
+<div class="ba-col"><small style="color:var(--t3)">Что изменилось</small><ul class="ba-list"><li>Обрезанные табы → аккордеоны</li><li>13 строк состава → 4 ключевых и «Все 13»</li><li>Добавлены цена, наличие, минимальный заказ, выбор фасовки</li></ul></div></div></div><div class="ba" id="ba-s-cart"><div class="ba-head"><h3>Корзина</h3><a class="link" href="#screen=s-cart" data-open="s-cart">Открыть в прототипе →</a></div>
+<div class="ba-grid"><div class="ba-col"><small style="color:var(--err)">Было · Вайрфрейм</small><div class="ba-old"><div class="sc"><img src="source/wf-cart.png" alt="Корзина, старая версия" loading="lazy"></div></div></div>
+<div class="ba-col"><small style="color:var(--ok)">Стало</small><div class="ba-new" data-clone="s-cart"></div></div>
+<div class="ba-col"><small style="color:var(--t3)">Что изменилось</small><ul class="ba-list"><li>Деление на заявки было видно только по мелкой подписи → явный баннер и отдельные кнопки</li><li>Сноска «цены уточнит менеджер» под кнопкой → итог с НДС</li><li>Цели нажатия 36–44 px</li></ul></div></div></div><div class="ba" id="ba-s-order"><div class="ba-head"><h3>Трекинг заказа</h3><a class="link" href="#screen=s-order" data-open="s-order">Открыть в прототипе →</a></div>
+<div class="ba-grid"><div class="ba-col"><small style="color:var(--err)">Было · Живое приложение</small><div class="ba-old"><div class="sc"><img src="store/app-2.jpg" alt="Трекинг заказа, старая версия" loading="lazy"></div></div></div>
+<div class="ba-col"><small style="color:var(--ok)">Стало</small><div class="ba-new" data-clone="s-order"></div></div>
+<div class="ba-col"><small style="color:var(--t3)">Что изменилось</small><ul class="ba-list"><li>12 станций с одинаковым временем → дата прибытия, текущая станция, остаток пути</li><li>Промежуточные станции свёрнуты</li><li>Статус заявки и 5 шагов жизненного цикла</li></ul></div></div></div><div class="ba" id="ba-s-notif"><div class="ba-head"><h3>Уведомления</h3><a class="link" href="#screen=s-notif" data-open="s-notif">Открыть в прототипе →</a></div>
+<div class="ba-grid"><div class="ba-col"><small style="color:var(--err)">Было · Живое приложение</small><div class="ba-old"><div class="sc"><img src="store/app-3.jpg" alt="Уведомления, старая версия" loading="lazy"></div></div></div>
+<div class="ba-col"><small style="color:var(--ok)">Стало</small><div class="ba-new" data-clone="s-notif"></div></div>
+<div class="ba-col"><small style="color:var(--t3)">Что изменилось</small><ul class="ba-list"><li>Опечатки и внутренние статусы («Новая продажа») → понятные тексты с действием</li><li>Иконки по типу события, переход в нужный экран</li></ul></div></div></div><div class="ba" id="ba-s-profile"><div class="ba-head"><h3>Профиль</h3><a class="link" href="#screen=s-profile" data-open="s-profile">Открыть в прототипе →</a></div>
+<div class="ba-grid"><div class="ba-col"><small style="color:var(--err)">Было · Живое приложение</small><div class="ba-old"><div class="sc"><img src="store/app-5.jpg" alt="Профиль, старая версия" loading="lazy"></div></div></div>
+<div class="ba-col"><small style="color:var(--ok)">Стало</small><div class="ba-new" data-clone="s-profile"></div></div>
+<div class="ba-col"><small style="color:var(--t3)">Что изменилось</small><ul class="ba-list"><li>Баланс «USD» при рублёвой сумме → раздел «Финансы» с договором и валютой</li><li>Менеджер с кнопками связи</li><li>Новости и обучение переехали сюда с главной</li></ul></div></div></div><div class="ba" id="ba-s-login"><div class="ba-head"><h3>Вход</h3><a class="link" href="#screen=s-login" data-open="s-login">Открыть в прототипе →</a></div>
+<div class="ba-grid"><div class="ba-col"><small style="color:var(--err)">Было · Макет</small><div class="ba-old"><div class="sc"><img src="source/ui-auth.png" alt="Вход, старая версия" loading="lazy"></div></div></div>
+<div class="ba-col"><small style="color:var(--ok)">Стало</small><div class="ba-new" data-clone="s-login"></div></div>
+<div class="ba-col"><small style="color:var(--t3)">Что изменилось</small><ul class="ba-list"><li>Пустой на 2/3 экран и подписи капсом 9 px → понятный заголовок и крупные поля</li><li>Вход по SMS и подключение компании по ИНН</li><li>Таббар на экране входа убран</li></ul></div></div></div>
+<div id="store" hidden><section class="screen" id="s-home" data-name="01 Главная — покупатель">
+  <div class="sb"><span class="sb-t">9:41</span><img class="sb-logo" src="assets/logo.png" alt="УРАЛХИМ"><span class="sb-r"><svg width="17" height="11" viewBox="0 0 17 11"><rect x="0" y="7" width="3" height="4" rx="1"/><rect x="4.5" y="5" width="3" height="6" rx="1"/><rect x="9" y="2.5" width="3" height="8.5" rx="1"/><rect x="13.5" y="0" width="3" height="11" rx="1"/></svg><svg width="25" height="12" viewBox="0 0 25 12"><rect x=".5" y=".5" width="21" height="11" rx="3" fill="none" stroke="currentColor" opacity=".4"/><rect x="2" y="2" width="18" height="8" rx="2"/><rect x="22.5" y="4" width="1.8" height="4" rx=".9" opacity=".4"/></svg></span></div>
+  <div class="top">
+    <div class="company"><b>ООО «АгроСнаб-Урал» <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9.5 6 6 6-6"/></svg></b><span>Договор 77-П/2026 · RUB</span></div>
+    <div class="icon-btn soft" data-go="s-notif"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 16.5V11a5.5 5.5 0 0 1 11 0v5.5l1.8 1.8H4.7z"/><path d="M10 20.5a2.1 2.1 0 0 0 4 0"/></svg><span class="dot-b">3</span></div>
+  </div>
+  <div class="search-wrap" style="background:var(--surface);padding:0 16px 16px"><div class="search" data-go="s-cat"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="6.5"/><path d="m20 20-4.2-4.2"/></svg>Продукт, марка или NPK</div></div>
+  <div class="body" style="padding-top:20px">
+
+    <div class="stack">
+      <div class="sec"><h2>Требует действия <em>2</em></h2></div>
+      <div class="card stack" style="gap:14px">
+        <div class="row" style="align-items:flex-start">
+          <div class="ico warn"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></svg></div>
+          <div style="flex:1"><div class="ttl15">Заявка № 1567</div><div class="t2">Подтвердите график отгрузки до 12 ноября</div></div>
+        </div>
+        <div class="row"><div class="btn s pri" style="flex:1" data-go="s-order"><span class="lbl">Подтвердить</span></div><div class="btn s sec" style="flex:1" data-go="s-order"><span class="lbl">Посмотреть</span></div></div>
+      </div>
+      <div class="card row" data-go="s-fin">
+        <div class="ico info"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3h7l4 4v13a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1z"/><path d="M14 3v4h4M9 12h6M9 16h6"/></svg></div>
+        <div style="flex:1"><div class="ttl15 num">Счёт № 4412 · 1 845 000 ₽</div><div class="t3">Оплатить до 15 ноября</div></div>
+        <span style="color:var(--t3)"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m9.5 6 6 6-6 6"/></svg></span>
+      </div>
+    </div>
+
+    <div class="stack">
+      <div class="sec"><h2>В пути <em>2 вагона</em></h2><span class="link" data-go="s-orders">Все</span></div>
+      <div class="card stack" style="gap:12px" data-go="s-order">
+        <div class="between"><div class="row" style="gap:10px"><div class="ico blue" style="width:36px;height:36px"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5.5" y="3" width="13" height="14" rx="3"/><path d="M5.5 10.5h13M8 21l2-4M16 21l-2-4"/><circle cx="9" cy="13.8" r=".6" fill="currentColor"/><circle cx="15" cy="13.8" r=".6" fill="currentColor"/></svg></div><div><div class="ttl15 num">Вагон 58213470</div><div class="t3">Карбамид марки Б · 68 т</div></div></div><span class="pill ok"><span class="lbl">≈ 14 нояб.</span></span></div>
+        <div class="prog"><i style="width:64%"></i></div>
+        <div class="between t3"><span>Пермь-Сортировочная</span><span>→ Баженово</span></div>
+      </div>
+      <div class="card tight row">
+        <div class="ico blue" style="width:36px;height:36px"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5.5" y="3" width="13" height="14" rx="3"/><path d="M5.5 10.5h13M8 21l2-4M16 21l-2-4"/><circle cx="9" cy="13.8" r=".6" fill="currentColor"/><circle cx="15" cy="13.8" r=".6" fill="currentColor"/></svg></div>
+        <div style="flex:1"><div class="ttl15 num">Вагон 58213488</div><div class="t3">Углеуральская · 68 т</div></div>
+        <span class="pill warn"><span class="lbl">≈ 15 нояб. · +1 д</span></span>
+      </div>
+    </div>
+
+    <div class="stack">
+      <div class="sec"><h2>Заявки <em>8 активных</em></h2><span class="link" data-go="s-orders">Все</span></div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
+        <div class="card tight"><div class="amount" style="font-size:24px;line-height:30px">2</div><span class="pill neu"><span class="lbl">На согласовании</span></span></div>
+        <div class="card tight"><div class="amount" style="font-size:24px;line-height:30px">3</div><span class="pill info"><span class="lbl">Подтверждены</span></span></div>
+        <div class="card tight"><div class="amount" style="font-size:24px;line-height:30px">1</div><span class="pill warn"><span class="lbl">Отгружаются</span></span></div>
+        <div class="card tight"><div class="amount" style="font-size:24px;line-height:30px">2</div><span class="pill ok"><span class="lbl">В пути</span></span></div>
+      </div>
+    </div>
+
+    <div class="card stack" style="gap:14px" data-go="s-fin">
+      <div class="between"><h2 style="font-size:18px;font-weight:600">Финансы</h2><span class="link">Подробнее</span></div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+        <div><div class="t3">Свободный остаток</div><div class="num" style="font-size:20px;font-weight:700;line-height:28px">1 274 300 ₽</div></div>
+        <div><div class="t3">К оплате до 15.11</div><div class="num" style="font-size:20px;font-weight:700;line-height:28px;color:var(--err)">1 845 000 ₽</div></div>
+      </div>
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:8px">
+      <div class="card tight stack" style="gap:10px" data-go="s-cat"><div class="ico ok" style="width:36px;height:36px"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg></div><div style="font-size:14px;font-weight:600;line-height:18px">Новая<br>заявка</div></div>
+      <div class="card tight stack" style="gap:10px" data-go="s-cart"><div class="ico blue" style="width:36px;height:36px"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 3l3 3-3 3"/><path d="M4 11V9.5A3.5 3.5 0 0 1 7.5 6H20M7 21l-3-3 3-3"/><path d="M20 13v1.5a3.5 3.5 0 0 1-3.5 3.5H4"/></svg></div><div style="font-size:14px;font-weight:600;line-height:18px">Повторить<br>№ 1489</div></div>
+      <div class="card tight stack" style="gap:10px" data-go="s-chat"><div class="ico blue" style="width:36px;height:36px"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 5h14a1.5 1.5 0 0 1 1.5 1.5v9A1.5 1.5 0 0 1 19 17h-8l-4.5 3.5V17H5a1.5 1.5 0 0 1-1.5-1.5v-9A1.5 1.5 0 0 1 5 5z"/></svg></div><div style="font-size:14px;font-weight:600;line-height:18px">Обращение<br>менеджеру</div></div>
+    </div>
+
+    <div class="card row" style="background:#E8E9F4" data-go="s-news">
+      <div style="flex:1"><div class="label" style="color:var(--blue)">Новость · 21 окт.</div><div class="ttl15" style="margin-top:4px">«МультиСтарт» — новое биомодифицированное удобрение ВМУ</div></div>
+      <img src="assets/pack-solar-nitrat.png" style="height:72px">
+    </div>
+  </div>
+  <nav class="tab"><div class="tab-i on" data-go="s-home"><span class="tab-ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 10.5 12 3.8l8.5 6.7V19a1.5 1.5 0 0 1-1.5 1.5h-4.5v-6h-5v6H5A1.5 1.5 0 0 1 3.5 19z"/></svg></span>Главная</div><div class="tab-i" data-go="s-cat"><span class="tab-ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="6.5" height="6.5" rx="1.5"/><rect x="13.5" y="4" width="6.5" height="6.5" rx="1.5"/><rect x="4" y="13.5" width="6.5" height="6.5" rx="1.5"/><rect x="13.5" y="13.5" width="6.5" height="6.5" rx="1.5"/></svg></span>Каталог</div><div class="tab-i" data-go="s-orders"><span class="tab-ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="4.5" width="14" height="16.5" rx="2"/><path d="M9 3h6v3H9zM8.5 11h7M8.5 15h4.5"/></svg></span>Заявки</div><div class="tab-i" data-go="s-cart"><span class="tab-ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 4h2.2l2.3 10.6a1.2 1.2 0 0 0 1.2.9h8.9a1.2 1.2 0 0 0 1.2-.9L20.5 8H6.1"/><circle cx="9.5" cy="19.3" r="1.3"/><circle cx="17" cy="19.3" r="1.3"/></svg><span class="tab-b">3</span></span>Корзина</div><div class="tab-i" data-go="s-profile"><span class="tab-ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="3.8"/><path d="M4.5 20.5c1.4-3.7 4.2-5.6 7.5-5.6s6.1 1.9 7.5 5.6"/></svg></span>Профиль</div><div class="home-ind"></div></nav>
+</section><section class="screen" id="s-cat" data-name="02 Каталог">
+  <div class="sb"><span class="sb-t">9:41</span><img class="sb-logo" src="assets/logo.png" alt="УРАЛХИМ"><span class="sb-r"><svg width="17" height="11" viewBox="0 0 17 11"><rect x="0" y="7" width="3" height="4" rx="1"/><rect x="4.5" y="5" width="3" height="6" rx="1"/><rect x="9" y="2.5" width="3" height="8.5" rx="1"/><rect x="13.5" y="0" width="3" height="11" rx="1"/></svg><svg width="25" height="12" viewBox="0 0 25 12"><rect x=".5" y=".5" width="21" height="11" rx="3" fill="none" stroke="currentColor" opacity=".4"/><rect x="2" y="2" width="18" height="8" rx="2"/><rect x="22.5" y="4" width="1.8" height="4" rx=".9" opacity=".4"/></svg></span></div>
+  <div class="top"><h1>Каталог</h1><div class="icon-btn soft"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20s-7.5-4.4-7.5-10A4.3 4.3 0 0 1 12 7.4 4.3 4.3 0 0 1 19.5 10c0 5.6-7.5 10-7.5 10z"/></svg></div><div class="icon-btn soft" data-go="s-notif"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 16.5V11a5.5 5.5 0 0 1 11 0v5.5l1.8 1.8H4.7z"/><path d="M10 20.5a2.1 2.1 0 0 0 4 0"/></svg><span class="dot-b">3</span></div></div>
+  <div style="background:var(--surface);padding:0 16px 14px" class="stack">
+    <div class="search"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="6.5"/><path d="m20 20-4.2-4.2"/></svg>Карбамид, 18:18:18, селитра…</div>
+    <div class="seg" style="margin-top:4px"><div class="on"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 19c0-8 5-13 14-14 0 9-5 14-13 14z"/><path d="M5 19 13 11"/></svg>&nbsp;Сельскохозяйственное</div><div><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 20.5V11l5 3V11l5 3V7.5l7 3v10z"/><path d="M7 17.5h2M12 17.5h2M17 17.5h1"/></svg>&nbsp;Промышленное</div></div>
+  </div>
+  <div class="body" style="padding-top:14px;gap:12px">
+    <div class="chips"><span class="chip on"><span class="lbl">Все</span> <span class="n">84</span></span><span class="chip"><span class="lbl">Водорастворимые</span> <span class="n">23</span></span><span class="chip"><span class="lbl">Азотные</span> <span class="n">14</span></span><span class="chip"><span class="lbl">Комплексные</span></span></div>
+    <div class="between"><span class="t3"><b style="color:var(--t1)">84 продукта</b> · цены без НДС</span><span class="chip" style="height:32px;color:var(--blue)" data-go="s-filters"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h10M18 7h2M4 17h4M12 17h8"/><circle cx="16" cy="7" r="2"/><circle cx="10" cy="17" r="2"/></svg><span class="lbl">Фильтры</span> <span class="pill info" style="height:18px;padding:0 6px"><span class="lbl">1</span></span></span></div>
+
+    <div class="pcard" data-go="s-prod">
+      <div class="pimg"><img src="assets/pack-solar-micro.png"></div>
+      <div class="pinfo">
+        <div class="pname">SOLAR Универсал 18:18:18+3MgO+МЭ</div>
+        <div class="npk"><span><i>N</i>18</span><span><i>P</i>18</span><span><i>K</i>18</span><span><i>MgO</i>3</span></div>
+        <div class="price"><b class="num">112 400 ₽/т</b> · мешки 25 кг</div>
+        <div class="stepper" style="height:36px;margin-top:2px"><div class="sbtn" style="height:36px"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/></svg></div><div class="val"><b>40 меш.</b><small>= 1 т</small></div><div class="sbtn" style="height:36px"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg></div></div>
+      </div>
+    </div>
+
+    <div class="pcard">
+      <div class="pimg"><img src="assets/pack-azotofosfat.png"></div>
+      <div class="pinfo">
+        <div class="pname">Азотофосфат марка 33:3, МКР 1000</div>
+        <div class="npk"><span><i>N</i>33</span><span><i>P</i>3</span></div>
+        <div class="price"><b class="num">31 900 ₽/т</b> · от 20 т</div>
+        <div class="btn s pri" style="align-self:flex-start;margin-top:2px"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 4h2.2l2.3 10.6a1.2 1.2 0 0 0 1.2.9h8.9a1.2 1.2 0 0 0 1.2-.9L20.5 8H6.1"/><circle cx="9.5" cy="19.3" r="1.3"/><circle cx="17" cy="19.3" r="1.3"/></svg><span class="lbl">В корзину</span></div>
+      </div>
+    </div>
+
+    <div class="pcard">
+      <div class="pimg"><img src="assets/pack-nitrat-kalciya.png"></div>
+      <div class="pinfo">
+        <div class="pname">Нитрат кальция безводный, мешки 25 кг</div>
+        <div class="npk"><span><i>N</i>15,5</span><span><i>CaO</i>26</span></div>
+        <div class="price"><b class="num">64 800 ₽/т</b> · от 1 т</div>
+        <div class="btn s pri" style="align-self:flex-start;margin-top:2px"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 4h2.2l2.3 10.6a1.2 1.2 0 0 0 1.2.9h8.9a1.2 1.2 0 0 0 1.2-.9L20.5 8H6.1"/><circle cx="9.5" cy="19.3" r="1.3"/><circle cx="17" cy="19.3" r="1.3"/></svg><span class="lbl">В корзину</span></div>
+      </div>
+    </div>
+
+    <div class="pcard" style="padding-bottom:0;height:72px;overflow:hidden">
+      <div class="pimg"><img src="assets/pack-solar-nitrat.png"></div>
+      <div class="pinfo"><div class="pname">SOLAR Нитрат кальция концентрированный</div></div>
+    </div>
+  </div>
+  <nav class="tab"><div class="tab-i" data-go="s-home"><span class="tab-ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 10.5 12 3.8l8.5 6.7V19a1.5 1.5 0 0 1-1.5 1.5h-4.5v-6h-5v6H5A1.5 1.5 0 0 1 3.5 19z"/></svg></span>Главная</div><div class="tab-i on" data-go="s-cat"><span class="tab-ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="6.5" height="6.5" rx="1.5"/><rect x="13.5" y="4" width="6.5" height="6.5" rx="1.5"/><rect x="4" y="13.5" width="6.5" height="6.5" rx="1.5"/><rect x="13.5" y="13.5" width="6.5" height="6.5" rx="1.5"/></svg></span>Каталог</div><div class="tab-i" data-go="s-orders"><span class="tab-ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="4.5" width="14" height="16.5" rx="2"/><path d="M9 3h6v3H9zM8.5 11h7M8.5 15h4.5"/></svg></span>Заявки</div><div class="tab-i" data-go="s-cart"><span class="tab-ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 4h2.2l2.3 10.6a1.2 1.2 0 0 0 1.2.9h8.9a1.2 1.2 0 0 0 1.2-.9L20.5 8H6.1"/><circle cx="9.5" cy="19.3" r="1.3"/><circle cx="17" cy="19.3" r="1.3"/></svg><span class="tab-b">3</span></span>Корзина</div><div class="tab-i" data-go="s-profile"><span class="tab-ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="3.8"/><path d="M4.5 20.5c1.4-3.7 4.2-5.6 7.5-5.6s6.1 1.9 7.5 5.6"/></svg></span>Профиль</div><div class="home-ind"></div></nav>
+</section><section class="screen" id="s-prod" data-name="03 Карточка товара">
+  <div class="sb"><span class="sb-t">9:41</span><img class="sb-logo" src="assets/logo.png" alt="УРАЛХИМ"><span class="sb-r"><svg width="17" height="11" viewBox="0 0 17 11"><rect x="0" y="7" width="3" height="4" rx="1"/><rect x="4.5" y="5" width="3" height="6" rx="1"/><rect x="9" y="2.5" width="3" height="8.5" rx="1"/><rect x="13.5" y="0" width="3" height="11" rx="1"/></svg><svg width="25" height="12" viewBox="0 0 25 12"><rect x=".5" y=".5" width="21" height="11" rx="3" fill="none" stroke="currentColor" opacity=".4"/><rect x="2" y="2" width="18" height="8" rx="2"/><rect x="22.5" y="4" width="1.8" height="4" rx=".9" opacity=".4"/></svg></span></div>
+  <div style="background:var(--surface);padding:6px 16px 0;display:flex;gap:8px"><div class="icon-btn soft" data-go="back"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m14.5 6-6 6 6 6"/></svg></div><div style="flex:1"></div><div class="icon-btn soft"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 15V4M8 8l4-4 4 4M5 13v6a1.5 1.5 0 0 0 1.5 1.5h11A1.5 1.5 0 0 0 19 19v-6"/></svg></div><div class="icon-btn soft" style="color:#D23C3C"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20s-7.5-4.4-7.5-10A4.3 4.3 0 0 1 12 7.4 4.3 4.3 0 0 1 19.5 10c0 5.6-7.5 10-7.5 10z"/></svg></div></div>
+  <div style="background:var(--surface);display:flex;justify-content:center;padding:8px 0 20px"><img src="assets/pack-solar-micro.png" style="height:200px"></div>
+  <div class="body" style="background:var(--surface);gap:16px;padding-bottom:20px">
+    <div class="stack" style="gap:6px">
+      <span class="t3">Водорастворимые · SOLAR</span>
+      <div style="font-size:22px;line-height:28px;font-weight:700">SOLAR Универсал 18:18:18+3MgO+МЭ</div>
+      <div class="npk" style="margin-top:6px"><span><i>N</i>18</span><span><i>P₂O₅</i>18</span><span><i>K₂O</i>18</span><span><i>MgO</i>3</span><span>+ микроэлементы</span></div>
+    </div>
+    <div class="stack" style="gap:8px"><span class="label">Фасовка</span><div class="seg"><div class="on">Мешок 25 кг</div><div>МКР 600 кг</div></div></div>
+    <div class="between" style="align-items:flex-end">
+      <div><div class="amount">112 400 <small>₽/т</small></div><div class="t3">без НДС · по договору 77-П/2026</div></div>
+      <span class="pill ok"><span class="lbl">В наличии</span></span>
+    </div>
+    <div class="card" style="background:var(--bg);padding:4px 14px">
+      <div class="kv"><span>Отгрузка</span><b>с 15 нояб. · ст. Березники</b></div>
+      <div class="kv" style="border:0"><span>Минимальный заказ</span><b>1 т (40 мешков)</b></div>
+    </div>
+    <div class="stack" style="gap:2px">
+      <div class="sec" style="margin-bottom:4px"><h2 style="font-size:16px">Состав</h2><span class="link">Все 13</span></div>
+      <div class="kv"><span>Азот общий (N)</span><b>18 %</b></div>
+      <div class="kv"><span>Фосфор водорастворимый (P₂O₅)</span><b>18 %</b></div>
+      <div class="kv"><span>Калий (K₂O)</span><b>18 %</b></div>
+      <div class="kv"><span>Магний (MgO)</span><b>3 %</b></div>
+    </div>
+    <div class="stack" style="gap:0">
+      <div class="lrow" style="padding-top:8px"><span class="ttl15" style="flex:1">Описание и применение</span><span class="chev"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9.5 6 6 6-6"/></svg></span></div>
+      <div class="lrow"><span class="ttl15" style="flex:1">Упаковка и хранение</span><span class="chev"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9.5 6 6 6-6"/></svg></span></div>
+      <div class="lrow"><span class="ttl15" style="flex:1">Транспортировка</span><span class="chev"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9.5 6 6 6-6"/></svg></span></div>
+      <div class="lrow"><span class="ttl15" style="flex:1">Документы <em class="t3" style="font-style:normal">· сертификат, паспорт безопасности</em></span><span class="chev"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9.5 6 6 6-6"/></svg></span></div>
+    </div>
+  </div>
+  <div class="dock" style="align-items:center">
+    <div class="stepper" style="width:150px;height:52px"><div class="sbtn" style="height:52px"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/></svg></div><div class="val"><b>40 меш.</b><small>= 1 т</small></div><div class="sbtn" style="height:52px"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg></div></div>
+    <div data-go="s-cart" class="btn pri" style="flex:1;flex-direction:column;gap:0;line-height:1.15"><span>В корзину</span><span class="num" style="font-size:13px;font-weight:500;opacity:.9">112 400 ₽</span></div>
+    <div class="home-ind"></div>
+  </div>
+</section><section class="screen" id="s-cart" data-name="04 Корзина">
+  <div class="sb"><span class="sb-t">9:41</span><img class="sb-logo" src="assets/logo.png" alt="УРАЛХИМ"><span class="sb-r"><svg width="17" height="11" viewBox="0 0 17 11"><rect x="0" y="7" width="3" height="4" rx="1"/><rect x="4.5" y="5" width="3" height="6" rx="1"/><rect x="9" y="2.5" width="3" height="8.5" rx="1"/><rect x="13.5" y="0" width="3" height="11" rx="1"/></svg><svg width="25" height="12" viewBox="0 0 25 12"><rect x=".5" y=".5" width="21" height="11" rx="3" fill="none" stroke="currentColor" opacity=".4"/><rect x="2" y="2" width="18" height="8" rx="2"/><rect x="22.5" y="4" width="1.8" height="4" rx=".9" opacity=".4"/></svg></span></div>
+  <div class="top"><h1>Корзина <span style="color:var(--t3);font-weight:500">3</span></h1><span class="link" style="color:var(--t3)" data-go="s-cart-empty">Очистить</span></div>
+  <div class="body" style="padding-top:16px;gap:16px">
+    <div class="banner info"><span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M12 11v5M12 8v.2"/></svg></span><span>В корзине <b>2 заявки</b>: продукты разных направлений оформляются отдельно и попадают к разным менеджерам.</span></div>
+
+    <div class="card stack" style="gap:14px">
+      <div class="between"><div class="row" style="gap:8px"><span style="color:var(--green-a)"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 19c0-8 5-13 14-14 0 9-5 14-13 14z"/><path d="M5 19 13 11"/></svg></span><span class="ttl16">Сельскохозяйственное</span></div><span class="pill neu"><span class="lbl">Заявка 1</span></span></div>
+      <div class="row" style="align-items:flex-start"><div class="pimg" style="width:56px;height:68px"><img src="assets/pack-solar-micro.png" style="height:56px"></div>
+        <div class="pinfo"><div class="ttl15">SOLAR Универсал 18:18:18, мешки 25 кг</div><div class="t3 num">112 400 ₽/т · <b style="color:var(--t1)">1 124 000 ₽</b></div>
+          <div class="row" style="gap:8px"><div class="stepper" style="height:36px;flex:1"><div class="sbtn" style="height:36px;width:36px"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/></svg></div><div class="val"><b>400 меш.</b><small>= 10 т</small></div><div class="sbtn" style="height:36px;width:36px"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg></div></div><div class="icon-btn soft" style="width:36px;height:36px;color:var(--t3)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 7h14M10 7V4.5h4V7M7 7l.8 12.2a1.5 1.5 0 0 0 1.5 1.3h5.4a1.5 1.5 0 0 0 1.5-1.3L17 7"/></svg></div></div></div></div>
+      <div class="row" style="align-items:flex-start"><div class="pimg" style="width:56px;height:68px"><img src="assets/pack-nitrat-kalciya.png" style="height:56px"></div>
+        <div class="pinfo"><div class="ttl15">Нитрат кальция безводный, мешки 25 кг</div><div class="t3 num">64 800 ₽/т · <b style="color:var(--t1)">64 800 ₽</b></div>
+          <div class="row" style="gap:8px"><div class="stepper" style="height:36px;flex:1"><div class="sbtn" style="height:36px;width:36px"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/></svg></div><div class="val"><b>40 меш.</b><small>= 1 т</small></div><div class="sbtn" style="height:36px;width:36px"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg></div></div><div class="icon-btn soft" style="width:36px;height:36px;color:var(--t3)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 7h14M10 7V4.5h4V7M7 7l.8 12.2a1.5 1.5 0 0 0 1.5 1.3h5.4a1.5 1.5 0 0 0 1.5-1.3L17 7"/></svg></div></div></div></div>
+      <div style="border-top:1px solid var(--surface-2);padding-top:12px" class="stack" >
+        <div class="between"><span class="t2">2 позиции · <b class="num" style="color:var(--t1)">11 т</b></span><span class="num" style="font-size:20px;font-weight:700">1 188 800 ₽</span></div>
+        <div class="between t3" style="margin-top:-6px"><span>без НДС</span><span class="num">с НДС 1 426 560 ₽</span></div>
+      </div>
+      <div class="btn pri full" data-go="s-checkout"><span class="lbl">Оформить заявку 1</span></div>
+    </div>
+
+    <div class="card stack" style="gap:14px">
+      <div class="between"><div class="row" style="gap:8px"><span style="color:var(--blue)"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 20.5V11l5 3V11l5 3V7.5l7 3v10z"/><path d="M7 17.5h2M12 17.5h2M17 17.5h1"/></svg></span><span class="ttl16">Промышленное</span></div><span class="pill neu"><span class="lbl">Заявка 2</span></span></div>
+      <div class="row"><div class="pimg" style="width:56px;height:68px;background:#E8E9F4;color:var(--blue);flex-direction:column;font-weight:700;font-size:15px;line-height:18px">N<span style="font-size:20px">46</span></div>
+        <div class="pinfo"><div class="ttl15">Карбамид марки Б, навал</div><div class="t3 num">32 000 ₽/т · <b style="color:var(--t1)">2 176 000 ₽</b></div><div class="t3 num">68 т · 1 вагон</div></div><span class="chev" style="color:var(--t3)"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m9.5 6 6 6-6 6"/></svg></span></div>
+      <div class="btn out full"><span class="lbl">Оформить заявку 2</span></div>
+    </div>
+  </div>
+  <nav class="tab"><div class="tab-i" data-go="s-home"><span class="tab-ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 10.5 12 3.8l8.5 6.7V19a1.5 1.5 0 0 1-1.5 1.5h-4.5v-6h-5v6H5A1.5 1.5 0 0 1 3.5 19z"/></svg></span>Главная</div><div class="tab-i" data-go="s-cat"><span class="tab-ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="6.5" height="6.5" rx="1.5"/><rect x="13.5" y="4" width="6.5" height="6.5" rx="1.5"/><rect x="4" y="13.5" width="6.5" height="6.5" rx="1.5"/><rect x="13.5" y="13.5" width="6.5" height="6.5" rx="1.5"/></svg></span>Каталог</div><div class="tab-i" data-go="s-orders"><span class="tab-ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="4.5" width="14" height="16.5" rx="2"/><path d="M9 3h6v3H9zM8.5 11h7M8.5 15h4.5"/></svg></span>Заявки</div><div class="tab-i on" data-go="s-cart"><span class="tab-ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 4h2.2l2.3 10.6a1.2 1.2 0 0 0 1.2.9h8.9a1.2 1.2 0 0 0 1.2-.9L20.5 8H6.1"/><circle cx="9.5" cy="19.3" r="1.3"/><circle cx="17" cy="19.3" r="1.3"/></svg><span class="tab-b">3</span></span>Корзина</div><div class="tab-i" data-go="s-profile"><span class="tab-ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="3.8"/><path d="M4.5 20.5c1.4-3.7 4.2-5.6 7.5-5.6s6.1 1.9 7.5 5.6"/></svg></span>Профиль</div><div class="home-ind"></div></nav>
+</section><section class="screen" id="s-checkout" data-name="05 Оформление заявки">
+  <div class="sb"><span class="sb-t">9:41</span><img class="sb-logo" src="assets/logo.png" alt="УРАЛХИМ"><span class="sb-r"><svg width="17" height="11" viewBox="0 0 17 11"><rect x="0" y="7" width="3" height="4" rx="1"/><rect x="4.5" y="5" width="3" height="6" rx="1"/><rect x="9" y="2.5" width="3" height="8.5" rx="1"/><rect x="13.5" y="0" width="3" height="11" rx="1"/></svg><svg width="25" height="12" viewBox="0 0 25 12"><rect x=".5" y=".5" width="21" height="11" rx="3" fill="none" stroke="currentColor" opacity=".4"/><rect x="2" y="2" width="18" height="8" rx="2"/><rect x="22.5" y="4" width="1.8" height="4" rx=".9" opacity=".4"/></svg></span></div>
+  <div class="top"><div class="icon-btn soft" data-go="back"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m14.5 6-6 6 6 6"/></svg></div><div class="ttl">Заявка 1 · Сельхоз</div><div class="icon-btn"></div></div>
+  <div class="body" style="padding-top:16px;gap:18px">
+    <div class="banner info" style="align-items:center"><span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 3l3 3-3 3"/><path d="M4 11V9.5A3.5 3.5 0 0 1 7.5 6H20M7 21l-3-3 3-3"/><path d="M20 13v1.5a3.5 3.5 0 0 1-3.5 3.5H4"/></svg></span><span>Данные доставки подставлены из заявки <b>№ 1489</b></span></div>
+    <div class="stack"><span class="label">Доставка</span><div class="seg"><div class="on"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5.5" y="3" width="13" height="14" rx="3"/><path d="M5.5 10.5h13M8 21l2-4M16 21l-2-4"/><circle cx="9" cy="13.8" r=".6" fill="currentColor"/><circle cx="15" cy="13.8" r=".6" fill="currentColor"/></svg>&nbsp;Ж/д транспорт</div><div>Самовывоз</div></div></div>
+    <div class="stack">
+      <div class="field"><div class="fl"><small>Станция назначения</small><b>Баженово, Свердловская ж/д</b></div><span class="t3 num">780707</span></div>
+      <div class="field"><div class="fl"><small>Грузополучатель</small><b>ООО «АгроСнаб-Урал»</b></div><span class="chev"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m9.5 6 6 6-6 6"/></svg></span></div>
+      <div class="field"><div class="fl"><small>Договор</small><b>77-П/2026 · RUB</b></div><span class="chev"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m9.5 6 6 6-6 6"/></svg></span></div>
+    </div>
+    <div class="stack"><span class="label">Период отгрузки · ноябрь 2026</span>
+      <div class="seg"><div>1–10</div><div class="on">11–20</div><div>21–30</div></div></div>
+    <div class="field ph" style="min-height:80px;align-items:flex-start"><div class="fl"><small>Комментарий менеджеру</small><b>Например: выгрузка только в будни</b></div></div>
+    <div class="card stack" style="gap:2px">
+      <div class="kv"><span>SOLAR Универсал · 10 т</span><b>1 124 000 ₽</b></div>
+      <div class="kv"><span>Нитрат кальция · 1 т</span><b>64 800 ₽</b></div>
+      <div class="kv"><span>НДС 20 %</span><b>237 760 ₽</b></div>
+      <div class="kv" style="border:0;font-size:16px"><span style="color:var(--t1);font-weight:600">Итого · 11 т</span><b>1 426 560 ₽</b></div>
+    </div>
+    <p class="t3">Цены по договору 77-П/2026, без учёта ж/д тарифа. Менеджер <b style="color:var(--t2)">Лукьянова С. А.</b> подтвердит график до 10 ноября, статус придёт в push.</p>
+  </div>
+  <div class="dock"><div class="btn pri full" data-go="s-success"><span class="lbl">Отправить заявку · 1 426 560 ₽</span></div><div class="home-ind"></div></div>
+</section><section class="screen" id="s-order" data-name="06 Заявка — трекинг">
+  <div class="sb"><span class="sb-t">9:41</span><img class="sb-logo" src="assets/logo.png" alt="УРАЛХИМ"><span class="sb-r"><svg width="17" height="11" viewBox="0 0 17 11"><rect x="0" y="7" width="3" height="4" rx="1"/><rect x="4.5" y="5" width="3" height="6" rx="1"/><rect x="9" y="2.5" width="3" height="8.5" rx="1"/><rect x="13.5" y="0" width="3" height="11" rx="1"/></svg><svg width="25" height="12" viewBox="0 0 25 12"><rect x=".5" y=".5" width="21" height="11" rx="3" fill="none" stroke="currentColor" opacity=".4"/><rect x="2" y="2" width="18" height="8" rx="2"/><rect x="22.5" y="4" width="1.8" height="4" rx=".9" opacity=".4"/></svg></span></div>
+  <div class="top"><div class="icon-btn soft" data-go="back"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m14.5 6-6 6 6 6"/></svg></div><div class="ttl">Заявка № 1489</div><div class="icon-btn soft"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="12" r="1.2" fill="currentColor"/><circle cx="12" cy="12" r="1.2" fill="currentColor"/><circle cx="18" cy="12" r="1.2" fill="currentColor"/></svg></div></div>
+  <div style="background:var(--surface);padding:4px 16px 18px" class="stack">
+    <div class="lc">
+      <div class="lc-line"><i style="width:75%"></i></div>
+      <div class="lc-s"><b><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></b>Согласование</div>
+      <div class="lc-s"><b><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></b>Подтверждена</div>
+      <div class="lc-s"><b><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></b>Отгрузка</div>
+      <div class="lc-s cur"><b></b>В пути</div>
+      <div class="lc-s fut"><b></b>Доставлена</div>
+    </div>
+    <div class="card" style="background:var(--bg);margin-top:10px;padding:12px 14px">
+      <div class="between"><span class="ttl15">Карбамид марки Б, навал</span><span class="num ttl15">136 т</span></div>
+      <div class="between t3" style="margin-top:2px"><span>Договор 77-П/2026</span><span class="num">4 352 000 ₽</span></div>
+    </div>
+  </div>
+  <div class="body" style="padding-top:14px;gap:14px">
+    <div class="seg" style="background:#E4E5EE"><div class="on">Отгрузка</div><div>Состав</div><div>Документы</div><div>История</div></div>
+
+    <div class="card" style="background:var(--blue);color:#fff">
+      <div style="font-size:13px;color:#C9CAE6">Прибытие на ст. Баженово</div>
+      <div class="amount" style="color:#fff">≈ 14–15 ноября</div>
+      <div style="font-size:14px;color:#E1E2F2;margin-top:2px" class="num">2 вагона · осталось ~ 410 км</div>
+    </div>
+
+    <div class="card stack" style="gap:14px">
+      <div class="between"><div class="row" style="gap:10px"><div class="ico blue" style="width:36px;height:36px"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5.5" y="3" width="13" height="14" rx="3"/><path d="M5.5 10.5h13M8 21l2-4M16 21l-2-4"/><circle cx="9" cy="13.8" r=".6" fill="currentColor"/><circle cx="15" cy="13.8" r=".6" fill="currentColor"/></svg></div><div><div class="ttl15 num">Вагон 58213470 · 68 т</div><div class="t3 num">Накладная ЭА123456 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 8V5.5A1.5 1.5 0 0 0 14.5 4h-9A1.5 1.5 0 0 0 4 5.5v9A1.5 1.5 0 0 0 5.5 16H8"/></svg></div></div></div><span class="pill ok"><span class="lbl">≈ 14 нояб.</span></span></div>
+      <div class="tl">
+        <div class="tl-i"><div class="tl-dot"><b></b><i></i></div><div class="tl-c"><div class="ttl15" style="font-weight:500">Березники-Сортировочная</div><div class="t3 num">Отправление · 06.11, 14:20</div></div></div>
+        <div class="tl-i"><div class="tl-dot"><b class="cur"></b><i class="fut"></i></div><div class="tl-c"><div class="ttl15">Пермь-Сортировочная</div><div class="t3 num">Сейчас · обновлено 08.11, 07:40</div></div></div>
+        <div class="tl-i"><div class="tl-dot"><b class="fut" style="width:8px;height:8px;margin-top:6px"></b><i class="fut"></i></div><div class="tl-c"><span class="link" style="font-size:13px">Ещё 6 станций</span></div></div>
+        <div class="tl-i"><div class="tl-dot"><b class="fut"></b></div><div class="tl-c"><div class="ttl15" style="font-weight:500">Баженово</div><div class="t3">Прибытие ≈ 14.11</div></div></div>
+      </div>
+    </div>
+
+    <div class="card tight row">
+      <div class="ico blue" style="width:36px;height:36px"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5.5" y="3" width="13" height="14" rx="3"/><path d="M5.5 10.5h13M8 21l2-4M16 21l-2-4"/><circle cx="9" cy="13.8" r=".6" fill="currentColor"/><circle cx="15" cy="13.8" r=".6" fill="currentColor"/></svg></div>
+      <div style="flex:1"><div class="ttl15 num">Вагон 58213488 · 68 т</div><div class="t3">Углеуральская · задержка на 1 день</div></div>
+      <span class="pill warn"><span class="lbl">≈ 15 нояб.</span></span>
+    </div>
+  </div>
+  <div class="dock"><div class="btn sec" style="flex:1" data-go="s-issue"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4 21 19.5H3z"/><path d="M12 10v4.2M12 16.8v.2"/></svg><span class="lbl">Проблема</span></div><div class="btn blue" style="flex:1.3" data-go="s-chat"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 5h14a1.5 1.5 0 0 1 1.5 1.5v9A1.5 1.5 0 0 1 19 17h-8l-4.5 3.5V17H5a1.5 1.5 0 0 1-1.5-1.5v-9A1.5 1.5 0 0 1 5 5z"/></svg><span class="lbl">Чат с менеджером</span></div><div class="home-ind"></div></div>
+</section><section class="screen" id="s-fin" data-name="07 Финансы">
+  <div class="sb"><span class="sb-t">9:41</span><img class="sb-logo" src="assets/logo.png" alt="УРАЛХИМ"><span class="sb-r"><svg width="17" height="11" viewBox="0 0 17 11"><rect x="0" y="7" width="3" height="4" rx="1"/><rect x="4.5" y="5" width="3" height="6" rx="1"/><rect x="9" y="2.5" width="3" height="8.5" rx="1"/><rect x="13.5" y="0" width="3" height="11" rx="1"/></svg><svg width="25" height="12" viewBox="0 0 25 12"><rect x=".5" y=".5" width="21" height="11" rx="3" fill="none" stroke="currentColor" opacity=".4"/><rect x="2" y="2" width="18" height="8" rx="2"/><rect x="22.5" y="4" width="1.8" height="4" rx=".9" opacity=".4"/></svg></span></div>
+  <div class="top"><div class="icon-btn soft" data-go="back"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m14.5 6-6 6 6 6"/></svg></div><div class="ttl">Финансы</div><div class="icon-btn"></div></div>
+  <div class="body" style="padding-top:16px;gap:16px">
+    <div class="row" style="gap:8px"><span class="chip on"><span class="lbl">77-П/2026 · RUB</span> <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9.5 6 6 6-6"/></svg></span><span class="chip"><span class="lbl">USD</span></span><span class="chip"><span class="lbl">EUR</span></span></div>
+    <div class="card" style="background:var(--blue);color:#fff;padding:20px">
+      <div style="font-size:14px;color:#C9CAE6">К оплате до 15 ноября</div>
+      <div class="amount" style="color:#fff;font-size:32px;line-height:40px">1 845 000 <small>₽</small></div>
+      <div style="display:flex;gap:8px;margin-top:16px"><div class="btn m white" style="flex:1"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v11M7.5 10.5 12 15l4.5-4.5M5 20h14"/></svg><span class="lbl">Счёт № 4412</span></div><div class="btn m" style="flex:1;background:rgba(255,255,255,.14);color:#fff"><span class="lbl">Реквизиты</span></div></div>
+    </div>
+    <div class="card row"><div class="ico ok"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7.5A2.5 2.5 0 0 1 6.5 5H18v3"/><rect x="4" y="8" width="16" height="11" rx="2"/><circle cx="16" cy="13.5" r="1.2"/></svg></div><div style="flex:1"><div class="t3">Свободный остаток</div><div class="num" style="font-size:20px;font-weight:700">1 274 300 ₽</div></div><span class="link">Операции</span></div>
+
+    <div class="stack" style="gap:8px">
+      <div class="sec"><h2>Счета</h2><span class="link">Все</span></div>
+      <div class="card" style="padding:14px 16px">
+        <div class="lrow"><div style="flex:1"><div class="ttl15 num">№ 4412 · 1 845 000 ₽</div><div class="t3">от 01.11 · заявка № 1567</div></div><span class="pill warn"><span class="lbl">К оплате</span></span></div>
+        <div class="lrow"><div style="flex:1"><div class="ttl15 num">№ 4398 · 620 400 ₽</div><div class="t3">от 24.10 · заявка № 1489</div></div><span class="pill ok"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg><span class="lbl">Оплачен</span></span></div>
+        <div class="lrow"><div style="flex:1"><div class="ttl15 num">№ 4371 · 2 108 000 ₽</div><div class="t3">от 12.10 · заявка № 1460</div></div><span class="pill ok"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg><span class="lbl">Оплачен</span></span></div>
+      </div>
+    </div>
+
+    <div class="stack" style="gap:8px">
+      <div class="sec"><h2>Документы и операции</h2></div>
+      <div class="card" style="padding:14px 16px">
+        <div class="lrow"><div class="ico blue" style="width:36px;height:36px"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3h7l4 4v13a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1z"/><path d="M14 3v4h4M9 12h6M9 16h6"/></svg></div><div style="flex:1"><div class="ttl15">Акт сверки</div><div class="t3">Запросить за период · до 2 дней</div></div><span class="chev"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m9.5 6 6 6-6 6"/></svg></span></div>
+        <div class="lrow"><div class="ico blue" style="width:36px;height:36px"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 3l3 3-3 3"/><path d="M4 11V9.5A3.5 3.5 0 0 1 7.5 6H20M7 21l-3-3 3-3"/><path d="M20 13v1.5a3.5 3.5 0 0 1-3.5 3.5H4"/></svg></div><div style="flex:1"><div class="ttl15">Перенести остаток</div><div class="t3">На другой договор</div></div><span class="chev"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m9.5 6 6 6-6 6"/></svg></span></div>
+        <div class="lrow"><div class="ico blue" style="width:36px;height:36px"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7.5A2.5 2.5 0 0 1 6.5 5H18v3"/><rect x="4" y="8" width="16" height="11" rx="2"/><circle cx="16" cy="13.5" r="1.2"/></svg></div><div style="flex:1"><div class="ttl15">Вернуть средства</div><div class="t3">На расчётный счёт</div></div><span class="chev"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m9.5 6 6 6-6 6"/></svg></span></div>
+      </div>
+    </div>
+  </div>
+  <nav class="tab"><div class="tab-i" data-go="s-home"><span class="tab-ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 10.5 12 3.8l8.5 6.7V19a1.5 1.5 0 0 1-1.5 1.5h-4.5v-6h-5v6H5A1.5 1.5 0 0 1 3.5 19z"/></svg></span>Главная</div><div class="tab-i" data-go="s-cat"><span class="tab-ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="6.5" height="6.5" rx="1.5"/><rect x="13.5" y="4" width="6.5" height="6.5" rx="1.5"/><rect x="4" y="13.5" width="6.5" height="6.5" rx="1.5"/><rect x="13.5" y="13.5" width="6.5" height="6.5" rx="1.5"/></svg></span>Каталог</div><div class="tab-i" data-go="s-orders"><span class="tab-ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="4.5" width="14" height="16.5" rx="2"/><path d="M9 3h6v3H9zM8.5 11h7M8.5 15h4.5"/></svg></span>Заявки</div><div class="tab-i" data-go="s-cart"><span class="tab-ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 4h2.2l2.3 10.6a1.2 1.2 0 0 0 1.2.9h8.9a1.2 1.2 0 0 0 1.2-.9L20.5 8H6.1"/><circle cx="9.5" cy="19.3" r="1.3"/><circle cx="17" cy="19.3" r="1.3"/></svg><span class="tab-b">3</span></span>Корзина</div><div class="tab-i on" data-go="s-profile"><span class="tab-ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="3.8"/><path d="M4.5 20.5c1.4-3.7 4.2-5.6 7.5-5.6s6.1 1.9 7.5 5.6"/></svg></span>Профиль</div><div class="home-ind"></div></nav>
+</section><section class="screen dark" id="s-insp" data-name="08 Инспектор — задачи, офлайн">
+  <div class="sb"><span class="sb-t">9:41</span><img class="sb-logo" src="assets/logo.png" alt="УРАЛХИМ"><span class="sb-r"><svg width="17" height="11" viewBox="0 0 17 11"><rect x="0" y="7" width="3" height="4" rx="1"/><rect x="4.5" y="5" width="3" height="6" rx="1"/><rect x="9" y="2.5" width="3" height="8.5" rx="1"/><rect x="13.5" y="0" width="3" height="11" rx="1"/></svg><svg width="25" height="12" viewBox="0 0 25 12"><rect x=".5" y=".5" width="21" height="11" rx="3" fill="none" stroke="currentColor" opacity=".4"/><rect x="2" y="2" width="18" height="8" rx="2"/><rect x="22.5" y="4" width="1.8" height="4" rx=".9" opacity=".4"/></svg></span></div>
+  <div style="background:#1E2050;color:#fff;padding:6px 16px 18px" class="stack">
+    <div class="between"><div><div style="font-size:13px;color:#C9CAE6">Суббота, 8 ноября</div><div style="font-size:22px;line-height:28px;font-weight:700">4 задачи на сегодня</div></div><div class="icon-btn" style="background:rgba(255,255,255,.12);color:#fff"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 16.5V11a5.5 5.5 0 0 1 11 0v5.5l1.8 1.8H4.7z"/><path d="M10 20.5a2.1 2.1 0 0 0 4 0"/></svg></div></div>
+    <div class="banner" style="background:rgba(255,166,26,.16);color:#FFD592;padding:10px 12px;align-items:center;margin-top:6px"><span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3l18 18M8.5 16.5a5 5 0 0 1 7 0M5 13a10 10 0 0 1 4.2-2.4M19 13a10 10 0 0 0-2.1-1.5M2 9.5a15 15 0 0 1 4.3-2.8M22 9.5A15 15 0 0 0 11 5.6"/><circle cx="12" cy="19.5" r=".7" fill="currentColor"/></svg></span><span style="flex:1">Нет сети · 3 изменения ждут отправки</span><span style="font-size:12px;color:#C9CAE6">синхр. 07:15</span></div>
+  </div>
+  <div class="body" style="padding-top:16px;gap:14px">
+    <div class="card stack" style="gap:14px;border:2px solid var(--green)">
+      <div class="between"><span class="pill ok"><span class="lbl">Следующая · 08:30</span></span><span class="t3">1,2 км</span></div>
+      <div><div class="ttl16">Инспекция склада</div><div class="t2">Склад ООО «АгроСнаб-Урал», Красноуфимск</div></div>
+      <div class="row" style="gap:8px"><img src="assets/pack-azotofosfat.png" style="height:44px"><div class="t3" style="flex:1">Карбамид марки Б · 120 т<br>Азотофосфат 33:3 · 40 т</div></div>
+      <div class="btn pri full" data-go="s-insp-run"><span class="lbl">Начать инспекцию</span></div>
+    </div>
+    <div class="card tight row"><div class="ico info" style="width:44px;height:44px;font-weight:700;font-size:13px" >11:00</div><div style="flex:1"><div class="ttl15">Отбор образца</div><div class="t3">Нитрат кальция · партия 2611-04</div></div><span class="chev" style="color:var(--t3)"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m9.5 6 6 6-6 6"/></svg></span></div>
+    <div class="card tight row"><div class="ico info" style="width:44px;height:44px;font-weight:700;font-size:13px">14:00</div><div style="flex:1"><div class="ttl15">Условия хранения</div><div class="t3">ООО «Урал-Агро», Сухой Лог</div></div><span class="chev" style="color:var(--t3)"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m9.5 6 6 6-6 6"/></svg></span></div>
+    <div class="card tight row"><div class="ico info" style="width:44px;height:44px;font-weight:700;font-size:13px">16:30</div><div style="flex:1"><div class="ttl15">Приёмка вагона</div><div class="t3 num">ст. Богданович · 58213501</div></div><span class="pill warn"><span class="lbl">Замечание</span></span></div>
+    <div class="between" style="padding:4px 4px 0"><span class="t2">Выполнено · 1</span><span style="color:var(--t3)"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9.5 6 6 6-6"/></svg></span></div>
+  </div>
+  <div class="fab" data-go="s-remark"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8.5A1.5 1.5 0 0 1 5.5 7h2.3l1.5-2.2h5.4L16.2 7h2.3A1.5 1.5 0 0 1 20 8.5v9.5a1.5 1.5 0 0 1-1.5 1.5h-13A1.5 1.5 0 0 1 4 18z"/><circle cx="12" cy="13" r="3.5"/></svg>Замечание</div>
+  <nav class="tab"><div class="tab-i on" data-go="s-insp"><span class="tab-ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="4.5" width="14" height="16.5" rx="2"/><path d="M9 3h6v3H9zM8.5 11h7M8.5 15h4.5"/></svg></span>Задачи</div><div class="tab-i" data-go="s-insp-run"><span class="tab-ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0 1 13 0c0 5.4-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.3"/></svg></span>Объекты</div><div class="tab-i" data-go="s-remark"><span class="tab-ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8.5A1.5 1.5 0 0 1 5.5 7h2.3l1.5-2.2h5.4L16.2 7h2.3A1.5 1.5 0 0 1 20 8.5v9.5a1.5 1.5 0 0 1-1.5 1.5h-13A1.5 1.5 0 0 1 4 18z"/><circle cx="12" cy="13" r="3.5"/></svg></span>Замечания</div><div class="tab-i" data-go="s-sync"><span class="tab-ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M19.5 12a7.5 7.5 0 0 1-13.3 4.8M4.5 12A7.5 7.5 0 0 1 17.8 7.2"/><path d="M18 3.5v4h-4M6 20.5v-4h4"/></svg><span class="tab-b">3</span></span>Синхр.</div><div class="tab-i" data-go="s-insp"><span class="tab-ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="3.8"/><path d="M4.5 20.5c1.4-3.7 4.2-5.6 7.5-5.6s6.1 1.9 7.5 5.6"/></svg></span>Профиль</div><div class="home-ind"></div></nav>
+</section><section class="screen" id="s-login" data-name="09 Вход">
+  <div class="sb"><span class="sb-t">9:41</span><img class="sb-logo" src="assets/logo.png" alt="УРАЛХИМ"><span class="sb-r"><svg width="17" height="11" viewBox="0 0 17 11"><rect x="0" y="7" width="3" height="4" rx="1"/><rect x="4.5" y="5" width="3" height="6" rx="1"/><rect x="9" y="2.5" width="3" height="8.5" rx="1"/><rect x="13.5" y="0" width="3" height="11" rx="1"/></svg><svg width="25" height="12" viewBox="0 0 25 12"><rect x=".5" y=".5" width="21" height="11" rx="3" fill="none" stroke="currentColor" opacity=".4"/><rect x="2" y="2" width="18" height="8" rx="2"/><rect x="22.5" y="4" width="1.8" height="4" rx=".9" opacity=".4"/></svg></span></div>
+  <div class="body" style="background:var(--surface);padding:48px 16px 24px;gap:28px">
+    <div class="stack" style="gap:16px;align-items:flex-start">
+      <img src="assets/logo.png" style="height:22px">
+      <div><div style="font:var(--font-display)">Личный кабинет партнёра</div><div class="t2" style="margin-top:6px">Заказы, отгрузки и документы по договорам с «Уралхимом»</div></div>
+    </div>
+    <div class="stack" style="gap:12px">
+      <div class="field"><div class="fl"><small>Email или телефон</small><b>a.petrov@agrosnab-ural.ru</b></div></div>
+      <div class="field" style="border:2px solid var(--blue)"><div class="fl"><small style="color:var(--blue)">Пароль</small><b style="letter-spacing:.2em">••••••••••</b></div><span style="color:var(--t3)"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12z"/><circle cx="12" cy="12" r="3"/></svg></span></div>
+      <span class="link" style="align-self:flex-end">Забыли пароль?</span>
+    </div>
+    <div class="stack" style="gap:10px">
+      <div class="btn pri full" data-go="s-home"><span class="lbl">Войти</span></div>
+      <div class="btn out full"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 5h14a1.5 1.5 0 0 1 1.5 1.5v9A1.5 1.5 0 0 1 19 17h-8l-4.5 3.5V17H5a1.5 1.5 0 0 1-1.5-1.5v-9A1.5 1.5 0 0 1 5 5z"/></svg><span class="lbl">Войти по коду из SMS</span></div>
+    </div>
+    <div style="flex:1"></div>
+    <div class="card" style="background:var(--bg);text-align:center" data-go="s-reg">
+      <div class="ttl15">Компания ещё не подключена?</div>
+      <div class="t3" style="margin-top:2px">Подключение по ИНН — 2 минуты</div>
+      <div class="link" style="margin-top:8px">Подключить компанию</div>
+    </div>
+    <div class="t3" style="text-align:center">Поддержка: 8-800-707-16-69 · бесплатно</div>
+  </div>
+  <div class="dock" style="padding:0;height:34px;border:0"><div class="home-ind"></div></div>
+</section><section class="screen" id="s-reg" data-name="10 Подключение компании по ИНН">
+  <div class="sb"><span class="sb-t">9:41</span><img class="sb-logo" src="assets/logo.png" alt="УРАЛХИМ"><span class="sb-r"><svg width="17" height="11" viewBox="0 0 17 11"><rect x="0" y="7" width="3" height="4" rx="1"/><rect x="4.5" y="5" width="3" height="6" rx="1"/><rect x="9" y="2.5" width="3" height="8.5" rx="1"/><rect x="13.5" y="0" width="3" height="11" rx="1"/></svg><svg width="25" height="12" viewBox="0 0 25 12"><rect x=".5" y=".5" width="21" height="11" rx="3" fill="none" stroke="currentColor" opacity=".4"/><rect x="2" y="2" width="18" height="8" rx="2"/><rect x="22.5" y="4" width="1.8" height="4" rx=".9" opacity=".4"/></svg></span></div>
+  <div class="top"><div class="icon-btn soft" data-go="back"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m14.5 6-6 6 6 6"/></svg></div><div class="ttl">Подключение компании</div><div class="icon-btn"></div></div>
+  <div style="background:var(--surface);padding:0 16px 16px" class="stack"><div class="between t3"><span>Шаг 1 из 2 · Компания и контакт</span><span>50 %</span></div><div class="prog"><i style="width:50%"></i></div></div>
+  <div class="body" style="padding-top:16px;gap:16px">
+    <div class="field" style="border:2px solid var(--blue)"><div class="fl"><small style="color:var(--blue)">ИНН компании</small><b class="num">6658 012345</b></div><span style="color:var(--ok)"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></span></div>
+    <div class="card" style="background:var(--ok-bg)">
+      <div class="row" style="align-items:flex-start"><div class="ico" style="background:#fff;color:var(--ok)"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 20.5V11l5 3V11l5 3V7.5l7 3v10z"/><path d="M7 17.5h2M12 17.5h2M17 17.5h1"/></svg></div>
+        <div style="flex:1"><div class="ttl15">ООО «АгроСнаб-Урал»</div><div class="t2 num">КПП 665801001 · Екатеринбург</div><div class="t3" style="margin-top:4px">Реквизиты подтянуты из ЕГРЮЛ — проверять вручную не нужно</div></div></div>
+    </div>
+    <div class="stack"><span class="label">Контактное лицо</span>
+      <div class="field"><div class="fl"><small>ФИО</small><b>Петров Алексей Николаевич</b></div></div>
+      <div class="field"><div class="fl"><small>Должность</small><b>Руководитель отдела закупок</b></div></div>
+      <div class="field"><div class="fl"><small>Телефон</small><b class="num">+7 912 345-67-89</b></div></div>
+      <div class="field ph"><div class="fl"><small>Рабочий email</small><b>name@company.ru</b></div></div>
+    </div>
+    <div class="row" style="align-items:flex-start;gap:10px"><span class="cbx on"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></span><span class="t3">Соглашаюсь с условиями использования и обработкой персональных данных</span></div>
+  </div>
+  <div class="dock" style="flex-direction:column;gap:8px"><div class="btn pri full"><span class="lbl">Продолжить</span></div><div class="t3" style="text-align:center">Менеджер подтвердит доступ в течение рабочего дня</div><div class="home-ind"></div></div>
+</section><section class="screen" id="s-notif" data-name="11 Уведомления">
+  <div class="sb"><span class="sb-t">9:41</span><img class="sb-logo" src="assets/logo.png" alt="УРАЛХИМ"><span class="sb-r"><svg width="17" height="11" viewBox="0 0 17 11"><rect x="0" y="7" width="3" height="4" rx="1"/><rect x="4.5" y="5" width="3" height="6" rx="1"/><rect x="9" y="2.5" width="3" height="8.5" rx="1"/><rect x="13.5" y="0" width="3" height="11" rx="1"/></svg><svg width="25" height="12" viewBox="0 0 25 12"><rect x=".5" y=".5" width="21" height="11" rx="3" fill="none" stroke="currentColor" opacity=".4"/><rect x="2" y="2" width="18" height="8" rx="2"/><rect x="22.5" y="4" width="1.8" height="4" rx=".9" opacity=".4"/></svg></span></div>
+  <div class="top"><div class="icon-btn soft" data-go="back"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m14.5 6-6 6 6 6"/></svg></div><div class="ttl">Уведомления</div><div class="icon-btn soft"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></div></div>
+  <div style="background:var(--surface);padding:0 16px 14px"><div class="chips"><span class="chip on"><span class="lbl">Все</span> <span class="n">5</span></span><span class="chip"><span class="lbl">Заявки</span> <span class="n">3</span></span><span class="chip"><span class="lbl">Финансы</span> <span class="n">1</span></span><span class="chip"><span class="lbl">Новости</span></span></div></div>
+  <div class="body" style="padding-top:16px;gap:10px">
+    <span class="label">Сегодня</span>
+    <div class="card tight row nrow unread" data-go="s-order"><div class="ico warn"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></svg></div><div style="flex:1"><div class="ttl15">Подтвердите график по заявке № 1567</div><div class="t3">Срок — до 12 ноября · 09:12</div></div></div>
+    <div class="card tight row nrow unread" data-go="s-order"><div class="ico blue"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5.5" y="3" width="13" height="14" rx="3"/><path d="M5.5 10.5h13M8 21l2-4M16 21l-2-4"/><circle cx="9" cy="13.8" r=".6" fill="currentColor"/><circle cx="15" cy="13.8" r=".6" fill="currentColor"/></svg></div><div style="flex:1"><div class="ttl15 num">Вагон 58213470 — Пермь-Сортировочная</div><div class="t3">Заявка № 1489 · прибытие ≈ 14 нояб. · 07:40</div></div></div>
+    <div class="card tight row nrow unread" data-go="s-fin"><div class="ico info"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3h7l4 4v13a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1z"/><path d="M14 3v4h4M9 12h6M9 16h6"/></svg></div><div style="flex:1"><div class="ttl15 num">Выставлен счёт № 4412 на 1 845 000 ₽</div><div class="t3">Оплатить до 15 ноября · 06:30</div></div></div>
+    <span class="label" style="margin-top:8px">Вчера</span>
+    <div class="card tight row nrow" data-go="s-orders"><div class="ico ok"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></div><div style="flex:1"><div class="ttl15">Заявка № 1602 принята менеджером</div><div class="t3">Лукьянова С. А. · 18:05</div></div></div>
+    <div class="card tight row nrow" data-go="s-news"><div class="ico blue"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 19c0-8 5-13 14-14 0 9-5 14-13 14z"/><path d="M5 19 13 11"/></svg></div><div style="flex:1"><div class="ttl15">«Уралхим» на «Агроволге-2026»</div><div class="t3">Новости · 11:20</div></div></div>
+  </div>
+</section><section class="screen" id="s-orders" data-name="12 Заявки — список">
+  <div class="sb"><span class="sb-t">9:41</span><img class="sb-logo" src="assets/logo.png" alt="УРАЛХИМ"><span class="sb-r"><svg width="17" height="11" viewBox="0 0 17 11"><rect x="0" y="7" width="3" height="4" rx="1"/><rect x="4.5" y="5" width="3" height="6" rx="1"/><rect x="9" y="2.5" width="3" height="8.5" rx="1"/><rect x="13.5" y="0" width="3" height="11" rx="1"/></svg><svg width="25" height="12" viewBox="0 0 25 12"><rect x=".5" y=".5" width="21" height="11" rx="3" fill="none" stroke="currentColor" opacity=".4"/><rect x="2" y="2" width="18" height="8" rx="2"/><rect x="22.5" y="4" width="1.8" height="4" rx=".9" opacity=".4"/></svg></span></div>
+  <div class="top"><h1>Заявки</h1><div class="icon-btn soft"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="6.5"/><path d="m20 20-4.2-4.2"/></svg></div><div class="icon-btn soft" data-go="s-notif"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 16.5V11a5.5 5.5 0 0 1 11 0v5.5l1.8 1.8H4.7z"/><path d="M10 20.5a2.1 2.1 0 0 0 4 0"/></svg><span class="dot-b">3</span></div></div>
+  <div style="background:var(--surface);padding:0 16px 14px" class="stack" >
+    <div class="seg"><div class="on">Активные · 8</div><div>Архив</div></div>
+  </div>
+  <div class="body" style="padding-top:14px;gap:10px">
+    <div class="chips"><span class="chip on"><span class="lbl">Все</span></span><span class="chip"><span class="lbl">Согласование</span> <span class="n">2</span></span><span class="chip"><span class="lbl">Подтверждены</span> <span class="n">3</span></span><span class="chip"><span class="lbl">В пути</span></span></div>
+    <div class="card stack" style="gap:10px;border:1.5px solid var(--warn-f)" data-go="s-order">
+      <div class="between"><span class="ttl15 num">№ 1567 · от 02.11</span><span class="pill info"><span class="lbl">Подтверждена</span></span></div>
+      <div class="t2">Азотофосфат 33:3, МКР 1000 · Нитрат кальция</div>
+      <div class="between"><span class="t3 num">96 т · ст. Баженово</span><span class="num ttl15">3 241 600 ₽</span></div>
+      <div class="banner" style="background:var(--warn-bg);color:var(--warn);padding:8px 10px;font-weight:600;font-size:13px"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></svg> Подтвердите график до 12 ноября</div>
+    </div>
+    <div class="card stack" style="gap:10px" data-go="s-order">
+      <div class="between"><span class="ttl15 num">№ 1489 · от 24.10</span><span class="pill ok"><span class="lbl">В пути</span></span></div>
+      <div class="t2">Карбамид марки Б, навал</div>
+      <div class="mini-lc"><i class="d"></i><i class="d"></i><i class="d"></i><i class="c"></i><i></i></div>
+      <div class="between"><span class="t3 num">136 т · 2 вагона · ≈ 14–15 нояб.</span><span class="num ttl15">4 352 000 ₽</span></div>
+    </div>
+    <div class="card stack" style="gap:10px" data-go="s-order">
+      <div class="between"><span class="ttl15 num">№ 1602 · от 07.11</span><span class="pill neu"><span class="lbl">Согласование</span></span></div>
+      <div class="t2">SOLAR Универсал 18:18:18 · Нитрат кальция</div>
+      <div class="between"><span class="t3 num">11 т · ответ до 10 нояб.</span><span class="num ttl15">1 426 560 ₽</span></div>
+    </div>
+    <div class="card stack" style="gap:10px;height:76px;overflow:hidden">
+      <div class="between"><span class="ttl15 num">№ 1571 · от 03.11</span><span class="pill warn"><span class="lbl">Отгрузка</span></span></div>
+      <div class="t2">Селитра аммиачная, МКР 1000</div>
+    </div>
+  </div>
+  <nav class="tab"><div class="tab-i" data-go="s-home"><span class="tab-ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 10.5 12 3.8l8.5 6.7V19a1.5 1.5 0 0 1-1.5 1.5h-4.5v-6h-5v6H5A1.5 1.5 0 0 1 3.5 19z"/></svg></span>Главная</div><div class="tab-i" data-go="s-cat"><span class="tab-ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="6.5" height="6.5" rx="1.5"/><rect x="13.5" y="4" width="6.5" height="6.5" rx="1.5"/><rect x="4" y="13.5" width="6.5" height="6.5" rx="1.5"/><rect x="13.5" y="13.5" width="6.5" height="6.5" rx="1.5"/></svg></span>Каталог</div><div class="tab-i on" data-go="s-orders"><span class="tab-ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="4.5" width="14" height="16.5" rx="2"/><path d="M9 3h6v3H9zM8.5 11h7M8.5 15h4.5"/></svg></span>Заявки</div><div class="tab-i" data-go="s-cart"><span class="tab-ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 4h2.2l2.3 10.6a1.2 1.2 0 0 0 1.2.9h8.9a1.2 1.2 0 0 0 1.2-.9L20.5 8H6.1"/><circle cx="9.5" cy="19.3" r="1.3"/><circle cx="17" cy="19.3" r="1.3"/></svg><span class="tab-b">3</span></span>Корзина</div><div class="tab-i" data-go="s-profile"><span class="tab-ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="3.8"/><path d="M4.5 20.5c1.4-3.7 4.2-5.6 7.5-5.6s6.1 1.9 7.5 5.6"/></svg></span>Профиль</div><div class="home-ind"></div></nav>
+</section><section class="screen" id="s-profile" data-name="13 Профиль">
+  <div class="sb"><span class="sb-t">9:41</span><img class="sb-logo" src="assets/logo.png" alt="УРАЛХИМ"><span class="sb-r"><svg width="17" height="11" viewBox="0 0 17 11"><rect x="0" y="7" width="3" height="4" rx="1"/><rect x="4.5" y="5" width="3" height="6" rx="1"/><rect x="9" y="2.5" width="3" height="8.5" rx="1"/><rect x="13.5" y="0" width="3" height="11" rx="1"/></svg><svg width="25" height="12" viewBox="0 0 25 12"><rect x=".5" y=".5" width="21" height="11" rx="3" fill="none" stroke="currentColor" opacity=".4"/><rect x="2" y="2" width="18" height="8" rx="2"/><rect x="22.5" y="4" width="1.8" height="4" rx=".9" opacity=".4"/></svg></span></div>
+  <div class="top"><h1>Профиль</h1><div class="icon-btn soft"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 2.8v2.4M12 18.8v2.4M2.8 12h2.4M18.8 12h2.4M5.5 5.5l1.7 1.7M16.8 16.8l1.7 1.7M5.5 18.5l1.7-1.7M16.8 7.2l1.7-1.7"/></svg></div></div>
+  <div class="body" style="padding-top:16px;gap:16px">
+    <div class="card row">
+      <div class="ava">АУ</div>
+      <div style="flex:1"><div class="ttl16">ООО «АгроСнаб-Урал»</div><div class="t3 num">ИНН 6658012345 · 2 договора</div></div>
+      <span class="link">Сменить</span>
+    </div>
+    <div class="card stack" style="gap:12px;background:var(--blue);color:#fff">
+      <div class="row"><div class="ava" style="background:#fff;color:var(--blue)">СЛ</div><div style="flex:1"><div style="font-size:13px;color:#C9CAE6">Ваш менеджер</div><div class="ttl16">Лукьянова Светлана</div></div></div>
+      <div class="row" style="gap:8px"><div class="btn m" style="flex:1;background:rgba(255,255,255,.14);color:#fff"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h3.5l1.8 4.5-2.3 1.4a11 11 0 0 0 6.1 6.1l1.4-2.3L20 15.5V19a1.5 1.5 0 0 1-1.6 1.5A16.5 16.5 0 0 1 3.5 5.6 1.5 1.5 0 0 1 5 4z"/></svg><span class="lbl">Позвонить</span></div><div class="btn m white" style="flex:1" data-go="s-chat"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 5h14a1.5 1.5 0 0 1 1.5 1.5v9A1.5 1.5 0 0 1 19 17h-8l-4.5 3.5V17H5a1.5 1.5 0 0 1-1.5-1.5v-9A1.5 1.5 0 0 1 5 5z"/></svg><span class="lbl">Написать</span></div></div>
+    </div>
+    <div class="card menu">
+      <div class="lrow" data-go="s-fin"><span class="mi"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7.5A2.5 2.5 0 0 1 6.5 5H18v3"/><rect x="4" y="8" width="16" height="11" rx="2"/><circle cx="16" cy="13.5" r="1.2"/></svg></span><span class="ttl15" style="flex:1">Финансы и счета</span><span class="pill warn"><span class="lbl">1 к оплате</span></span><span class="chev"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m9.5 6 6 6-6 6"/></svg></span></div>
+      <div class="lrow"><span class="mi"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3h7l4 4v13a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1z"/><path d="M14 3v4h4M9 12h6M9 16h6"/></svg></span><span class="ttl15" style="flex:1">Договоры и документы</span><span class="chev"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m9.5 6 6 6-6 6"/></svg></span></div>
+      <div class="lrow" data-go="s-issue"><span class="mi"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 5h14a1.5 1.5 0 0 1 1.5 1.5v9A1.5 1.5 0 0 1 19 17h-8l-4.5 3.5V17H5a1.5 1.5 0 0 1-1.5-1.5v-9A1.5 1.5 0 0 1 5 5z"/></svg></span><span class="ttl15" style="flex:1">Обращения</span><span class="t3">2</span><span class="chev"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m9.5 6 6 6-6 6"/></svg></span></div>
+      <div class="lrow"><span class="mi"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20s-7.5-4.4-7.5-10A4.3 4.3 0 0 1 12 7.4 4.3 4.3 0 0 1 19.5 10c0 5.6-7.5 10-7.5 10z"/></svg></span><span class="ttl15" style="flex:1">Избранное</span><span class="t3">12</span><span class="chev"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m9.5 6 6 6-6 6"/></svg></span></div>
+      <div class="lrow"><span class="mi"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0 1 13 0c0 5.4-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.3"/></svg></span><span class="ttl15" style="flex:1">Станции и грузополучатели</span><span class="chev"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m9.5 6 6 6-6 6"/></svg></span></div>
+    </div>
+    <div class="card menu">
+      <div class="lrow" data-go="s-news"><span class="mi"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 19c0-8 5-13 14-14 0 9-5 14-13 14z"/><path d="M5 19 13 11"/></svg></span><span class="ttl15" style="flex:1">Новости</span><span class="chev"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m9.5 6 6 6-6 6"/></svg></span></div>
+      <div class="lrow"><span class="mi"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="9" r="5.5"/><path d="M8.5 13.5 7 21l5-2.5 5 2.5-1.5-7.5"/></svg></span><span class="ttl15" style="flex:1">Обучение и сертификаты</span><span class="t3">11 из 12</span><span class="chev"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m9.5 6 6 6-6 6"/></svg></span></div>
+      <div class="lrow"><span class="mi"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M12 11v5M12 8v.2"/></svg></span><span class="ttl15" style="flex:1">Помощь и контакты</span><span class="chev"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m9.5 6 6 6-6 6"/></svg></span></div>
+    </div>
+    <div class="btn sec full" data-go="s-login" style="color:var(--err)"><span class="lbl">Выйти</span></div>
+  </div>
+  <nav class="tab"><div class="tab-i" data-go="s-home"><span class="tab-ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 10.5 12 3.8l8.5 6.7V19a1.5 1.5 0 0 1-1.5 1.5h-4.5v-6h-5v6H5A1.5 1.5 0 0 1 3.5 19z"/></svg></span>Главная</div><div class="tab-i" data-go="s-cat"><span class="tab-ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="6.5" height="6.5" rx="1.5"/><rect x="13.5" y="4" width="6.5" height="6.5" rx="1.5"/><rect x="4" y="13.5" width="6.5" height="6.5" rx="1.5"/><rect x="13.5" y="13.5" width="6.5" height="6.5" rx="1.5"/></svg></span>Каталог</div><div class="tab-i" data-go="s-orders"><span class="tab-ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="4.5" width="14" height="16.5" rx="2"/><path d="M9 3h6v3H9zM8.5 11h7M8.5 15h4.5"/></svg></span>Заявки</div><div class="tab-i" data-go="s-cart"><span class="tab-ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 4h2.2l2.3 10.6a1.2 1.2 0 0 0 1.2.9h8.9a1.2 1.2 0 0 0 1.2-.9L20.5 8H6.1"/><circle cx="9.5" cy="19.3" r="1.3"/><circle cx="17" cy="19.3" r="1.3"/></svg><span class="tab-b">3</span></span>Корзина</div><div class="tab-i on" data-go="s-profile"><span class="tab-ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="3.8"/><path d="M4.5 20.5c1.4-3.7 4.2-5.6 7.5-5.6s6.1 1.9 7.5 5.6"/></svg></span>Профиль</div><div class="home-ind"></div></nav>
+</section><section class="screen" id="s-filters" data-name="14 Фильтры каталога" style="background:#7A7C93">
+  <div class="sb"><span class="sb-t">9:41</span><img class="sb-logo" src="assets/logo.png" alt="УРАЛХИМ"><span class="sb-r"><svg width="17" height="11" viewBox="0 0 17 11"><rect x="0" y="7" width="3" height="4" rx="1"/><rect x="4.5" y="5" width="3" height="6" rx="1"/><rect x="9" y="2.5" width="3" height="8.5" rx="1"/><rect x="13.5" y="0" width="3" height="11" rx="1"/></svg><svg width="25" height="12" viewBox="0 0 25 12"><rect x=".5" y=".5" width="21" height="11" rx="3" fill="none" stroke="currentColor" opacity=".4"/><rect x="2" y="2" width="18" height="8" rx="2"/><rect x="22.5" y="4" width="1.8" height="4" rx=".9" opacity=".4"/></svg></span></div>
+  <div style="height:56px"></div>
+  <div class="sheet-m">
+    <div class="handle"></div>
+    <div class="between"><span style="font:var(--font-h1)">Фильтры</span><span class="link">Сбросить</span></div>
+    <div class="stack"><span class="label">Фасовка</span><div class="wrap"><span class="chip on"><span class="lbl">Мешок 25 кг</span></span><span class="chip"><span class="lbl">МКР 600 кг</span></span><span class="chip"><span class="lbl">МКР 1000 кг</span></span><span class="chip"><span class="lbl">Навал</span></span><span class="chip"><span class="lbl">Канистра</span></span></div></div>
+    <div class="stack"><span class="label">Тип удобрения</span><div class="wrap"><span class="chip"><span class="lbl">Азотные</span></span><span class="chip on"><span class="lbl">NPK комплексные</span></span><span class="chip"><span class="lbl">NP / PK</span></span><span class="chip on"><span class="lbl">С микроэлементами</span></span><span class="chip"><span class="lbl">Кальциевые</span></span></div></div>
+    <div class="stack"><span class="label">Культура</span><div class="wrap"><span class="chip on"><span class="lbl">Овощи</span></span><span class="chip"><span class="lbl">Плодовые</span></span><span class="chip"><span class="lbl">Зерновые</span></span><span class="chip"><span class="lbl">Масличные</span></span><span class="chip"><span class="lbl">Картофель</span></span></div></div>
+    <div class="stack"><span class="label">Способ внесения</span><div class="seg"><div>Почва</div><div class="on">Фертигация</div><div>Лист</div></div></div>
+    <div class="between" style="padding:4px 0"><div><div class="ttl15">Только в наличии</div><div class="t3">Отгрузка в течение 14 дней</div></div><span class="tgl on"><i></i></span></div>
+    <div class="btn pri full" data-go="s-cat"><span class="lbl">Показать 34 продукта</span></div>
+    <div class="home-ind" style="position:static;transform:none;margin:4px auto 0"></div>
+  </div>
+</section><section class="screen" id="s-success" data-name="15 Заявка отправлена">
+  <div class="sb"><span class="sb-t">9:41</span><img class="sb-logo" src="assets/logo.png" alt="УРАЛХИМ"><span class="sb-r"><svg width="17" height="11" viewBox="0 0 17 11"><rect x="0" y="7" width="3" height="4" rx="1"/><rect x="4.5" y="5" width="3" height="6" rx="1"/><rect x="9" y="2.5" width="3" height="8.5" rx="1"/><rect x="13.5" y="0" width="3" height="11" rx="1"/></svg><svg width="25" height="12" viewBox="0 0 25 12"><rect x=".5" y=".5" width="21" height="11" rx="3" fill="none" stroke="currentColor" opacity=".4"/><rect x="2" y="2" width="18" height="8" rx="2"/><rect x="22.5" y="4" width="1.8" height="4" rx=".9" opacity=".4"/></svg></span></div>
+  <div class="body" style="background:var(--surface);padding:56px 16px 24px;gap:24px;align-items:center;text-align:center">
+    <div class="big-ok"><svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></div>
+    <div><div style="font:var(--font-display)">Заявка № 1602<br>отправлена</div><div class="t2" style="margin-top:10px">Менеджер <b>Лукьянова С. А.</b> подтвердит цену и график до 10 ноября. Статус придёт в push.</div></div>
+    <div class="card" style="background:var(--bg);width:100%;text-align:left;padding:6px 16px">
+      <div class="kv"><span>Объём</span><b>11 т · 2 позиции</b></div>
+      <div class="kv"><span>Сумма с НДС</span><b>1 426 560 ₽</b></div>
+      <div class="kv"><span>Станция</span><b>Баженово</b></div>
+      <div class="kv" style="border:0"><span>Отгрузка</span><b>11–20 ноября</b></div>
+    </div>
+    <div class="card row" style="width:100%;text-align:left;background:var(--surface-2)"><div class="ico blue"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 3l3 3-3 3"/><path d="M4 11V9.5A3.5 3.5 0 0 1 7.5 6H20M7 21l-3-3 3-3"/><path d="M20 13v1.5a3.5 3.5 0 0 1-3.5 3.5H4"/></svg></div><div style="flex:1" class="t2">В корзине осталась <b>заявка 2</b> · Промышленное, 68 т</div><span class="link" data-go="s-cart">Оформить</span></div>
+  </div>
+  <div class="dock" style="flex-direction:column;gap:8px"><div class="btn pri full" data-go="s-order"><span class="lbl">Открыть заявку</span></div><div class="btn sec full" data-go="s-home"><span class="lbl">На главную</span></div><div class="home-ind"></div></div>
+</section><section class="screen" id="s-cart-empty" data-name="16 Пустая корзина">
+  <div class="sb"><span class="sb-t">9:41</span><img class="sb-logo" src="assets/logo.png" alt="УРАЛХИМ"><span class="sb-r"><svg width="17" height="11" viewBox="0 0 17 11"><rect x="0" y="7" width="3" height="4" rx="1"/><rect x="4.5" y="5" width="3" height="6" rx="1"/><rect x="9" y="2.5" width="3" height="8.5" rx="1"/><rect x="13.5" y="0" width="3" height="11" rx="1"/></svg><svg width="25" height="12" viewBox="0 0 25 12"><rect x=".5" y=".5" width="21" height="11" rx="3" fill="none" stroke="currentColor" opacity=".4"/><rect x="2" y="2" width="18" height="8" rx="2"/><rect x="22.5" y="4" width="1.8" height="4" rx=".9" opacity=".4"/></svg></span></div>
+  <div class="top"><h1>Корзина</h1></div>
+  <div class="body" style="padding-top:56px;gap:24px;align-items:center;text-align:center">
+    <div class="big-ok" style="background:var(--surface-2);color:var(--blue)"><svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 4h2.2l2.3 10.6a1.2 1.2 0 0 0 1.2.9h8.9a1.2 1.2 0 0 0 1.2-.9L20.5 8H6.1"/><circle cx="9.5" cy="19.3" r="1.3"/><circle cx="17" cy="19.3" r="1.3"/></svg></div>
+    <div><div style="font:var(--font-h1)">Корзина пуста</div><div class="t2" style="margin-top:8px;padding:0 24px">Повторите прошлую заявку — станция и грузополучатель подставятся сами</div></div>
+    <div class="card stack" style="width:100%;text-align:left;gap:12px">
+      <div class="between"><span class="label">Последняя заявка</span><span class="t3 num">№ 1489 · 24.10</span></div>
+      <div class="row"><div class="pimg" style="width:52px;height:60px;background:var(--surface-brand,#E8E9F4);color:var(--blue);flex-direction:column;font-weight:700;font-size:13px;line-height:16px">N<span style="font-size:18px">46</span></div><div style="flex:1"><div class="ttl15">Карбамид марки Б, навал</div><div class="t3 num">136 т · ст. Баженово · 4 352 000 ₽</div></div></div>
+      <div class="btn pri full" data-go="s-cart"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 3l3 3-3 3"/><path d="M4 11V9.5A3.5 3.5 0 0 1 7.5 6H20M7 21l-3-3 3-3"/><path d="M20 13v1.5a3.5 3.5 0 0 1-3.5 3.5H4"/></svg><span class="lbl">Повторить заявку</span></div>
+    </div>
+    <div class="btn out full" data-go="s-cat"><span class="lbl">Перейти в каталог</span></div>
+  </div>
+  <nav class="tab"><div class="tab-i" data-go="s-home"><span class="tab-ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 10.5 12 3.8l8.5 6.7V19a1.5 1.5 0 0 1-1.5 1.5h-4.5v-6h-5v6H5A1.5 1.5 0 0 1 3.5 19z"/></svg></span>Главная</div><div class="tab-i" data-go="s-cat"><span class="tab-ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="6.5" height="6.5" rx="1.5"/><rect x="13.5" y="4" width="6.5" height="6.5" rx="1.5"/><rect x="4" y="13.5" width="6.5" height="6.5" rx="1.5"/><rect x="13.5" y="13.5" width="6.5" height="6.5" rx="1.5"/></svg></span>Каталог</div><div class="tab-i" data-go="s-orders"><span class="tab-ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="4.5" width="14" height="16.5" rx="2"/><path d="M9 3h6v3H9zM8.5 11h7M8.5 15h4.5"/></svg></span>Заявки</div><div class="tab-i on" data-go="s-cart"><span class="tab-ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 4h2.2l2.3 10.6a1.2 1.2 0 0 0 1.2.9h8.9a1.2 1.2 0 0 0 1.2-.9L20.5 8H6.1"/><circle cx="9.5" cy="19.3" r="1.3"/><circle cx="17" cy="19.3" r="1.3"/></svg></span>Корзина</div><div class="tab-i" data-go="s-profile"><span class="tab-ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="3.8"/><path d="M4.5 20.5c1.4-3.7 4.2-5.6 7.5-5.6s6.1 1.9 7.5 5.6"/></svg></span>Профиль</div><div class="home-ind"></div></nav>
+</section><section class="screen" id="s-chat" data-name="17 Чат с менеджером">
+  <div class="sb"><span class="sb-t">9:41</span><img class="sb-logo" src="assets/logo.png" alt="УРАЛХИМ"><span class="sb-r"><svg width="17" height="11" viewBox="0 0 17 11"><rect x="0" y="7" width="3" height="4" rx="1"/><rect x="4.5" y="5" width="3" height="6" rx="1"/><rect x="9" y="2.5" width="3" height="8.5" rx="1"/><rect x="13.5" y="0" width="3" height="11" rx="1"/></svg><svg width="25" height="12" viewBox="0 0 25 12"><rect x=".5" y=".5" width="21" height="11" rx="3" fill="none" stroke="currentColor" opacity=".4"/><rect x="2" y="2" width="18" height="8" rx="2"/><rect x="22.5" y="4" width="1.8" height="4" rx=".9" opacity=".4"/></svg></span></div>
+  <div class="top"><div class="icon-btn soft" data-go="back"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m14.5 6-6 6 6 6"/></svg></div><div class="ava" style="width:40px;height:40px;font-size:14px">СЛ</div><div style="flex:1"><div class="ttl15">Лукьянова Светлана</div><div class="t3" style="color:var(--ok)">менеджер · онлайн</div></div><div class="icon-btn soft"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h3.5l1.8 4.5-2.3 1.4a11 11 0 0 0 6.1 6.1l1.4-2.3L20 15.5V19a1.5 1.5 0 0 1-1.6 1.5A16.5 16.5 0 0 1 3.5 5.6 1.5 1.5 0 0 1 5 4z"/></svg></div></div>
+  <div style="background:var(--surface);padding:0 16px 12px"><div class="chip" style="height:32px;width:100%;justify-content:space-between" data-go="s-order"><span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="4.5" width="14" height="16.5" rx="2"/><path d="M9 3h6v3H9zM8.5 11h7M8.5 15h4.5"/></svg> Заявка № 1489 · Карбамид, 136 т</span><span class="pill ok" style="height:20px"><span class="lbl">В пути</span></span></div></div>
+  <div class="body" style="padding-top:16px;gap:10px">
+    <div class="day">Сегодня</div>
+    <div class="bub in">Добрый день, Алексей! Вагон 58213488 задержали на Углеуральской на сутки — прибытие ориентировочно 15 ноября.<i>08:12</i></div>
+    <div class="bub out">Спасибо. Можно перенести выгрузку на 16-е? 15-го склад занят.<i>08:20 ✓✓</i></div>
+    <div class="bub in">Да, согласую со станцией и вернусь до 12:00. Накладную прикладываю.<i>08:24</i></div>
+    <div class="bub in file"><span class="ico info" style="width:40px;height:40px"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3h7l4 4v13a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1z"/><path d="M14 3v4h4M9 12h6M9 16h6"/></svg></span><span style="flex:1"><b>ЖД накладная ЭА123457.pdf</b><br><span class="t3">PDF · 184 КБ</span></span><i>08:24</i></div>
+    <div class="bub out">Отлично, жду 👍<i>08:25 ✓✓</i></div>
+  </div>
+  <div class="dock" style="align-items:center;padding-top:10px">
+    <div class="icon-btn soft"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m20 11.5-7.8 7.8a5 5 0 0 1-7.1-7.1l8.3-8.3a3.3 3.3 0 0 1 4.7 4.7l-8.3 8.3a1.7 1.7 0 0 1-2.4-2.4l7.6-7.6"/></svg></div>
+    <div class="search" style="flex:1;height:44px;border-radius:22px">Сообщение…</div>
+    <div class="icon-btn" style="background:var(--green-a);color:#fff;border-radius:22px"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12 20 4l-6 16-2.5-6.5z"/><path d="m11.5 13.5 4-4"/></svg></div>
+    <div class="home-ind"></div>
+  </div>
+</section><section class="screen" id="s-issue" data-name="18 Обращение по вагону">
+  <div class="sb"><span class="sb-t">9:41</span><img class="sb-logo" src="assets/logo.png" alt="УРАЛХИМ"><span class="sb-r"><svg width="17" height="11" viewBox="0 0 17 11"><rect x="0" y="7" width="3" height="4" rx="1"/><rect x="4.5" y="5" width="3" height="6" rx="1"/><rect x="9" y="2.5" width="3" height="8.5" rx="1"/><rect x="13.5" y="0" width="3" height="11" rx="1"/></svg><svg width="25" height="12" viewBox="0 0 25 12"><rect x=".5" y=".5" width="21" height="11" rx="3" fill="none" stroke="currentColor" opacity=".4"/><rect x="2" y="2" width="18" height="8" rx="2"/><rect x="22.5" y="4" width="1.8" height="4" rx=".9" opacity=".4"/></svg></span></div>
+  <div class="top"><div class="icon-btn soft" data-go="back"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m14.5 6-6 6 6 6"/></svg></div><div class="ttl">Сообщить о проблеме</div><div class="icon-btn"></div></div>
+  <div class="body" style="padding-top:16px;gap:16px">
+    <div class="card row" style="background:#E8E9F4"><div class="ico" style="background:#fff;color:var(--blue)"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5.5" y="3" width="13" height="14" rx="3"/><path d="M5.5 10.5h13M8 21l2-4M16 21l-2-4"/><circle cx="9" cy="13.8" r=".6" fill="currentColor"/><circle cx="15" cy="13.8" r=".6" fill="currentColor"/></svg></div><div style="flex:1"><div class="ttl15 num">Вагон 58213470 · 68 т</div><div class="t3 num">Заявка № 1489 · Карбамид марки Б</div></div><span style="color:var(--ok)"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></span></div>
+    <div class="stack"><span class="label">Что случилось</span><div class="wrap"><span class="chip on"><span class="lbl">Недовес</span></span><span class="chip"><span class="lbl">Качество</span></span><span class="chip"><span class="lbl">Повреждение тары</span></span><span class="chip"><span class="lbl">Документы</span></span><span class="chip"><span class="lbl">Другое</span></span></div></div>
+    <div class="row" style="gap:8px">
+      <div class="field" style="flex:1"><div class="fl"><small>По накладной</small><b class="num">68,0 т</b></div></div>
+      <div class="field" style="flex:1;border:2px solid var(--blue)"><div class="fl"><small style="color:var(--blue)">Фактически</small><b class="num">66,8 т</b></div></div>
+    </div>
+    <div class="banner" style="background:var(--warn-bg);color:var(--warn);font-weight:600"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4 21 19.5H3z"/><path d="M12 10v4.2M12 16.8v.2"/></svg> Расхождение 1,2 т (1,8 %) — выше нормы 0,5 %</div>
+    <div class="field" style="min-height:88px;align-items:flex-start"><div class="fl"><small>Комментарий</small><b style="font-weight:400">Взвешено на весах склада при выгрузке 14.11, акт приложен</b></div></div>
+    <div class="stack"><span class="label">Фото и документы</span>
+      <div class="row" style="gap:8px"><div class="ph-t"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8.5A1.5 1.5 0 0 1 5.5 7h2.3l1.5-2.2h5.4L16.2 7h2.3A1.5 1.5 0 0 1 20 8.5v9.5a1.5 1.5 0 0 1-1.5 1.5h-13A1.5 1.5 0 0 1 4 18z"/><circle cx="12" cy="13" r="3.5"/></svg><span>IMG_2041</span></div><div class="ph-t"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3h7l4 4v13a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1z"/><path d="M14 3v4h4M9 12h6M9 16h6"/></svg><span>Акт.pdf</span></div><div class="ph-t add"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg><span>Добавить</span></div></div></div>
+  </div>
+  <div class="dock" style="flex-direction:column;gap:8px"><div class="btn pri full" data-go="s-order"><span class="lbl">Отправить обращение</span></div><div class="t3" style="text-align:center">Ответ в течение 2 рабочих дней · номер придёт в push</div><div class="home-ind"></div></div>
+</section><section class="screen" id="s-news" data-name="19 Новости">
+  <div class="sb"><span class="sb-t">9:41</span><img class="sb-logo" src="assets/logo.png" alt="УРАЛХИМ"><span class="sb-r"><svg width="17" height="11" viewBox="0 0 17 11"><rect x="0" y="7" width="3" height="4" rx="1"/><rect x="4.5" y="5" width="3" height="6" rx="1"/><rect x="9" y="2.5" width="3" height="8.5" rx="1"/><rect x="13.5" y="0" width="3" height="11" rx="1"/></svg><svg width="25" height="12" viewBox="0 0 25 12"><rect x=".5" y=".5" width="21" height="11" rx="3" fill="none" stroke="currentColor" opacity=".4"/><rect x="2" y="2" width="18" height="8" rx="2"/><rect x="22.5" y="4" width="1.8" height="4" rx=".9" opacity=".4"/></svg></span></div>
+  <div class="top"><div class="icon-btn soft" data-go="back"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m14.5 6-6 6 6 6"/></svg></div><div class="ttl">Новости</div><div class="icon-btn"></div></div>
+  <div style="background:var(--surface);padding:0 16px 14px"><div class="chips"><span class="chip on"><span class="lbl">Все</span></span><span class="chip"><span class="lbl">Продукты</span></span><span class="chip"><span class="lbl">Агрономия</span></span><span class="chip"><span class="lbl">Компания</span></span></div></div>
+  <div class="body" style="padding-top:16px;gap:12px">
+    <div class="card" style="padding:0;overflow:hidden">
+      <div style="height:168px;background:linear-gradient(135deg,#272A6B,#3A3E8C);display:flex;align-items:flex-end;justify-content:space-between;padding:16px">
+        <span class="pill" style="background:rgba(255,255,255,.16);color:#fff"><span class="lbl">Новый продукт</span></span>
+        <img src="assets/pack-solar-nitrat.png" style="height:140px;margin-bottom:-16px">
+      </div>
+      <div style="padding:14px 16px 16px"><div class="t3">21 октября · 3 мин</div><div class="ttl16" style="margin-top:4px">«МультиСтарт» — новое биомодифицированное удобрение ВМУ</div></div>
+    </div>
+    <div class="card tight row"><div class="nthumb" style="background:#E3F5EC;color:var(--ok)"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 19c0-8 5-13 14-14 0 9-5 14-13 14z"/><path d="M5 19 13 11"/></svg></div><div style="flex:1"><div class="ttl15">Итоги агроиспытаний: +12 % урожайности на SOLAR</div><div class="t3">14 октября</div></div></div>
+    <div class="card tight row"><div class="nthumb"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 20.5V11l5 3V11l5 3V7.5l7 3v10z"/><path d="M7 17.5h2M12 17.5h2M17 17.5h1"/></svg></div><div style="flex:1"><div class="ttl15">«Уралхим» на выставке «Агроволга-2026»</div><div class="t3">15 июля</div></div></div>
+    <div class="card tight row"><div class="nthumb" style="background:#FFF1D6;color:var(--warn)"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 5h14a1.5 1.5 0 0 1 1.5 1.5v9A1.5 1.5 0 0 1 19 17h-8l-4.5 3.5V17H5a1.5 1.5 0 0 1-1.5-1.5v-9A1.5 1.5 0 0 1 5 5z"/></svg></div><div style="flex:1"><div class="ttl15">Запускаем соцсети «Уралхим Агро»</div><div class="t3">21 августа</div></div></div>
+  </div>
+  <nav class="tab"><div class="tab-i" data-go="s-home"><span class="tab-ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 10.5 12 3.8l8.5 6.7V19a1.5 1.5 0 0 1-1.5 1.5h-4.5v-6h-5v6H5A1.5 1.5 0 0 1 3.5 19z"/></svg></span>Главная</div><div class="tab-i" data-go="s-cat"><span class="tab-ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="6.5" height="6.5" rx="1.5"/><rect x="13.5" y="4" width="6.5" height="6.5" rx="1.5"/><rect x="4" y="13.5" width="6.5" height="6.5" rx="1.5"/><rect x="13.5" y="13.5" width="6.5" height="6.5" rx="1.5"/></svg></span>Каталог</div><div class="tab-i" data-go="s-orders"><span class="tab-ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="4.5" width="14" height="16.5" rx="2"/><path d="M9 3h6v3H9zM8.5 11h7M8.5 15h4.5"/></svg></span>Заявки</div><div class="tab-i" data-go="s-cart"><span class="tab-ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 4h2.2l2.3 10.6a1.2 1.2 0 0 0 1.2.9h8.9a1.2 1.2 0 0 0 1.2-.9L20.5 8H6.1"/><circle cx="9.5" cy="19.3" r="1.3"/><circle cx="17" cy="19.3" r="1.3"/></svg><span class="tab-b">3</span></span>Корзина</div><div class="tab-i on" data-go="s-profile"><span class="tab-ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="3.8"/><path d="M4.5 20.5c1.4-3.7 4.2-5.6 7.5-5.6s6.1 1.9 7.5 5.6"/></svg></span>Профиль</div><div class="home-ind"></div></nav>
+</section><section class="screen" id="s-insp-run" data-name="20 Инспекция — чек-лист">
+  <div class="sb"><span class="sb-t">9:41</span><img class="sb-logo" src="assets/logo.png" alt="УРАЛХИМ"><span class="sb-r"><svg width="17" height="11" viewBox="0 0 17 11"><rect x="0" y="7" width="3" height="4" rx="1"/><rect x="4.5" y="5" width="3" height="6" rx="1"/><rect x="9" y="2.5" width="3" height="8.5" rx="1"/><rect x="13.5" y="0" width="3" height="11" rx="1"/></svg><svg width="25" height="12" viewBox="0 0 25 12"><rect x=".5" y=".5" width="21" height="11" rx="3" fill="none" stroke="currentColor" opacity=".4"/><rect x="2" y="2" width="18" height="8" rx="2"/><rect x="22.5" y="4" width="1.8" height="4" rx=".9" opacity=".4"/></svg></span></div>
+  <div class="top"><div class="icon-btn soft" data-go="back"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m14.5 6-6 6 6 6"/></svg></div><div style="flex:1"><div class="ttl15">Инспекция склада</div><div class="t3">08:30 · Красноуфимск</div></div><span class="pill warn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3l18 18M8.5 16.5a5 5 0 0 1 7 0M5 13a10 10 0 0 1 4.2-2.4M19 13a10 10 0 0 0-2.1-1.5M2 9.5a15 15 0 0 1 4.3-2.8M22 9.5A15 15 0 0 0 11 5.6"/><circle cx="12" cy="19.5" r=".7" fill="currentColor"/></svg><span class="lbl">Офлайн</span></span></div>
+  <div style="background:var(--surface);padding:0 16px 16px" class="stack"><div class="between t3"><span>Чек-лист · <b style="color:var(--t1)">5 из 9</b></span><span>Карбамид марки Б · 120 т</span></div><div class="prog"><i style="width:56%"></i></div></div>
+  <div class="body" style="padding-top:14px;gap:8px">
+    <div class="ck done"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg><span>Целостность упаковки МКР</span></div>
+    <div class="ck done"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg><span>Маркировка соответствует партии</span></div>
+    <div class="ck done"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg><span>Пломбы и ярлыки на месте</span></div>
+    <div class="ck done"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg><span>Количество мест: 120 из 120</span></div>
+    <div class="card stack" style="gap:12px;border:2px solid var(--blue)">
+      <div class="between"><span class="ttl15">5. Условия хранения</span><span class="t3">обязательно</span></div>
+      <div class="t2">Навес или склад, МКР на поддонах, нет контакта с грунтом и влагой</div>
+      <div class="seg"><div>Соответствует</div><div class="on" style="color:var(--warn)">Замечание</div></div>
+      <div class="row" style="gap:8px"><div class="ph-t s"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8.5A1.5 1.5 0 0 1 5.5 7h2.3l1.5-2.2h5.4L16.2 7h2.3A1.5 1.5 0 0 1 20 8.5v9.5a1.5 1.5 0 0 1-1.5 1.5h-13A1.5 1.5 0 0 1 4 18z"/><circle cx="12" cy="13" r="3.5"/></svg></div><div class="ph-t s"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8.5A1.5 1.5 0 0 1 5.5 7h2.3l1.5-2.2h5.4L16.2 7h2.3A1.5 1.5 0 0 1 20 8.5v9.5a1.5 1.5 0 0 1-1.5 1.5h-13A1.5 1.5 0 0 1 4 18z"/><circle cx="12" cy="13" r="3.5"/></svg></div><div class="ph-t s add"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg></div><span class="t3" style="flex:1">2 фото</span></div>
+      <div class="link" data-go="s-remark">Описать замечание →</div>
+    </div>
+    <div class="ck"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="7"/></svg><span>6. Отбор пробы (3 точки)</span></div>
+    <div class="ck"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="7"/></svg><span>7. Выборочное взвешивание</span></div>
+  </div>
+  <div class="dock"><div class="btn sec" style="flex:1"><span class="lbl">Черновик</span></div><div class="btn pri" style="flex:1.6"><span class="lbl">Следующий пункт</span></div><div class="home-ind"></div></div>
+</section><section class="screen" id="s-remark" data-name="21 Новое замечание">
+  <div class="sb"><span class="sb-t">9:41</span><img class="sb-logo" src="assets/logo.png" alt="УРАЛХИМ"><span class="sb-r"><svg width="17" height="11" viewBox="0 0 17 11"><rect x="0" y="7" width="3" height="4" rx="1"/><rect x="4.5" y="5" width="3" height="6" rx="1"/><rect x="9" y="2.5" width="3" height="8.5" rx="1"/><rect x="13.5" y="0" width="3" height="11" rx="1"/></svg><svg width="25" height="12" viewBox="0 0 25 12"><rect x=".5" y=".5" width="21" height="11" rx="3" fill="none" stroke="currentColor" opacity=".4"/><rect x="2" y="2" width="18" height="8" rx="2"/><rect x="22.5" y="4" width="1.8" height="4" rx=".9" opacity=".4"/></svg></span></div>
+  <div class="top"><div class="icon-btn soft" data-go="back"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6l12 12M18 6 6 18"/></svg></div><div class="ttl">Новое замечание</div><div class="icon-btn"></div></div>
+  <div class="body" style="padding-top:16px;gap:16px">
+    <div class="photos"><div class="ph-l"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8.5A1.5 1.5 0 0 1 5.5 7h2.3l1.5-2.2h5.4L16.2 7h2.3A1.5 1.5 0 0 1 20 8.5v9.5a1.5 1.5 0 0 1-1.5 1.5h-13A1.5 1.5 0 0 1 4 18z"/><circle cx="12" cy="13" r="3.5"/></svg><span>Фото 1 · 08:47</span></div><div class="stack" style="gap:8px;flex:1"><div class="ph-l s"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8.5A1.5 1.5 0 0 1 5.5 7h2.3l1.5-2.2h5.4L16.2 7h2.3A1.5 1.5 0 0 1 20 8.5v9.5a1.5 1.5 0 0 1-1.5 1.5h-13A1.5 1.5 0 0 1 4 18z"/><circle cx="12" cy="13" r="3.5"/></svg></div><div class="ph-l s add"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg><span>Ещё фото</span></div></div></div>
+    <div class="stack"><span class="label">Категория</span><div class="wrap"><span class="chip on"><span class="lbl">Хранение</span></span><span class="chip"><span class="lbl">Упаковка</span></span><span class="chip"><span class="lbl">Маркировка</span></span><span class="chip"><span class="lbl">Количество</span></span></div></div>
+    <div class="stack"><span class="label">Критичность</span><div class="seg"><div>Низкая</div><div class="on" style="color:var(--warn)">Средняя</div><div>Высокая</div></div></div>
+    <div class="field" style="min-height:88px;align-items:flex-start;border:2px solid var(--blue)"><div class="fl"><small style="color:var(--blue)">Описание</small><b style="font-weight:400">12 МКР стоят без поддонов у ворот № 3, контакт с грунтом</b></div></div>
+    <div class="card row tight" style="background:var(--surface-2)"><span style="color:var(--t3)"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="4.5" width="14" height="16.5" rx="2"/><path d="M9 3h6v3H9zM8.5 11h7M8.5 15h4.5"/></svg></span><span class="t2" style="flex:1">Инспекция склада · пункт 5 · Карбамид марки Б</span></div>
+    <div class="banner" style="background:var(--warn-bg);color:var(--warn)"><span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3l18 18M8.5 16.5a5 5 0 0 1 7 0M5 13a10 10 0 0 1 4.2-2.4M19 13a10 10 0 0 0-2.1-1.5M2 9.5a15 15 0 0 1 4.3-2.8M22 9.5A15 15 0 0 0 11 5.6"/><circle cx="12" cy="19.5" r=".7" fill="currentColor"/></svg></span><span>Нет сети. Сохраним на устройстве и отправим при подключении</span></div>
+  </div>
+  <div class="dock"><div class="btn pri full" data-go="s-sync"><span class="lbl">Сохранить замечание</span></div><div class="home-ind"></div></div>
+</section><section class="screen" id="s-sync" data-name="22 Синхронизация">
+  <div class="sb"><span class="sb-t">9:41</span><img class="sb-logo" src="assets/logo.png" alt="УРАЛХИМ"><span class="sb-r"><svg width="17" height="11" viewBox="0 0 17 11"><rect x="0" y="7" width="3" height="4" rx="1"/><rect x="4.5" y="5" width="3" height="6" rx="1"/><rect x="9" y="2.5" width="3" height="8.5" rx="1"/><rect x="13.5" y="0" width="3" height="11" rx="1"/></svg><svg width="25" height="12" viewBox="0 0 25 12"><rect x=".5" y=".5" width="21" height="11" rx="3" fill="none" stroke="currentColor" opacity=".4"/><rect x="2" y="2" width="18" height="8" rx="2"/><rect x="22.5" y="4" width="1.8" height="4" rx=".9" opacity=".4"/></svg></span></div>
+  <div class="top"><h1>Синхронизация</h1></div>
+  <div class="body" style="padding-top:16px;gap:16px">
+    <div class="card stack" style="background:#1E2050;color:#fff;gap:12px">
+      <div class="row"><div class="ico" style="background:rgba(255,166,26,.18);color:#FFD592"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3l18 18M8.5 16.5a5 5 0 0 1 7 0M5 13a10 10 0 0 1 4.2-2.4M19 13a10 10 0 0 0-2.1-1.5M2 9.5a15 15 0 0 1 4.3-2.8M22 9.5A15 15 0 0 0 11 5.6"/><circle cx="12" cy="19.5" r=".7" fill="currentColor"/></svg></div><div style="flex:1"><div class="ttl16">Нет сети</div><div style="font-size:13px;color:#C9CAE6">Последняя синхронизация сегодня в 07:15</div></div></div>
+      <div class="btn m white"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M19.5 12a7.5 7.5 0 0 1-13.3 4.8M4.5 12A7.5 7.5 0 0 1 17.8 7.2"/><path d="M18 3.5v4h-4M6 20.5v-4h4"/></svg><span class="lbl">Повторить сейчас</span></div>
+    </div>
+    <div class="stack" style="gap:8px"><div class="sec"><h2>Ждут отправки <em>3</em></h2><span class="t3">7,8 МБ</span></div>
+      <div class="card" style="padding:14px 16px">
+        <div class="lrow"><div class="ico warn" style="width:36px;height:36px"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8.5A1.5 1.5 0 0 1 5.5 7h2.3l1.5-2.2h5.4L16.2 7h2.3A1.5 1.5 0 0 1 20 8.5v9.5a1.5 1.5 0 0 1-1.5 1.5h-13A1.5 1.5 0 0 1 4 18z"/><circle cx="12" cy="13" r="3.5"/></svg></div><div style="flex:1"><div class="ttl15">Замечание · Хранение</div><div class="t3">2 фото · 4,1 МБ · 08:49</div></div><span style="color:var(--t3)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></svg></span></div>
+        <div class="lrow"><div class="ico blue" style="width:36px;height:36px"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="4.5" width="14" height="16.5" rx="2"/><path d="M9 3h6v3H9zM8.5 11h7M8.5 15h4.5"/></svg></div><div style="flex:1"><div class="ttl15">Чек-лист · склад Красноуфимск</div><div class="t3">5 из 9 пунктов · 08:52</div></div><span style="color:var(--t3)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></svg></span></div>
+        <div class="lrow"><div class="ico blue" style="width:36px;height:36px"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9.5 3.5h5M10.5 3.5v5.2L5 18.3A1.5 1.5 0 0 0 6.3 20.5h11.4a1.5 1.5 0 0 0 1.3-2.2l-5.5-9.6V3.5"/><path d="M7.5 14h9"/></svg></div><div style="flex:1"><div class="ttl15">Проба · партия 2611-04</div><div class="t3">1 фото · 3,7 МБ · 11:14</div></div><span style="color:var(--t3)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></svg></span></div>
+      </div></div>
+    <div class="stack" style="gap:8px"><div class="sec"><h2>Загружено</h2></div>
+      <div class="card row tight"><div class="ico ok" style="width:36px;height:36px"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></div><div style="flex:1"><div class="ttl15">Задачи на 8 ноября</div><div class="t3">4 задачи · карты объектов · 07:15</div></div></div></div>
+    <div class="card" style="padding:14px 16px">
+      <div class="lrow"><span class="ttl15" style="flex:1">Фото только по Wi-Fi</span><span class="tgl on"><i></i></span></div>
+      <div class="lrow"><span class="ttl15" style="flex:1">Хранить офлайн-данные</span><span class="t3">7 дней</span><span class="chev"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m9.5 6 6 6-6 6"/></svg></span></div>
+    </div>
+  </div>
+  <nav class="tab"><div class="tab-i" data-go="s-insp"><span class="tab-ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="4.5" width="14" height="16.5" rx="2"/><path d="M9 3h6v3H9zM8.5 11h7M8.5 15h4.5"/></svg></span>Задачи</div><div class="tab-i" data-go="s-insp-run"><span class="tab-ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0 1 13 0c0 5.4-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.3"/></svg></span>Объекты</div><div class="tab-i" data-go="s-remark"><span class="tab-ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8.5A1.5 1.5 0 0 1 5.5 7h2.3l1.5-2.2h5.4L16.2 7h2.3A1.5 1.5 0 0 1 20 8.5v9.5a1.5 1.5 0 0 1-1.5 1.5h-13A1.5 1.5 0 0 1 4 18z"/><circle cx="12" cy="13" r="3.5"/></svg></span>Замечания</div><div class="tab-i on" data-go="s-sync"><span class="tab-ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M19.5 12a7.5 7.5 0 0 1-13.3 4.8M4.5 12A7.5 7.5 0 0 1 17.8 7.2"/><path d="M18 3.5v4h-4M6 20.5v-4h4"/></svg><span class="tab-b">3</span></span>Синхр.</div><div class="tab-i" data-go="s-insp"><span class="tab-ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="3.8"/><path d="M4.5 20.5c1.4-3.7 4.2-5.6 7.5-5.6s6.1 1.9 7.5 5.6"/></svg></span>Профиль</div><div class="home-ind"></div></nav>
+</section></div></main>
+<footer class="foot"><div><span>Кейс Ivanov Sergio · 2026 · данные в макетах демонстрационные</span><span class="links"><a href="https://www.figma.com/design/0ZiD08orz1A578mig90EW3/%D0%A3%D0%A0%D0%90%D0%9B%D0%A5%D0%98%D0%9C-%E2%80%94-%D0%9B%D0%9A-%D0%BF%D0%B0%D1%80%D1%82%D0%BD%D1%91%D1%80%D0%B0-%C2%B7-%D0%A0%D0%B5%D0%B4%D0%B8%D0%B7%D0%B0%D0%B9%D0%BD-2026?node-id=0-1&t=X1AbiOfTo47yDXY6-1" target="_blank" rel="noopener">Figma</a> · <a href="prototypes.html">Все макеты одним полотном</a></span></div></footer>
+<script>
+const ORDER = ["s-login", "s-reg", "s-home", "s-cat", "s-filters", "s-prod", "s-cart", "s-checkout", "s-success", "s-cart-empty", "s-orders", "s-order", "s-issue", "s-chat", "s-notif", "s-fin", "s-profile", "s-news", "s-insp", "s-insp-run", "s-remark", "s-sync"], NOTES = {"s-login": ["Вход", "Почта или телефон, вход по коду из SMS и заметный путь «подключить компанию».", ["Активное поле с рамкой бренда", "Телефон поддержки прямо на экране"]], "s-reg": ["Подключение по ИНН", "Регистрация из 6 шагов превратилась в 2: реквизиты подтягиваются из ЕГРЮЛ.", ["Проверка ИНН на лету", "Прогресс «Шаг 1 из 2»"]], "s-home": ["Главная покупателя", "За 5 секунд видно, что срочно и где груз.", ["Блок «Требует действия»: подтвердить график, оплатить счёт", "Вагоны в пути с датой прибытия и прогрессом", "Счётчики заявок по статусам, финансы двумя цифрами", "Быстрые действия: новая заявка, повтор, обращение"]], "s-cat": ["Каталог", "Продукт находится за 2 экрана без знания дерева разделов.", ["Поиск по марке и формуле NPK", "Чипсы групп с количеством, фильтр с бейджем", "Цена за тонну без НДС", "Кнопка превращается в степпер «40 меш. = 1 т»"]], "s-filters": ["Фильтры", "Шторка с фасовкой, типом, культурой и способом внесения.", ["Кнопка показывает число результатов", "Переключатель «Только в наличии»"]], "s-prod": ["Карточка товара", "Вместо обрезанных табов — короткий экран с главным.", ["NPK-чипсы и переключатель фасовки", "Крупная цена за тонну, наличие, минимальный заказ", "4 ключевых показателя состава и «Все 13»", "Липкий низ: степпер и сумма на кнопке"]], "s-cart": ["Корзина", "Явно показано, что корзина делится на заявки по направлениям.", ["У каждой заявки свой итог без НДС и с НДС", "Своя кнопка «Оформить» у каждой группы"]], "s-cart-empty": ["Пустая корзина", "Пустое состояние сразу предлагает повторить прошлую заявку.", ["Станция и грузополучатель подставятся сами"]], "s-checkout": ["Оформление заявки", "Один экран вместо цепочки модальных окон.", ["Доставка подставлена из прошлой заявки", "Период отгрузки декадой, а не точной датой", "Расчёт с НДС и сумма на кнопке"]], "s-success": ["Заявка отправлена", "Понятно, что будет дальше и когда.", ["Срок ответа менеджера", "Напоминание о второй заявке в корзине"]], "s-orders": ["Заявки", "Список с единым словарём статусов и подсветкой «требует действия».", ["Сегменты «Активные / Архив»", "Мини-прогресс жизненного цикла в карточке"]], "s-order": ["Заявка и трекинг", "Главный вопрос «когда приедет» — сверху и крупно.", ["5 шагов жизненного цикла", "Дата прибытия и оставшийся путь", "Таймлайн со свёрнутыми станциями, копируемая накладная", "Проблема и чат с менеджером в один тап"]], "s-issue": ["Обращение по вагону", "Контекст подставлен, расхождение посчитано автоматически.", ["Тип проблемы чипсами", "Сравнение «по накладной / фактически»", "Фото и документы"]], "s-chat": ["Чат с менеджером", "Переписка привязана к заявке.", ["Чип заявки со статусом в шапке", "Файлы прямо в ленте"]], "s-notif": ["Уведомления", "У каждого уведомления понятное действие и переход.", ["Фильтры по типам с количеством", "Группировка по дням, отметка непрочитанных"]], "s-fin": ["Финансы", "Одна главная цифра «к оплате» вместо трёх валют в строку.", ["Выбор договора и валюты", "Счета со статусами-пилюлями", "Акт сверки и операции с остатком — вторым планом"]], "s-profile": ["Профиль", "Хаб второстепенных разделов и личный менеджер.", ["Смена компании", "Звонок или сообщение менеджеру", "Финансы, документы, обращения, избранное"]], "s-news": ["Новости", "Новости ушли с главной, но остались под рукой.", ["Рубрики, крупная главная новость"]], "s-insp": ["Инспектор — задачи на день", "Работа на объекте без сети.", ["Плашка офлайна с очередью изменений", "Ближайшая задача крупно, остальные по времени", "Кнопка «Замечание» всегда под рукой"]], "s-insp-run": ["Инспекция — чек-лист", "Пошаговый чек-лист с фото по каждому пункту.", ["Прогресс 5 из 9", "«Соответствует / Замечание» в один тап"]], "s-remark": ["Новое замечание", "Фото, категория, критичность и описание.", ["Привязка к пункту чек-листа", "Сохранение на устройстве без сети"]], "s-sync": ["Синхронизация", "Видно, что и сколько ждёт отправки.", ["Очередь с размерами файлов", "Фото только по Wi-Fi"]]};
+const store = {}; document.querySelectorAll('#store > section.screen').forEach(s => store[s.id] = s);
+const phone = document.getElementById('phone'), list = document.querySelector('.pv-list');
+const hist = [];
+function note(id){ const n = NOTES[id]; const i = ORDER.indexOf(id);
+  document.getElementById('pv-num').textContent = 'Экран ' + (i+1) + ' из ' + ORDER.length;
+  document.getElementById('pv-t').textContent = n[0]; document.getElementById('pv-l').textContent = n[1];
+  document.getElementById('pv-u').innerHTML = n[2].map(x => '<li>' + x + '</li>').join(''); }
+function show(id, push){ if (!store[id]) id = 's-home'; const cur = phone.firstElementChild;
+  if (push && cur && cur.id !== id) hist.push(cur.id);
+  phone.innerHTML = ''; phone.appendChild(store[id]); phone.scrollTop = 0;
+  list.querySelectorAll('a').forEach(a => a.classList.toggle('on', a.dataset.id === id));
+  note(id); history.replaceState(null, '', '#screen=' + id); }
+phone.addEventListener('click', e => { const t = e.target.closest('[data-go]'); if (!t) return;
+  const go = t.dataset.go; if (go === 'back') show(hist.pop() || 's-home', false); else show(go, true); });
+list.addEventListener('click', e => { const a = e.target.closest('a'); if (!a) return; e.preventDefault(); show(a.dataset.id, true); });
+const step = d => { const cur = phone.firstElementChild.id; const i = ORDER.indexOf(cur); show(ORDER[(i + d + ORDER.length) % ORDER.length], true); };
+document.getElementById('pv-prev').onclick = () => step(-1); document.getElementById('pv-next').onclick = () => step(1);
+document.querySelectorAll('[data-clone]').forEach(b => { const c = store[b.dataset.clone].cloneNode(true); c.removeAttribute('id'); c.querySelectorAll('[data-go]').forEach(x => x.removeAttribute('data-go')); b.appendChild(c); });
+document.querySelectorAll('[data-open]').forEach(a => a.addEventListener('click', e => { e.preventDefault(); show(a.dataset.open, true); document.getElementById('proto').scrollIntoView({behavior:'smooth'}); }));
+const start = (location.hash.match(/screen=([a-z0-9-]+)/) || [])[1]; show(store[start] ? start : 's-login', false);
+if (store[start]) setTimeout(() => document.getElementById('proto').scrollIntoView(), 50);
+</script>
+</body></html>

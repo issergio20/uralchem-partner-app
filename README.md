@@ -1,6 +1,6 @@
 # УРАЛХИМ — Личный кабинет партнёра · редизайн 2026
 
-Кейс для портфолио. Исходник в Figma: [PORTFOLIO — Ivanov Sergio, страница «2. Мобильное приложение «УРАЛХИМ»»](https://www.figma.com/design/N6ws1PMwT7cLGwahZRUZV5/PORTFOLIO---Ivanov-Sergio?node-id=2-35690).
+Кейс для портфолио. **Сайт кейса:** https://issergio20.github.io/uralchem-partner-app/ · **Репозиторий:** https://github.com/issergio20/uralchem-partner-app Исходник в Figma: [PORTFOLIO — Ivanov Sergio, страница «2. Мобильное приложение «УРАЛХИМ»»](https://www.figma.com/design/N6ws1PMwT7cLGwahZRUZV5/PORTFOLIO---Ivanov-Sergio?node-id=2-35690).
 
 ## Где что лежит
 

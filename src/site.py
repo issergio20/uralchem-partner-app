@@ -404,7 +404,7 @@ kit.append(sec("choice", "Выбор и количество", "Чипсы, се
     item(".chip / .chip.on", f'<div class="wrap" style="width:340px"><span class="chip on">{L("Все")} <span class="n">84</span></span><span class="chip">{L("Водорастворимые")} <span class="n">23</span></span><span class="chip">{L("Азотные")}</span></div>') +
     item(".chip + icon", f'<span class="chip" style="color:var(--blue)">{svg("filter", 18)}{L("Фильтры")} <span class="pill info" style="height:18px;padding:0 6px">1</span></span>') +
     item(".seg", '<div class="seg" style="width:300px"><div class="on">Отгрузка</div><div>Состав</div><div>Документы</div></div>') +
-    item(".seg + icons", f'<div class="seg" style="width:340px"><div class="on">{svg("leaf", 18)}&nbsp;Сельхоз</div><div>{svg("factory", 18)}&nbsp;Промышленное</div></div>') +
+    item(".seg + icons", f'<div class="seg" style="width:340px"><div class="on">{svg("leaf", 18)}Сельхоз</div><div>{svg("factory", 18)}Промышленное</div></div>') +
     item(".tgl", '<div class="row"><span class="tgl on"><i></i></span><span class="tgl"><i></i></span></div>') +
     item(".cbx", f'<div class="row"><span class="cbx on">{svg("check", 16)}</span><span class="cbx"></span></div>') +
     item(".stepper", f'<div class="stepper" style="width:170px"><div class="sbtn">{svg("minus", 18)}</div><div class="val"><b>40 меш.</b><small>= 1 т</small></div><div class="sbtn">{svg("plus", 18)}</div></div>') +

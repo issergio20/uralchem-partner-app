@@ -124,7 +124,9 @@ body{font-family:"Onest",system-ui,sans-serif;background:#D9DBE4;color:var(--t1)
 
 /* segmented */
 .seg{display:flex;background:var(--surface-2);border-radius:12px;padding:3px}
-.seg div{flex:1;height:36px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:600;color:var(--t3)}
+.seg>div{flex:1 1 auto;min-width:0;height:36px;padding:0 12px;gap:6px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:600;color:var(--t3);white-space:nowrap;cursor:pointer}
+.seg>div svg{flex:none}
+.seg>div:first-child:nth-last-child(n+4),.seg>div:first-child:nth-last-child(n+4)~div{padding:0 8px;font-size:13px}
 .seg .on{background:#fff;color:var(--t1);box-shadow:0 1px 3px rgba(35,35,36,.12)}
 
 /* progress */
@@ -424,7 +426,7 @@ body.proto [data-go]:hover{outline:2px solid rgba(0,165,90,.55);outline-offset:2
   <div class="top"><h1>Каталог</h1><div class="icon-btn soft">{{i:heart:22}}</div><div class="icon-btn soft" data-go="s-notif">{{i:bell:22}}<span class="dot-b">3</span></div></div>
   <div style="background:var(--surface);padding:0 16px 14px" class="stack">
     <div class="search">{{i:search:20}}Карбамид, 18:18:18, селитра…</div>
-    <div class="seg" style="margin-top:4px"><div class="on">{{i:leaf:18}}&nbsp;Сельскохозяйственное</div><div>{{i:factory:18}}&nbsp;Промышленное</div></div>
+    <div class="seg" style="margin-top:4px"><div class="on">{{i:leaf:18}}Сельхоз</div><div>{{i:factory:18}}Промышленное</div></div>
   </div>
   <div class="body" style="padding-top:14px;gap:12px">
     <div class="chips"><span class="chip on">Все <span class="n">84</span></span><span class="chip">Водорастворимые <span class="n">23</span></span><span class="chip">Азотные <span class="n">14</span></span><span class="chip">Комплексные</span></div>
@@ -550,7 +552,7 @@ body.proto [data-go]:hover{outline:2px solid rgba(0,165,90,.55);outline-offset:2
   <div class="top"><div class="icon-btn soft" data-go="back">{{i:back:22}}</div><div class="ttl">Заявка 1 · Сельхоз</div><div class="icon-btn"></div></div>
   <div class="body" style="padding-top:16px;gap:18px">
     <div class="banner info" style="align-items:center"><span>{{i:repeat:20}}</span><span>Данные доставки подставлены из заявки <b>№ 1489</b></span></div>
-    <div class="stack"><span class="label">Доставка</span><div class="seg"><div class="on">{{i:train:18}}&nbsp;Ж/д транспорт</div><div>Самовывоз</div></div></div>
+    <div class="stack"><span class="label">Доставка</span><div class="seg"><div class="on">{{i:train:18}}Ж/д транспорт</div><div>Самовывоз</div></div></div>
     <div class="stack">
       <div class="field"><div class="fl"><small>Станция назначения</small><b>Баженово, Свердловская ж/д</b></div><span class="t3 num">780707</span></div>
       <div class="field"><div class="fl"><small>Грузополучатель</small><b>ООО «АгроСнаб-Урал»</b></div><span class="chev">{{i:chev:20}}</span></div>

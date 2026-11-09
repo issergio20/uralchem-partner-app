@@ -55,7 +55,7 @@ body.site{padding:0;background:var(--bg);min-height:100vh;display:flex;flex-dire
 .foot{border-top:1px solid var(--border);background:var(--surface)}
 .foot div{max-width:1240px;margin:0 auto;padding:20px 24px;font-size:13px;color:var(--t3);display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
 /* прототип */
-.pv{display:grid;grid-template-columns:260px 399px 1fr;gap:32px;align-items:start}
+.pv{display:grid;grid-template-columns:240px 399px minmax(0,1fr);gap:28px;align-items:start}
 .pv-list{background:var(--surface);border-radius:20px;padding:12px;position:sticky;top:96px;max-height:calc(100vh - 120px);overflow:auto}
 .pv-list .grp{font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--t3);padding:12px 10px 6px}
 .pv-list a{display:block;padding:8px 10px;border-radius:10px;font-size:14px;line-height:19px;color:var(--t2);text-decoration:none;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
@@ -65,12 +65,52 @@ body.site{padding:0;background:var(--bg);min-height:100vh;display:flex;flex-dire
 .phone-in{width:375px;height:812px;border-radius:42px;overflow-y:auto;overflow-x:hidden;background:#fff;scrollbar-width:none}
 .phone-in::-webkit-scrollbar{display:none}
 .phone-in .screen{box-shadow:none}
-.phone-in [data-go]:hover{outline:2px solid rgba(0,165,90,.55);outline-offset:2px;border-radius:12px}
+.phone-in .screen{overflow:clip}
+.phone-in .sb{position:sticky;top:0;z-index:7}
+.phone-in .tab,.phone-in .dock{position:sticky;bottom:0;z-index:7}
+.phone-in .tab-i{cursor:pointer;border-radius:12px;transition:color .15s}
+.phone-in .tab-i:hover{color:var(--blue)}
+.phone-in .fab{z-index:8}
+.phone-in .btn:active,.phone-in .card:active,.phone-in .chip:active,.phone-in .lrow:active,.phone-in .tab-i:active{transform:scale(.98);transition:transform .08s}
+.phone-in.pv-hint [data-go],.phone-in.pv-hint .btn,.phone-in.pv-hint .chip,.phone-in.pv-hint .card.row,.phone-in.pv-hint .card.tight,.phone-in.pv-hint .lrow,.phone-in.pv-hint .icon-btn,.phone-in.pv-hint .field,.phone-in.pv-hint .search,.phone-in.pv-hint .sbtn,.phone-in.pv-hint .seg>div,.phone-in.pv-hint .link,.phone-in.pv-hint .pcard,.phone-in.pv-hint .ck,.phone-in.pv-hint .tgl,.phone-in.pv-hint .cbx{box-shadow:inset 0 0 0 2px rgba(0,95,204,.55);background-color:rgba(0,115,255,.07)}
+.phone{position:sticky}
+.pv-toast{position:absolute;left:24px;right:24px;bottom:110px;z-index:30;background:#1E2050;color:#fff;border-radius:14px;padding:12px 14px;font-size:14px;line-height:19px;display:flex;gap:12px;align-items:center;box-shadow:0 10px 30px rgba(17,18,38,.35);animation:pvIn .2s ease-out}
+.pv-toast[hidden],.pv-ov[hidden]{display:none!important}
+.phone-in .chips{overflow-x:auto;scrollbar-width:none;margin-right:-16px;padding-right:16px}
+.phone-in .chips::-webkit-scrollbar{display:none}
+.pv-toast span{flex:1}.pv-toast b{color:#7BE3AE;cursor:pointer;white-space:nowrap}
+.pv-toast.out{opacity:0;transform:translateY(8px);transition:.2s}
+.pv-ov{position:absolute;inset:12px;border-radius:42px;overflow:hidden;z-index:40;background:rgba(17,18,38,0);display:flex;align-items:flex-end;transition:background .2s}
+.pv-ov.in{background:rgba(17,18,38,.42)}
+.pv-sheet{width:100%;background:#fff;border-radius:22px 22px 0 0;padding:10px 16px 30px;transform:translateY(100%);transition:transform .22s ease-out;max-height:80%;overflow:auto}
+.pv-ov.in .pv-sheet{transform:none}
+.pv-sheet .handle{margin:0 auto 12px}
+.ps-t{font-size:18px;line-height:24px;font-weight:700;color:var(--t1)}
+.ps-x{font-size:14px;line-height:21px;color:var(--t2);margin-top:6px}
+.ps-list{margin-top:10px}
+.ps-i{display:flex;align-items:center;gap:12px;padding:12px 0;border-bottom:1px solid var(--surface-2);cursor:pointer}
+.ps-i>div{flex:1;min-width:0}.ps-i b{display:block;font-size:15px;line-height:21px;font-weight:600;color:var(--t1)}.ps-i span{display:block;font-size:13px;color:var(--t3)}
+.ps-i em{font-style:normal;color:var(--t3);font-size:18px}.ps-i.on em{color:var(--ok)}
+.ps-btns{display:flex;flex-direction:column;gap:8px;margin-top:16px}
+.pv-danger{background:var(--err)!important}
+@keyframes pvIn{from{opacity:0;transform:translateY(8px)}}
+.pv-focus{border:2px solid var(--blue)!important}
+.pv-edit{outline:none;display:block;min-height:22px}
+.pv-input{flex:1;outline:none;color:var(--t1);min-width:0}
+.pv-input:empty::before{content:attr(data-ph);color:var(--t3)}
+.acc{padding:0 0 14px;font-size:14px;line-height:21px;color:var(--t2);display:flex;flex-direction:column;gap:6px}
+.pv-doc{color:var(--blue);font-weight:600;cursor:pointer}
+.lrow.open .chev svg{transform:rotate(180deg)}
+.fav-off{color:var(--t3)!important}
+.pv-new{box-shadow:inset 0 0 0 2px var(--green)}
+.pv-path{margin-top:20px;background:var(--bg);border-radius:16px;padding:14px 16px;font-size:14px;line-height:21px;color:var(--t2)}
+.pv-path b{color:var(--t1)}.pv-path ol{margin:6px 0 0 18px}
+.pv-demo{cursor:pointer}
 .pv-note{background:var(--surface);border-radius:20px;padding:24px;position:sticky;top:96px}
 .pv-note h3{font-size:22px;line-height:28px;font-weight:700}
 .pv-note .lead2{font-size:15px;line-height:23px;color:var(--t2);margin-top:8px}
 .pv-note ul{margin:14px 0 0 18px;font-size:15px;line-height:23px;color:var(--t2)}
-.pv-note .nav2{display:flex;gap:8px;margin-top:20px}
+.pv-note .nav2{display:flex;gap:8px;margin-top:20px;flex-wrap:wrap}.pv-note .nav2 .btn{flex:1 1 auto;min-width:0}
 .hint{font-size:13px;color:var(--t3);margin-top:16px;line-height:19px}
 .ba{background:var(--surface);border-radius:24px;padding:28px;margin-bottom:24px}
 .ba-head{display:flex;justify-content:space-between;align-items:baseline;gap:16px;flex-wrap:wrap}
@@ -107,7 +147,8 @@ body.site{padding:0;background:var(--bg);min-height:100vh;display:flex;flex-dire
  .wrapx{padding:28px 16px 64px}.ph1{font-size:32px;line-height:38px}.plead{font-size:17px;line-height:26px}
  .g2,.g3,.g4,.meta{grid-template-columns:1fr}.pv{grid-template-columns:1fr}.pv-list{position:static;max-height:220px}
  .pv{grid-template-columns:minmax(0,1fr)}
- .phone{width:auto;height:auto;padding:0;background:none;box-shadow:none;position:static;border-radius:0}
+ .phone{width:auto;height:auto;padding:0;background:none;box-shadow:none;position:relative;border-radius:0}
+ .pv-ov{inset:0;border-radius:24px}
  .phone-in{width:100%;height:740px;border-radius:24px;border:1px solid var(--border)}
  .phone-in .screen{zoom:.9}
  .ds-row{flex-wrap:wrap;gap:6px 16px}.ds-row code{width:100%}
@@ -278,43 +319,21 @@ for title, imgs, cap, sid, pts in PAIRS:
 
 store = "".join(SCREENS)
 proto_body = f"""
-<div class="eyeb">22 экрана · 111 переходов</div>
+<div class="eyeb">22 экрана · сквозной сценарий · всё кликабельно</div>
 <h1 class="ph1">Прототипы</h1>
-<p class="plead">Новая версия — кликабельный прототип: нажимайте на таббар, кнопки и карточки, стрелка в шапке возвращает назад. Ниже сравнение старой и новой версий по 8 экранам. Старая версия — статичные экраны из исходного макета и скриншоты живого приложения.</p>
+<p class="plead">Новая версия — живой прототип: кликабельно всё, корзина, суммы, заявки и уведомления меняются по ходу сценария от входа до отправленной заявки и отслеживания вагона. Ниже сравнение старой и новой версий по 8 экранам. Старая версия — статичные экраны из исходного макета и скриншоты живого приложения.</p>
 <div class="subnav"><a href="#proto">Кликабельный прототип</a><a href="#ba">Было → стало</a></div>
 <h2 class="h2s" id="proto">Кликабельный прототип</h2>
 <div class="pv"><nav class="pv-list">{lst}</nav><div class="phone"><div class="phone-in" id="phone"></div></div>
 <div class="pv-note"><div class="eyeb" id="pv-num"></div><h3 id="pv-t"></h3><p class="lead2" id="pv-l"></p><ul id="pv-u"></ul>
 <div class="nav2"><span class="btn m sec" id="pv-prev">{svg("back", 18)}<span class="lbl">Назад</span></span><span class="btn m blue" id="pv-next"><span class="lbl">Следующий экран</span>{svg("chev", 18)}</span></div>
-<p class="hint">Кликабельные зоны подсвечиваются при наведении. Длинные экраны прокручиваются внутри телефона.</p></div></div>
+<div class="pv-path"><b>Сквозной сценарий</b><ol><li>Вход → «Войти»</li><li>Главная → «Подтвердить» график по заявке № 1567</li><li>Каталог → «В корзину», степперы, фильтры, поиск</li><li>Корзина → «Оформить заявку 1» → станция, период</li><li>«Отправить заявку» → новая заявка первой в списке «Заявки»</li><li>Заявка № 1489 → вкладки, вагоны, «Проблема», чат</li><li>Инспектор: «Демо: войти как инспектор» на экране входа → чек-лист → замечание → синхронизация</li></ol></div><p class="hint">Кликабельно всё: кнопки, карточки, чипсы, поля, степперы, таббар. Промах по пустому месту подсвечивает активные зоны, как в Figma. Состояние живое: корзина, суммы, счётчики и списки меняются по ходу сценария.</p><span class="btn s sec" id="pv-reset" style="margin-top:12px"><span class="lbl">Начать сценарий заново</span></span></div></div>
 <h2 class="h2s" id="ba">Было → стало</h2>
 {pairs_html}
 <div id="store" hidden>{store}</div>"""
 
-proto_js = """<script>
-const ORDER = %s, NOTES = %s;
-const store = {}; document.querySelectorAll('#store > section.screen').forEach(s => store[s.id] = s);
-const phone = document.getElementById('phone'), list = document.querySelector('.pv-list');
-const hist = [];
-function note(id){ const n = NOTES[id]; const i = ORDER.indexOf(id);
-  document.getElementById('pv-num').textContent = 'Экран ' + (i+1) + ' из ' + ORDER.length;
-  document.getElementById('pv-t').textContent = n[0]; document.getElementById('pv-l').textContent = n[1];
-  document.getElementById('pv-u').innerHTML = n[2].map(x => '<li>' + x + '</li>').join(''); }
-function show(id, push){ if (!store[id]) id = 's-home'; const cur = phone.firstElementChild;
-  if (push && cur && cur.id !== id) hist.push(cur.id);
-  phone.innerHTML = ''; phone.appendChild(store[id]); phone.scrollTop = 0;
-  list.querySelectorAll('a').forEach(a => a.classList.toggle('on', a.dataset.id === id));
-  note(id); history.replaceState(null, '', '#screen=' + id); }
-phone.addEventListener('click', e => { const t = e.target.closest('[data-go]'); if (!t) return;
-  const go = t.dataset.go; if (go === 'back') show(hist.pop() || 's-home', false); else show(go, true); });
-list.addEventListener('click', e => { const a = e.target.closest('a'); if (!a) return; e.preventDefault(); show(a.dataset.id, true); });
-const step = d => { const cur = phone.firstElementChild.id; const i = ORDER.indexOf(cur); show(ORDER[(i + d + ORDER.length) %% ORDER.length], true); };
-document.getElementById('pv-prev').onclick = () => step(-1); document.getElementById('pv-next').onclick = () => step(1);
-document.querySelectorAll('[data-clone]').forEach(b => { const c = store[b.dataset.clone].cloneNode(true); c.removeAttribute('id'); c.querySelectorAll('[data-go]').forEach(x => x.removeAttribute('data-go')); b.appendChild(c); });
-document.querySelectorAll('[data-open]').forEach(a => a.addEventListener('click', e => { e.preventDefault(); show(a.dataset.open, true); document.getElementById('proto').scrollIntoView({behavior:'smooth'}); }));
-const start = (location.hash.match(/screen=([a-z0-9-]+)/) || [])[1]; show(store[start] ? start : 's-login', false);
-if (store[start]) setTimeout(() => document.getElementById('proto').scrollIntoView(), 50);
-</script>""" % (json.dumps(ORDER_BUY + ORDER_INSP), json.dumps(NOTES, ensure_ascii=False))
+ENGINE = (ROOT / "src" / "proto-engine.js").read_text(encoding="utf-8")
+proto_js = "<script>const ORDER = " + json.dumps(ORDER_BUY + ORDER_INSP) + ", NOTES = " + json.dumps(NOTES, ensure_ascii=False) + ";\n" + ENGINE + "</script>"
 
 # ======================= 3. UI KIT =======================
 def item(code, html, pad=True, w=None):
